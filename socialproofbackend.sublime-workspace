@@ -1,0 +1,2323 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"config"
+			],
+			[
+				"sub",
+				"SubmitErrors"
+			],
+			[
+				"er",
+				"error"
+			],
+			[
+				"d",
+				"docs"
+			],
+			[
+				"pas",
+				"passport"
+			],
+			[
+				"ba",
+				"baseTime"
+			],
+			[
+				"succ",
+				"successful"
+			],
+			[
+				"local",
+				"localhost"
+			],
+			[
+				"on",
+				"onmessage"
+			],
+			[
+				"str",
+				"strikes"
+			],
+			[
+				"ex",
+				"expDates"
+			],
+			[
+				"sy",
+				"symbol_name"
+			],
+			[
+				"sym",
+				"symbol_name"
+			],
+			[
+				"stra",
+				"strategy"
+			],
+			[
+				"stradd",
+				"straddle_legs"
+			],
+			[
+				"st",
+				"strike"
+			],
+			[
+				"by",
+				"byles"
+			],
+			[
+				"trader",
+				"trader_id"
+			],
+			[
+				"_",
+				"_index"
+			],
+			[
+				"res",
+				"reset"
+			],
+			[
+				"is",
+				"isUndefined"
+			],
+			[
+				"an",
+				"angular"
+			],
+			[
+				"acti",
+				"activeClassName"
+			],
+			[
+				"pro",
+				"processingSymbol"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"noti",
+				"notifications"
+			],
+			[
+				"not",
+				"notificationSrv"
+			],
+			[
+				"no",
+				"notification"
+			],
+			[
+				"c",
+				"count"
+			],
+			[
+				"sel",
+				"selectedItem"
+			],
+			[
+				"se",
+				"selectedItem"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"cs",
+				"customerSrv"
+			],
+			[
+				"pa",
+				"page"
+			],
+			[
+				"po",
+				"positions"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"s",
+				"strategy"
+			],
+			[
+				"fav",
+				"favtype"
+			],
+			[
+				"sta",
+				"status"
+			],
+			[
+				"Strate",
+				"strategy"
+			],
+			[
+				"au",
+				"authSrv"
+			],
+			[
+				"cust",
+				"customer_id"
+			],
+			[
+				"pg",
+				"page"
+			],
+			[
+				"stat",
+				"state"
+			],
+			[
+				"sc",
+				"scope"
+			],
+			[
+				"com",
+				"comments"
+			],
+			[
+				"tra",
+				"trader_id"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"star",
+				"strategies"
+			],
+			[
+				"pag",
+				"paging"
+			],
+			[
+				"ar",
+				"Archived"
+			],
+			[
+				"strike",
+				"strike_price"
+			],
+			[
+				"suc",
+				"success"
+			],
+			[
+				"rec",
+				"reconnect"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"sri",
+				"strike"
+			],
+			[
+				"fomr",
+				"format"
+			],
+			[
+				"daa",
+				"data"
+			],
+			[
+				"co",
+				"counter"
+			],
+			[
+				"trad",
+				"traderSrv"
+			],
+			[
+				"dis",
+				"Disconnected"
+			],
+			[
+				"wh",
+				"whenCall"
+			],
+			[
+				"generate",
+				"generatePassword"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"user",
+				"user_info"
+			],
+			[
+				"rs",
+				"result"
+			],
+			[
+				"pr",
+				"profile"
+			],
+			[
+				"retu",
+				"return"
+			],
+			[
+				"ins",
+				"instrument"
+			],
+			[
+				"as",
+				"assignment"
+			],
+			[
+				"js",
+				"jshint"
+			],
+			[
+				"err",
+				"errors"
+			],
+			[
+				"ass",
+				"assignments"
+			],
+			[
+				"red",
+				"records"
+			],
+			[
+				"Assign",
+				"Assignment"
+			],
+			[
+				"select",
+				"selected"
+			],
+			[
+				"cont",
+				"contracts"
+			],
+			[
+				"Res",
+				"RestSvr"
+			],
+			[
+				"aler",
+				"alertService"
+			],
+			[
+				"pop",
+				"popAlert"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"start",
+				"strategies"
+			],
+			[
+				"sign",
+				"signUpSrv"
+			],
+			[
+				"REs",
+				"RestSvr"
+			],
+			[
+				"lo",
+				"log\tlog"
+			],
+			[
+				"we",
+				"webSocketSvr"
+			],
+			[
+				"Fo",
+				"forEach"
+			],
+			[
+				"to",
+				"today"
+			],
+			[
+				"Mar",
+				"Markets"
+			],
+			[
+				"id",
+				"user_id"
+			],
+			[
+				"St",
+				"strategy"
+			],
+			[
+				"ele",
+				"element"
+			],
+			[
+				"Sta",
+				"strategies"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"step",
+				"step_3"
+			],
+			[
+				"ste",
+				"step_2"
+			],
+			[
+				"r",
+				"rootScope"
+			],
+			[
+				"cu",
+				"current"
+			],
+			[
+				"si",
+				"signUpSrv"
+			],
+			[
+				"p",
+				"prop"
+			],
+			[
+				"ca",
+				"CarrierId"
+			],
+			[
+				"n",
+				"novalidate\tAttr"
+			],
+			[
+				"rt",
+				"rootScope"
+			],
+			[
+				"admin",
+				"admin-header"
+			],
+			[
+				"from",
+				"fromState"
+			],
+			[
+				"login",
+				"loginForm"
+			],
+			[
+				"other",
+				"otherUser"
+			],
+			[
+				"url",
+				"SOCKET_URL"
+			],
+			[
+				"req",
+				"reqData"
+			],
+			[
+				"sa",
+				"savedData"
+			],
+			[
+				"off",
+				"OFFLINE_URL"
+			],
+			[
+				"de",
+				"delay"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"bacl",
+				"background-color"
+			],
+			[
+				"file",
+				"fileObj"
+			],
+			[
+				"fie",
+				"file"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"leve",
+				"levelType"
+			],
+			[
+				"frm",
+				"form"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"box",
+				"box-shadow"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 1222,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 3157,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "admin/index.html",
+			"settings":
+			{
+				"buffer_size": 3541,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/css/admin-style.css",
+			"settings":
+			{
+				"buffer_size": 1044,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "admin/users/routes/userRouter.js",
+			"settings":
+			{
+				"buffer_size": 2176,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "admin/tpl/admin.header.html",
+			"settings":
+			{
+				"buffer_size": 5314,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gulp.assets.js",
+			"settings":
+			{
+				"buffer_size": 3082,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "admin/core/admin.routes.js",
+			"settings":
+			{
+				"buffer_size": 2937,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "admin/notifications/directives/notification-panel-directive.js",
+			"settings":
+			{
+				"buffer_size": 577,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".env",
+			"settings":
+			{
+				"buffer_size": 20,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					""
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"All Syntaxes"
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"Performance"
+				],
+				[
+					"Packages/Default/Syntax Tests.sublime-build",
+					"Regex Compatibility"
+				]
+			],
+			[
+				"Packages/Default/Syntax Tests.sublime-build",
+				"All Syntaxes"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "html",
+		"selected_items":
+		[
+			[
+				"html",
+				"Snippet: html"
+			],
+			[
+				"bab",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"linte",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"sublime",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"pret",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"valid",
+				"Pretty JSON: Validate"
+			],
+			[
+				"pre",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"json",
+				"Pretty JSON: Validate"
+			],
+			[
+				"sublime ",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"ht",
+				"Set Syntax: HTML"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"linter",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"jaav",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"ja",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"sublime linter",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"lin",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"pretty print",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"jsoin",
+				"Pretty JSON: Validate"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"lore",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"prett",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"vali",
+				"Pretty JSON: Validate"
+			],
+			[
+				"prtt",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"lo",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"valida",
+				"Pretty JSON: Validate"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"h",
+				"Set Syntax: HTML"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"jav",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"lis",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ref",
+				"Project: Refresh Folders"
+			],
+			[
+				"refre",
+				"Project: Refresh Folders"
+			],
+			[
+				"bro",
+				"SFTP: Browse Server…"
+			],
+			[
+				"up",
+				"SFTP: Upload File"
+			],
+			[
+				"br",
+				"SFTP: Browse Server…"
+			],
+			[
+				"ro",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"browse",
+				"SFTP: Browse Server…"
+			],
+			[
+				"brp",
+				"Preferences: Browse Packages"
+			],
+			[
+				"doc",
+				"Snippet: Start Docblock"
+			],
+			[
+				"sho",
+				"SFTP: Show Panel"
+			],
+			[
+				"ide",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"b",
+				"SFTP: Browse Server…"
+			],
+			[
+				"show",
+				"SFTP: Show Panel"
+			],
+			[
+				"uo",
+				"SFTP: Upload File"
+			],
+			[
+				"brow",
+				"SFTP: Browse Server…"
+			],
+			[
+				"BRO",
+				"SFTP: Browse Server…"
+			],
+			[
+				"uop",
+				"SFTP: Upload File"
+			],
+			[
+				"bor",
+				"SFTP: Browse Server…"
+			],
+			[
+				"bo",
+				"SFTP: Browse Server…"
+			],
+			[
+				"lorem",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"u",
+				"SFTP: Upload File"
+			],
+			[
+				"brop",
+				"Preferences: Browse Packages"
+			],
+			[
+				"ch",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"choo",
+				"SublimeLinter: Choose Mark Style"
+			],
+			[
+				"pph",
+				"Set Syntax: PHP"
+			],
+			[
+				"choos",
+				"SublimeLinter: Choose Mark Style"
+			],
+			[
+				"sublime linter ",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sublime linter: li",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"Package Control: lis",
+				"Package Control: List Packages"
+			],
+			[
+				"ren",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"dow",
+				"SFTP: Download File"
+			],
+			[
+				"ph",
+				"Set Syntax: PHP"
+			],
+			[
+				"uplo",
+				"SFTP: Upload File"
+			],
+			[
+				"bui",
+				"Build With: php"
+			],
+			[
+				"UP",
+				"SFTP: Upload File"
+			],
+			[
+				"pu",
+				"Permute Lines: Unique"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"edi",
+				"SFTP: Edit Server…"
+			],
+			[
+				"edit",
+				"SFTP: Edit Server…"
+			],
+			[
+				"upload",
+				"SFTP: Upload File"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/yash/social_proof_notification_backend",
+		"/home/yash/social_proof_notification_backend/admin/notifications/directives",
+		"/home/yash/social_proof_notification_backend/admin/users/routes",
+		"/home/yash/social_proof_notification_backend/assets/css"
+	],
+	"file_history":
+	[
+		"/home/yash/social_proof_notification_backend/ecosystem.config.js",
+		"/home/yash/social_proof_notification_backend/admin/tpl/admin.footer.html",
+		"/home/yash/BHBackend/admin/dashboard/controllers/dashboardCtrl.js",
+		"/home/yash/BHBackend/admin/dashboard/views/dashboard.html",
+		"/home/yash/BHBackend/admin/users/routes/userRouter.js",
+		"/home/yash/BHBackend/controllers/Admin/userCtrl.js",
+		"/home/yash/BHBackend/config/local.js",
+		"/home/yash/BHBackend/server.js",
+		"/home/yash/BHBackend/models/User.js",
+		"/home/yash/BHBackend/admin/index.html",
+		"/home/yash/BHBackend/admin/login/views/login.html",
+		"/home/yash/BHBackend/admin/core/admin.routes.js",
+		"/home/yash/BHBackend/controllers/Admin/adminCtrl.js",
+		"/home/yash/onlineRTI/models/User.js",
+		"/home/yash/onlineRTI/server.js",
+		"/home/yash/BHBackend/config/lib/mail.js",
+		"/home/yash/BHBackend/admin/tpl/admin.header.html",
+		"/home/yash/BHBackend/public/index.html",
+		"/home/yash/BHBackend/config/lib/paginate.js",
+		"/home/yash/BHBackend/package.json",
+		"/home/yash/onlineRTI/core/admin_router.js",
+		"/home/yash/onlineRTI/controllers/Admin/adminCtrl.js",
+		"/home/yash/BHBackend/config/admin_router.js",
+		"/home/yash/onlineRTI/controllers/Admin/userCtrl.js",
+		"/home/yash/onlineRTI/package.json",
+		"/home/yash/BHBackend/gulp.assets.js",
+		"/home/yash/BHBackend/.babelrc",
+		"/home/yash/BHBackend/.jshintrc",
+		"/home/yash/BHBackend/.gitignore",
+		"/home/yash/BHBackend/gulpfile.js",
+		"/home/yash/mimic_trader/public/gulp.assets.js",
+		"/home/yash/BHBackend/config/routes.js",
+		"/home/yash/onlineRTI/config/routes.js",
+		"/home/yash/BHBackend/controllers/User/habitCtrl.js",
+		"/home/yash/BHBackend/socket/socketio.js",
+		"/home/yash/BHBackend/socketio.js",
+		"/home/yash/BHBackend/socket.html",
+		"/home/yash/onlineRTI/config/env/development.js",
+		"/home/yash/zenbrisa_plus/chat_server.js",
+		"/home/yash/zenbrisa_plus/controllers/socketio/socketio.js",
+		"/home/yash/zenbrisa_plus/server.js",
+		"/home/yash/social_proof_notification/src/index.js",
+		"/home/yash/social_proof_notification/src/components/common/FormSubmit.js",
+		"/home/yash/social_proof_notification/src/components/common/FormField.js",
+		"/home/yash/social_proof_notification/package.json",
+		"/home/yash/social_proof_notification/src/reducer/index.js",
+		"/home/yash/social_proof_notification/src/api/login.js",
+		"/home/yash/social_proof_notification/node_modules/redux-form/dist/redux-form.js",
+		"/home/yash/social_proof_notification/src/bootstrap.js",
+		"/home/yash/social_proof_notification/node_modules/lodash/lodash.js",
+		"/home/yash/social_proof_notification/src/components/Main.js",
+		"/home/yash/social_proof_notification/src/components/App.js",
+		"/home/yash/social_proof_notification/src/components/Login.js",
+		"/home/yash/social_proof_notification/src/saga/index.js",
+		"/home/yash/redux-minimal/src_users/components/UserEdit.js",
+		"/home/yash/redux-minimal/src_users/stylesheets/main.scss",
+		"/home/yash/react-redux-app/src/index.js",
+		"/home/yash/bluecrush/app/controllers/block.js",
+		"/home/yash/bluecrush/app/routes/seeking.js",
+		"/home/yash/react-redux-app/src/pages/UserEdit.js",
+		"/home/yash/redux-minimal/src_users/components/common/FormSubmit.js",
+		"/home/yash/redux-minimal/src_users/components/common/FormField.js",
+		"/home/yash/redux-minimal/src_users/components/App.js",
+		"/home/yash/react-redux-app/src/reducers/index.js",
+		"/home/yash/react-redux-app/src/sagas/auth.js",
+		"/home/yash/react-redux-app/src/reducers/auth.js",
+		"/home/yash/react-redux-app/src/sagas/index.js",
+		"/home/yash/react-redux-app/src/reducers/users.js",
+		"/home/yash/react-redux-app/src/sagas/users.js",
+		"/home/yash/react-redux-app/src/store.js",
+		"/home/yash/react-redux-app/package.json",
+		"/home/yash/react-redux-app/src/router/index.js",
+		"/home/yash/react-redux-app/src/components/UserList.js",
+		"/home/yash/react-redux-app/src/components/App.js",
+		"/home/yash/bluecrush/package.json",
+		"/home/yash/mimic_trader/public/admin/index.html",
+		"/home/yash/socket-notify/script.js",
+		"/home/yash/bluecrush/app/models/user.js",
+		"/home/yash/react-redux-app/src/components/Menu.js",
+		"/home/yash/react-redux-app/src/components/UserDelete.js",
+		"/home/yash/react-redux-app/src/components/UserListElement.js",
+		"/home/yash/react-redux-app/src/pages/Home.js",
+		"/home/yash/react-redux-app/src/pages/NotFound.js",
+		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/protocol/webapi_1.proto",
+		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/auxiliary.js",
+		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/main.js",
+		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/realTime.js",
+		"/home/yash/mimic_trader/public/user/traders/controllers/traderStrategiesCtrl.js",
+		"/home/yash/mimic_trader/public/index.html",
+		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/contractMetadata.js",
+		"/home/yash/mimic_trader/public/user/factories/socket.js",
+		"/home/yash/mimic_trader/public/user/login/controllers/loginCtrl.js",
+		"/home/yash/mimic_trader/public/user/home/controllers/homeCtrl.js",
+		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/account.js",
+		"/home/yash/mimic_trader/public/user/dashboard/controllers/dashboardCtrl.js",
+		"/home/yash/mimic_trader/public/admin/factories/socket.js",
+		"/home/yash/mimic_trader/public/admin/core/admin.config.js",
+		"/home/yash/mimic_trader/public/admin/dashboard/controllers/dashboardCtrl.js",
+		"/home/yash/mimic_trader/public/user/signup/controllers/signupCtrl.js",
+		"/home/yash/mimic_trader/public/user/traders/controllers/reviewStrategyCtrl.js",
+		"/home/yash/mimic_trader/public/admin/admin.app.js",
+		"/home/yash/mimic_trader/public/gulpfile.js",
+		"/home/yash/mimic_trader/public/user/factories/toast-service.js",
+		"/home/yash/mimic_trader/public/assets/js/admin.app.min.js",
+		"/home/yash/mimic_trader/public/user/core/config.js",
+		"/home/yash/mimic_trader/public/user/signup/factories/webSocketSrv.js",
+		"/home/yash/python-socketio/pythonsocketio.py",
+		"/home/yash/python-socketio/templates/index.html",
+		"/home/yash/python-socketio/index.html",
+		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/webapi.js",
+		"/home/yash/mimic_trader/public/user/traders/routes/traderRouter.js",
+		"/home/yash/mimic_trader/public/.jshintrc",
+		"/home/yash/Downloads/geodata/new_file_3.csv",
+		"/home/yash/.cache/.fr-bUkcQU/allCountries.txt",
+		"/home/yash/python-socketio/python-socketio.py",
+		"/home/yash/mimic_trader/public/node_modules/lodash/assign.js",
+		"/home/yash/mimic_trader/public/user/traders/views/trader_create_strategy.html",
+		"/home/yash/Downloads/WebAPI JavaScript Samples for Distribution/2LogonMeta/scripts/main.js",
+		"/home/yash/mimic_trader/public/user/traders/factories/traderSrv.js",
+		"/home/yash/react-redux-app/node_modules/react-router/umd/react-router.js",
+		"/home/yash/react-redux-app_v1/src/pages/Home.js",
+		"/home/yash/react-redux-app_v1/src/pages/UserEdit.js",
+		"/home/yash/react-redux-app_v1/src/index.js",
+		"/home/yash/react-redux-app_v1/src/pages/NotFound.js",
+		"/home/yash/mimic_trader/public/admin/factories/rest-service.js",
+		"/home/yash/mimic_trader/public/node_modules/.bin/user-home",
+		"/home/yash/mimic_trader/public/user/factories/dialog-service.js",
+		"/home/yash/mimic_trader/public/node_modules/uglify-js/bin/uglifyjs"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 136.0,
+		"where_history":
+		[
+			"/home/yash/BHBackend/admin",
+			"/home/yash/bluecrush/app/controllers",
+			"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient",
+			"/home/yash/mimic_trader/public/user",
+			"/home/yash/mimic_trader/public/DotNetPart/SourceCode/DotNetPart",
+			"/home/yash/mimic_trader/public/user",
+			"/home/yash/mimic_trader/public/admin",
+			"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient",
+			"/home/yash/mimic_trader/public/admin",
+			"/home/yash/mimic_trader/public/user",
+			"/home/yash/mimic_trader/public/",
+			"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient",
+			"/home/yash/mimic_trader/public",
+			"/home/yash/mimic_trader/public/admin",
+			"/home/yash/,/home/yash/mimic_trader/public/",
+			"/home/yash/,/home/yash/mimic_trader/public/admin_3_angularjs",
+			"/home/yash/zenbrisa_plus/public",
+			"",
+			"/home/yash/zenbrisa_plus/public",
+			"/home/yash/zenbrisa_plus/public/app",
+			"",
+			"/home/yash/zenbrisa_plus/public",
+			"/home/yash/zenbrisa_plus,/home/yash/zenbrisa_plus/public/views/email",
+			"/home/yash/zenbrisa_plus",
+			"/home/yash/zenbrisa_plus/controllers",
+			"",
+			"/home/yash/zenbrisa_plus/public/Admin",
+			"/home/yash/zenbrisa_plus/public/partials",
+			"",
+			"/home/yash/zenbrisa_plus/public/partials",
+			"/home/yash/zenbrisa_plus/public/partials,/home/yash/zenbrisa_plus/controllers",
+			"",
+			"/home/yash/zenbrisa_plus/config,/home/yash/zenbrisa_plus/controllers",
+			"/home/yash/zenbrisa_plus/public",
+			"/home/yash/zenbrisa_plus/controllers",
+			"/home/yash/zenbrisa_plus",
+			"/home/yash/zenbrisa_plus/public/",
+			"/home/yash/zenbrisa_plus/public/app",
+			"/home/yash/zenbrisa_plus/node_modules/mongoose,/home/yash/zenbrisa_plus/node_modules/mongoose-unique-validator",
+			"/home/yash/zenbrisa_plus/public/",
+			"/home/yash/zenbrisa_plus/public/partials/mailbox",
+			"/home/yash/zenbrisa_plus/public",
+			"/home/yash/zenbrisa_plus/public/partials",
+			"/home/yash/zenbrisa_plus/config, ,/home/yash/zenbrisa_plus/controllers, ,/home/yash/zenbrisa_plus/models",
+			"/home/yash/zenbrisa_plus/public/partials, /home/yash/zenbrisa_plus/public/app",
+			"/home/yash/zenbrisa_plus/public/partials",
+			"/home/yash/Zenbrisa/assets",
+			"/home/yash/cherrydoor/public/assets/user,/home/yash/cherrydoor/node_modules/mongoose",
+			"/home/yash/cherrydoor/public/assets/user",
+			"/home/yash/cherrydoor/public,-*.js",
+			"/home/yash/cherrydoor/public",
+			"",
+			"/home/yash/cherrydoor/public",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"socialproofbackend",
+			".page-header",
+			"notificationSvr",
+			"HeaderController",
+			"core",
+			"href=\"",
+			"user",
+			"socketio",
+			"authError",
+			"token",
+			"success",
+			"SubmissionError",
+			"error.",
+			"login",
+			"authorize",
+			"block",
+			"content",
+			"Row",
+			"initialValues",
+			"form_data",
+			"UserEdit",
+			"errorSelector",
+			"tokenSelector",
+			"usersFetchList",
+			"location",
+			"Array",
+			"long",
+			"lat",
+			"lodas",
+			"update",
+			"=>>>>>>>>>>>>",
+			"password =>>>>>>>>>>>>",
+			"push",
+			"'",
+			"timeFromProto",
+			"rtSymbolsTbl",
+			"tab-metadata",
+			"baseTime",
+			"onRequestContractMetadataClicked",
+			"real_time_market_data",
+			"market_data",
+			"market",
+			"user defined",
+			"user definde",
+			"Synthetic strategy ",
+			"Synthetic strategy definition",
+			"node_index",
+			"StrategyDefinitionRequest",
+			"strategy_definition",
+			"strategy_definition_request",
+			"instrument_group_name",
+			"processSymbolResolutionReport",
+			"processChildSymbolsReport",
+			"Market and Trade Routing Common messages",
+			"strategy_definition_request",
+			"strategyDefinition",
+			"strategy_definition",
+			"toast",
+			"toastr",
+			"StrategyDefinition",
+			"StrategyDefinition\\",
+			"StrategyDefinition",
+			"StrategyDefinitionRequest",
+			"StrategyDefinitionReport",
+			"StrategyDefinitionRequest",
+			"strategy_de",
+			"onopen",
+			"55936",
+			"99551",
+			"http://",
+			"socketio",
+			"India",
+			"punjab",
+			"socketURL",
+			"WEBSOCKET",
+			"resolveSymbol",
+			"symbol_res",
+			"send",
+			"_socket",
+			"socket",
+			"expDates",
+			"$scope.strategy.le",
+			"$scope.legs",
+			"_symbol[i].contract_metadata.last_trading_date.low",
+			"_symbol[i].contract_metadata.contract_symbol",
+			"symbol_res",
+			"symbols_by_underlying_report",
+			"$scope.strategy.s",
+			"Index",
+			"App",
+			"localStorageService",
+			"signup",
+			"sock",
+			"$scope.strategy.legs.index",
+			"$scope.strategy.legs.index ",
+			"$scope.strategy.legs.index",
+			"$scope.symbol_resolution_report",
+			"symbol_res",
+			"strike_price",
+			"($scope.strategy.legs",
+			"$scope.strategy.legs.index",
+			"$scope.straddle_legs",
+			"console",
+			"expDates",
+			"strike =",
+			"strike",
+			"symbol_resolution_report",
+			"getDates",
+			"monthsArr",
+			"\\",
+			"strikePriceRange",
+			"processingSymbol",
+			"$scope.straddleLegs",
+			"$scope.straddle_legs",
+			"expDates",
+			"$scope.straddleLegs",
+			"straddle",
+			"process_symbol_by_uderlying_report",
+			"expDates",
+			"symbolsByUnderlyingReport",
+			"$scope.strategy.legs[",
+			"$scope.strategy.index",
+			"$scope.strategy.legs",
+			"$scope.strategy.legs[",
+			"processingSymbol",
+			"symbol_resolution_report",
+			"processSymbol",
+			"authSrv.User().id"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1222,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								575,
+								575
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Theme - SoDaReloaded/settings/langs/npm JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 154.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1736,
+								1736
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "admin/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 69.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "assets/css/admin-style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1044,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1023,
+								1023
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 115.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "admin/users/routes/userRouter.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2049,
+								2049
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 897.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "admin/tpl/admin.header.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5314,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "gulp.assets.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1173.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "admin/core/admin.routes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2527,
+								2527
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "admin/notifications/directives/notification-panel-directive.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								515,
+								515
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": ".env",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20,
+								20
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"open_with_edit": true,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 141.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 90.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 112.0
+	},
+	"pinned_build_system": "Packages/User/node.sublime-build",
+	"project": "socialproofbackend.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"admin.foo",
+				"admin/tpl/admin.footer.html"
+			],
+			[
+				"gulp.as",
+				"gulp.assets.js"
+			],
+			[
+				"admin.he",
+				"admin/tpl/admin.header.html"
+			],
+			[
+				"admin.header",
+				"admin/tpl/admin.header.html"
+			],
+			[
+				"admin.config",
+				"admin/core/admin.config.js"
+			],
+			[
+				"admin.ap",
+				"admin/admin.app.js"
+			],
+			[
+				"pakc",
+				"package.json"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"login",
+				"src/components/Login.js"
+			],
+			[
+				"usered",
+				"src/pages/UserEdit.js"
+			],
+			[
+				"useredi",
+				"src/pages/UserEdit.js"
+			],
+			[
+				"block",
+				"app/controllers/block.js"
+			],
+			[
+				"offer",
+				"app/routes/offering.js"
+			],
+			[
+				"pass",
+				"config/passport.js"
+			],
+			[
+				"seeking",
+				"app/routes/seeking.js"
+			],
+			[
+				"user.js",
+				"app/models/user.js"
+			],
+			[
+				"search",
+				"app/controllers/search.js"
+			],
+			[
+				"users",
+				"app/models/user.js"
+			],
+			[
+				"route",
+				"app/routes/routes.js"
+			],
+			[
+				"passpo",
+				"config/passport.js"
+			],
+			[
+				"admin/inde",
+				"admin/index.html"
+			],
+			[
+				"admin/in",
+				"admin/index.html"
+			],
+			[
+				"index.html",
+				"index.html"
+			],
+			[
+				"main",
+				"CQGWebAPIJavaScriptClient/scripts/main.js"
+			],
+			[
+				"aux",
+				"CQGWebAPIJavaScriptClient/scripts/auxiliary.js"
+			],
+			[
+				"socket",
+				"user/factories/socket.js"
+			],
+			[
+				"loginc",
+				"user/login/controllers/loginCtrl.js"
+			],
+			[
+				"homectr",
+				"user/home/controllers/homeCtrl.js"
+			],
+			[
+				"dashboardct",
+				"user/dashboard/controllers/dashboardCtrl.js"
+			],
+			[
+				"trader",
+				"user/traders/controllers/traderStrategiesCtrl.js"
+			],
+			[
+				"acc",
+				"CQGWebAPIJavaScriptClient/scripts/account.js"
+			],
+			[
+				"reviews",
+				"user/traders/controllers/reviewStrategyCtrl.js"
+			],
+			[
+				"signup",
+				"user/signup/controllers/signupCtrl.js"
+			],
+			[
+				"dash",
+				"admin/dashboard/controllers/dashboardCtrl.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"gulp",
+				"gulp.assets.js"
+			],
+			[
+				"adminconfig",
+				"admin/core/admin.config.js"
+			],
+			[
+				"admin.app",
+				"admin/admin.app.js"
+			],
+			[
+				"config",
+				"user/core/config.js"
+			],
+			[
+				"traders",
+				"user/traders/controllers/traderStrategiesCtrl.js"
+			],
+			[
+				"toasts",
+				"user/factories/toast-service.js"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"websoc",
+				"user/signup/factories/webSocketSrv.js"
+			],
+			[
+				"homec",
+				"user/home/controllers/homeCtrl.js"
+			],
+			[
+				"confi",
+				"user/core/config.js"
+			],
+			[
+				"config.js",
+				"user/core/config.js"
+			],
+			[
+				".js",
+				".jshintrc"
+			],
+			[
+				"traderstra",
+				"user/traders/controllers/traderStrategiesCtrl.js"
+			],
+			[
+				"webs",
+				"user/signup/factories/webSocketSrv.js"
+			],
+			[
+				"assi",
+				"node_modules/lodash/assign.js"
+			],
+			[
+				"react-router",
+				"node_modules/react-router/umd/react-router.js"
+			],
+			[
+				"header",
+				"user/partials/header.html"
+			],
+			[
+				"rest-",
+				"admin/factories/rest-service.js"
+			],
+			[
+				"soc",
+				"user/factories/socket.js"
+			],
+			[
+				"rest-ser",
+				"user/factories/rest-service.js"
+			],
+			[
+				"user",
+				"node_modules/.bin/user-home"
+			],
+			[
+				"sock",
+				"user/factories/socket.js"
+			],
+			[
+				"home.ht",
+				"user/home/views/home.html"
+			],
+			[
+				".jshin",
+				".jshintrc"
+			],
+			[
+				"edit_",
+				"admin/contracts/views/edit_contract.html"
+			],
+			[
+				"create_star",
+				"user/traders/views/trader_create_strategy.html"
+			],
+			[
+				"new.html",
+				"admin/users/views/new_user.html"
+			],
+			[
+				"bowe",
+				"bower.json"
+			],
+			[
+				"table",
+				"demo/table_ajax.php"
+			],
+			[
+				"admin-sty",
+				"assets/css/admin-style.css"
+			],
+			[
+				"sty",
+				"assets/css/style.css"
+			],
+			[
+				"cms.htm",
+				"admin/cms/views/cms.html"
+			],
+			[
+				"home",
+				"user/home/views/home.html"
+			],
+			[
+				"bow",
+				"bower.json"
+			],
+			[
+				"admin-st",
+				"assets/css/admin-style.css"
+			],
+			[
+				"rou",
+				"user/core/routes.js"
+			],
+			[
+				"admi-sty",
+				"assets/css/admin-style.css"
+			],
+			[
+				"admin.co",
+				"admin/core/admin.config.js"
+			],
+			[
+				"admin/header",
+				"admin/tpl/admin.header.html"
+			],
+			[
+				"rest-se",
+				"user/factories/rest-service.js"
+			],
+			[
+				"admin/rest",
+				"admin/factories/rest-service.js"
+			],
+			[
+				"position",
+				"user/dashboard/views/positions.html"
+			],
+			[
+				"assets/apps/css/inbox.css",
+				"assets/apps/css/inbox.css"
+			],
+			[
+				"admin/noti",
+				"admin/notifications/controllers/notificationCtrl.js"
+			],
+			[
+				"grid.html",
+				"user/positions/views/grid.html"
+			],
+			[
+				"list.ht",
+				"user/positions/views/list.html"
+			],
+			[
+				"profilec",
+				"user/profile/controllers/profileCtrl.js"
+			],
+			[
+				"pageloa",
+				"user/directives/pageLoader.js"
+			],
+			[
+				"close_str",
+				"user/customers/views/close_strategy.html"
+			],
+			[
+				"create_stra",
+				"user/traders/views/trader_create_strategy.html"
+			],
+			[
+				"dial",
+				"user/factories/dialog-service.js"
+			],
+			[
+				"close_s",
+				"user/customers/views/close_strategy.html"
+			],
+			[
+				"app_inbox_inbox.html",
+				"admin_3_material_design/app_inbox_inbox.html"
+			],
+			[
+				"inbox.js",
+				"assets/apps/scripts/inbox.js"
+			],
+			[
+				"app_inbox.html",
+				"admin_3_material_design/app_inbox.html"
+			],
+			[
+				"admin-style.css",
+				"assets/css/admin-style.css"
+			],
+			[
+				"admin.headr",
+				"admin/tpl/admin.header.html"
+			],
+			[
+				"signupro",
+				"user/signup/routes/signupRouter.js"
+			],
+			[
+				"pageloader",
+				"user/directives/pageLoader.js"
+			],
+			[
+				"rests",
+				"user/factories/rest-service.js"
+			],
+			[
+				"tradersr",
+				"user/traders/factories/traderSrv.js"
+			],
+			[
+				"user/dashboardc",
+				"user/dashboard/controllers/dashboardCtrl.js"
+			],
+			[
+				"dashboardc",
+				"admin/dashboard/controllers/dashboardCtrl.js"
+			],
+			[
+				"rest",
+				"user/factories/rest-service.js"
+			],
+			[
+				"page_system_500_1.html",
+				"admin_3_material_design/page_system_500_1.html"
+			],
+			[
+				"admin.con",
+				"admin/core/admin.config.js"
+			],
+			[
+				"signupsr",
+				"user/signup/factories/signUpSrv.js"
+			],
+			[
+				"logins",
+				"admin/login/factories/loginSvr.js"
+			],
+			[
+				"app",
+				"user/app.js"
+			],
+			[
+				"progr",
+				"user/directives/progressButton.js"
+			],
+			[
+				"edit_as",
+				"admin/assignments/views/edit_assignment.html"
+			],
+			[
+				"angularloca",
+				"bower_components/angular-local-storage/dist/angular-local-storage.js"
+			],
+			[
+				"webso",
+				"user/signup/factories/webSocketSrv.js"
+			],
+			[
+				"view_star",
+				"admin/strategies/views/view_strategy.html"
+			],
+			[
+				"review",
+				"user/strategies/views/review_strategy.html"
+			],
+			[
+				"webap",
+				"CQGWebAPIJavaScriptClient/scripts/webapi.js"
+			],
+			[
+				".jsh",
+				".jshintrc"
+			],
+			[
+				"new_con",
+				"admin/contracts/views/new_contract.html"
+			],
+			[
+				"app.js",
+				"user/app.js"
+			],
+			[
+				"instrumentview",
+				"admin/instruments/views/view_instrument.html"
+			],
+			[
+				"market_sub",
+				"admin/marketSubSectors/views/market_sub_sector.html"
+			],
+			[
+				"market",
+				"admin/marketSectors/views/market_sector.html"
+			],
+			[
+				"angular-mater",
+				"bower_components/angular-material/angular-material.js"
+			],
+			[
+				"gulpfile",
+				"gulpfile.js"
+			],
+			[
+				"view_assignment",
+				"admin/assignments/views/view_assignment.html"
+			],
+			[
+				"new_as",
+				"admin/assignments/views/new_assignment.html"
+			],
+			[
+				"profiler",
+				"user/profile/routes/profileRouter.js"
+			],
+			[
+				"profiles",
+				"user/profile/factories/profileSrv.js"
+			],
+			[
+				"traderstar",
+				"user/traders/controllers/traderStrategiesCtrl.js"
+			],
+			[
+				"account",
+				"CQGWebAPIJavaScriptClient/scripts/account.js"
+			],
+			[
+				"step",
+				"user/signup/views/step_4.html"
+			],
+			[
+				"generate_pas",
+				"user/generatePassword/views/generate_password.html"
+			],
+			[
+				"passwo",
+				"user/passwordReset/views/password_reset.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/bluecrush/bluecrush.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"AbstractHasDispatcher"
+			]
+		],
+		"width": 683.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 276.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
