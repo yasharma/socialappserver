@@ -203,32 +203,32 @@ exports.forgot = (req, res, next) => {
 	        		message: `${baseUrl}/reset/${token}`
 				})	
 	        );
-			// mail.send({
-			// 	subject: 'Reset your password',
-			// 	html: './public/mail/user/reset-password.html',
-			// 	from: config.mail.from, 
-			// 	to: user.email,
-			// 	emailData : {
-		 //   		    url: `${baseUrl}/reset/${token}`
-		 //   		}
-			// }, function(err, success){
-			// 	if(err){
-			// 		res.status(500).json(
-			// 			response.errors({
-			// 				source: err,
-			// 				message: 'Failure sending email',
-			// 				success: false
-			// 			})
-			//         );
-			// 	} else {
-			// 		res.json(
-			// 			response.success({
-			// 				success: true,
-			//         		message: 'An email has been sent to the provided email with further instructions.'
-			// 			})	
-			//         );
-			// 	}
-			// });
+			/*mail.send({
+				subject: 'Reset your password',
+				html: './public/mail/user/reset-password.html',
+				from: config.mail.from, 
+				to: user.email,
+				emailData : {
+		   		    url: `${baseUrl}/reset/${token}`
+		   		}
+			}, function(err, success){
+				if(err){
+					res.status(500).json(
+						response.errors({
+							source: err,
+							message: 'Failure sending email',
+							success: false
+						})
+			        );
+				} else {
+					res.json(
+						response.success({
+							success: true,
+			        		message: 'An email has been sent to the provided email with further instructions.'
+						})	
+			        );
+				}
+			});*/
 		}
 	], function (err) {
 		if(err){
@@ -298,7 +298,7 @@ exports.reset = function (req, res, next) {
 					}	
 				}
 			);	
-		},
+		}/*,
 		function(user, done){
 			mail.send({
 				subject: 'Your password has been changed',
@@ -309,7 +309,7 @@ exports.reset = function (req, res, next) {
 					firstname: user.firstname || 'User'
 				}
 			},done);
-		}
+		}*/
 	], function (err) {
 		if (err) {
 			return next(err);

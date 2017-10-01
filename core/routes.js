@@ -38,7 +38,7 @@ router.use(expressJWT({
 		'/api/register',
 		'/api/login',
 		'/api/forgot_password',
-		/^\/api\/reset\/.*/,
+		/^\/api\/(reset|reset_password)\/.*/,
 		/^\/api\/verify_email\/.*/,
 	]
 }));
