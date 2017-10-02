@@ -18,7 +18,7 @@ exports.register = (req, res, next) => {
 	
 	let user = new User(req.body);
 	user.save()
-	.then(user => {
+	/*.then(user => {
 		return new Promise((resolve, reject) => {
 			mail.send({
 				subject: 'New User Registration',
@@ -37,8 +37,8 @@ exports.register = (req, res, next) => {
 				}
 			});
 		});	
-	})
-	.then(result => res.json(response.success({success: true})) )
+	})*/
+	.then(result => res.json(response.success({success: true, message: 'An account verification email has been sent on your email address, make sure to check inbox/spam folder'})) )
 	.catch(err => {
 		User.remove({email: req.body.email});
 		res
