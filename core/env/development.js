@@ -1,7 +1,7 @@
 "use strict";
 const config = {
 	db: {
-		URL: 'mongodb://localhost/onlinerti',
+		URL: 'mongodb://localhost/socialproof',
 		DEBUG: true,
 		autoIndex: true,
     options: {
@@ -48,7 +48,8 @@ const config = {
     	email: 'admin@gmail.com',
     	password: '123456',
     	role: 'admin',
-    	status: true
+    	status: true,
+      email_verified: true
     }
 };
 module.exports = config;

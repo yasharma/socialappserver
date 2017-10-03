@@ -22,13 +22,21 @@ UserSchema 	= new Schema({
 			default: `${config.image_path}/${config.image_name}`
 		}
 	},
-	firstname: {
+	customer_name: {
 		type: String,
-		maxlength: [20, 'Firstname cannot be more then {MAXLENGTH} characters.']
+		maxlength: [200, 'Customer Name cannot be more then {MAXLENGTH} characters.']
 	},
-	lastname: {
+	customer_url: {
 		type: String,
-		maxlength: [20, 'Lastname cannot be more then {MAXLENGTH} characters.']
+		maxlength: [200, 'Customer Url cannot be more then {MAXLENGTH} characters.']
+	},
+	mobile: {
+		type: String,
+		maxlength: [200, 'Mobile Number cannot be more then {MAXLENGTH} characters.']
+	},
+	business_name: {
+		type: String,
+		maxlength: [20, 'Business Name cannot be more then {MAXLENGTH} characters.']
 	},
 	reset_password: {type: Object},
 	role: {

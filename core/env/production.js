@@ -1,7 +1,7 @@
 "use strict";
 const config = {
   db: {
-    URL: 'mongodb://localhost/onlinerti',
+    URL: 'mongodb://localhost/socialproof',
     DEBUG: false,
     autoIndex: false,
     options: {
@@ -9,7 +9,7 @@ const config = {
     }
   },
   server: {
-    host: 'http://www.onlinerti.com',
+    host: 'http://www.socialproof.com',
     PORT: process.env.PORT || 9000
   },
   mail:{
