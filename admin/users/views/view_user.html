@@ -20,18 +20,18 @@
 		                <div class="row">
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label class="control-label col-md-3">First Name:</label>
+		                            <label class="control-label col-md-3">Customer Name:</label>
 		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{userinfo.firstname}} </p>
+		                                <p class="form-control-static"> {{userinfo.customer_name}} </p>
 		                            </div>
 		                        </div>
 		                    </div>
 		                    <!--/span-->
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Last Name:</label>
+		                            <label class="control-label col-md-3">Business Name:</label>
 		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{userinfo.lastname}} </p>
+		                                <p class="form-control-static"> {{userinfo.business_name}} </p>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -50,9 +50,9 @@
 		                    <!--/span-->
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Member Since:</label>
+		                            <label class="control-label col-md-3">Mobile:</label>
 		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{userinfo.created_at | date: format : 'dd/m/y'}} </p>
+		                                <p class="form-control-static"> {{userinfo.mobile}} </p>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -62,9 +62,9 @@
 		                <div class="row">
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Verified:</label>
+		                            <label class="control-label col-md-3">Member Since:</label>
 		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{userinfo.email_verified ? 'Verified':'Not verified'}} </p>
+		                                <p class="form-control-static"> {{userinfo.created_at | date: format : 'dd/m/y'}} </p>
 		                            </div>
 		                        </div>
 		                    </div>

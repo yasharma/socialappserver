@@ -3,17 +3,51 @@ const path 	 	= require('path'),
 	async 	 	= require('async'),
 	_ 			= require('lodash'),
 	mongoose 	= require('mongoose'),
+	crypto      = require('crypto'),
 	User 	 	= require(path.resolve('./models/User')),
 	datatable 	= require(path.resolve('./core/lib/datatable')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
+
+function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return (Math.floor(Math.random() * (max - min)) + min).toString(); 
+  };
 exports.add = (req, res, next) => { 
-    
+    req.body.password=crypto.createHash('md5').update(getRandomInt()).digest("hex");
+
     let user = new User(req.body);
-    user.save()
-    .then(result => res.json({success: true}))
-    .catch(error => res.json({errors: error}));
+       user.save(function(err, user) {
+	        if(err)next(err);
+	        else{
+	       /*   mail.send({
+				subject: 'New User Registration',
+				html: './public/email_templates/user/register.html',
+				from: config.mail.from, 
+				to: user.email,
+				emailData : {
+		   		    url: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
+		   		    email: user.email
+		   		 }
+				}, (err, success) => {
+					if(err){
+						reject(err);
+					} else {
+						resolve(success);
+					}
+				});*/
+	            res.json({
+		          responsedata:{
+		            message:"user signup successfully",
+		            user:user,
+		            success:1
+		           }    
+	       	    })
+	        }
+	      
+	   });
 };
 
 exports.edit = (req, res, next) => {
@@ -64,11 +98,14 @@ exports.list = (req, res, next) => {
 	if( reqData.email ){
 		operation.email = {$regex: new RegExp(`${reqData.email}`), $options:"im"};
 	}
-	if( reqData.firstname ){
-		operation.firstname = {$regex: new RegExp(`${reqData.firstname}`), $options:"im"};
+	if( reqData.mobile ){
+		operation.mobile = {$regex: new RegExp(`${reqData.mobile}`), $options:"im"};
 	}
-	if( reqData.lastname ){
-		operation.lastname = {$regex: new RegExp(`${reqData.lastname}`), $options:"im"};
+	if( reqData.customer_name ){
+		operation.customer_name = {$regex: new RegExp(`${reqData.customer_name}`), $options:"im"};
+	}
+	if( reqData.business_name ){
+		operation.business_name = {$regex: new RegExp(`${reqData.business_name}`), $options:"im"};
 	}
 	if( reqData.status === "active" || reqData.status === "inactive" ){
 		operation.status = reqData.status == "active" ? true : false;
@@ -78,10 +115,9 @@ exports.list = (req, res, next) => {
 	}
 	async.waterfall([
 		function (done) {
-			if( reqData.customActionType === 'group_action' ) {
+			if( reqData.customActionType === 'group_action' && reqData.customActionName === 'remove') {
 				let _ids = _.map(reqData.id, mongoose.Types.ObjectId);
-				let _status =  ( reqData.customActionName === 'inactive' ) ? false : true;
-				User.update({_id: {$in:_ids}},{$set:{status: _status}}, {multi: true},done);
+				User.remove({_id: {$in:_ids}},done);
 			} else {
 				done(null, null);
 			}

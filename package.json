@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-core": "^6.26.0",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "compression": "^1.7.0",
@@ -23,7 +24,7 @@
     "nodemailer": "^4.0.1"
   },
   "scripts": {
-    "nodemon": "nodemon -i node_modules/ -i src/ -i build/ server.js",
+    "nodemon": "nodemon -i node_modules/ -i admin/ -i assets/ -i bower_components/ server.js",
     "server": "NODE_ENV=production node server.js"
   },
   "devDependencies": {

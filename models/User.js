@@ -20,6 +20,9 @@ UserSchema 	= new Schema({
 		original_name:  {
 			type: String,
 			default: `${config.image_path}/${config.image_name}`
+		},
+		fullImagePath: {
+			type: String
 		}
 	},
 	customer_name: {
