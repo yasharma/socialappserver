@@ -25,6 +25,12 @@ const config = {
     },
     from: `RtiGuru ${process.env.USERNAME}`
   },
+  twilio: {
+		number: process.env.TWILIO_NUMBER,
+		accountSid: process.env.ACCOUNT_SID,
+		authToken: process.env.AUTH_TOKEN,
+		countryCode: '+91'
+	},
     mailTransporter: 'gmail',
     salt: '51ca5acbce3e6a5b2dd9772b36cff34c',
     secret: '876sdf&%&^435345(*^&^654sdsdc&^&kjsdfjbksdureyy3(&(*&(&7$%^#%#&^*(&)*)*',

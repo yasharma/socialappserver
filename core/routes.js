@@ -6,6 +6,7 @@ const 	express 	= require('express'),
 		config 		= require(require(path.resolve('./core/env')).getEnv),
 		userRoutes 	= require(path.resolve('./core/user_router')),
 		adminRoutes = require(path.resolve('./core/admin_router')),
+		matchRoute 	= require(path.resolve('./core/lib/matchRoute')),
 		router 		= express.Router(),
 		admin 		= express.Router();
 
@@ -21,40 +22,16 @@ router.use(expressJWT({
 		'/favicon.ico',
 		'/api/register',
 		'/api/login',
-		'/api/faq/list',
-		'/api/testimonial/list',
-		/^\/api\/blog\/.*/,
+		'/api/forgot_password',
+		/^\/api\/(reset|reset_password)\/.*/,
 		/^\/api\/verify_email\/.*/,
-		/^\/reset\/.*/
 	]
 }));
 /*
 * These are our base routes that will call simple prefixed by '/'
 * eg. /login
 */
-userRoutes.routes.forEach(x => {
-	
-	switch(x.type){
-		case 'get':
-		case 'put':
-		case 'post':
-		case 'delete':
-		router[x.type](x.url, x.method);	
-		break;
-
-		case 'SPECIALPUT': // Special Type of Routes which hold files
-		router.put(x.url, x.mwear, x.method);
-		break;
-
-		case 'SPECIALPOST': // Special Type of Routes which hold files
-		router.post(x.url, x.mwear, x.method);
-		break;
-
-		default:
-		throw new Error('Invalid method type');
-	}
-	
-});
+userRoutes.routes.forEach(x => matchRoute(router, x));
 
 /*
 * All the routes of admin will requests using admin prefix
@@ -74,24 +51,8 @@ admin.use(expressJWT({
 	]
 }));
 /*Admin Routes*/
-adminRoutes.routes.forEach(function (x) {
-	switch(x.type){
-		case 'get':
-		case 'put':
-		case 'post':
-		case 'delete':
-			if(x.hasOwnProperty('mwear')){
-				admin[x.type](x.url, x.mwear, x.method);	
-			} else {
-				admin[x.type](x.url, x.method);
-			}
-		break;
 
-		default:
-		throw new Error('Invalid method type');
-	}
-	
-});
+adminRoutes.routes.forEach(x => matchRoute(admin, x));
 
 module.exports = {
 	router: router,
