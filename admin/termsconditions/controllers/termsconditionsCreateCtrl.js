@@ -1,6 +1,6 @@
 'use strict';
-mimicTrading.controller('cmsEditCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','cms','cmsSvr',
-	($scope, $state, RestSvr, $rootScope, appSvr, cms, cmsSvr) => {
+mimicTrading.controller('termsconditionsCreateCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','termsconditionsSvr',
+	($scope, $state, RestSvr, $rootScope, appSvr, termsconditionsSvr) => {
 		
 		$scope.$on('$viewContentLoaded', () => {
 			/**
@@ -8,16 +8,16 @@ mimicTrading.controller('cmsEditCtrl', ['$scope', '$state', 'RestSvr', '$rootSco
 			 */
 			appSvr.init();
 		});
-		$scope.cms_type = cmsSvr.getCmsTypes();
-		$scope.cms = cms.record;
 		
-		$scope.edit_cms = (isValid) => {
+		$scope.cms_type = termsconditionsvr.getCmsTypes();
+
+		$scope.new_cms = (isValid) => {
 			if( !isValid ){
 				return;
 			}
 			
 			$scope.isLoading = true;
-			RestSvr.put('cms/edit', $scope.cms)
+			RestSvr.post('cms/add', $scope.cms)
 			.then(response => {
 				$state.go('cms');
 			})
