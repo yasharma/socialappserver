@@ -16,10 +16,10 @@ exports.register = (req, res, next) => {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				.json(response.required({message: 'Email and Password is required'}));
 	}
-	
+	_.assign(req.body, {ip: req.ip});
 	let user = new User(req.body);
 	user.save()
-	/*.then(user => {
+	.then(user => {
 		return new Promise((resolve, reject) => {
 			mail.send({
 				subject: 'New User Registration',
@@ -27,7 +27,7 @@ exports.register = (req, res, next) => {
 				from: config.mail.from, 
 				to: user.email,
 				emailData : {
-		   		    url: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
+		   		    signupLink: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
 		   		    email: user.email
 		   		}
 			}, (err, success) => {
@@ -38,7 +38,7 @@ exports.register = (req, res, next) => {
 				}
 			});
 		});	
-	})*/
+	})
 	.then(result => res.json(response.success({success: true, message: 'An account verification email has been sent on your email address, make sure to check inbox/spam folder'})) )
 	.catch(err => {
 		User.remove({email: req.body.email});
@@ -128,7 +128,8 @@ exports.verifyEmail = (req, res, next) => {
  * Forgot for reset password (forgot POST)
  */
 exports.forgot = (req, res, next) => {
-	if(!req.body.email || !req.body.mobile || !req.body.type){
+
+	if( (!req.body.email || !req.body.mobile ) && !req.body.type){
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 			.json(response.required({message: 'Email or mobile number is required'}));
 	}
@@ -194,7 +195,7 @@ exports.reset = function (req, res, next) {
 						});
 					} else {
 						res.status(400).json(
-							response.errors({
+							response.error({
 								source: err,
 								success: false,
 				        		message: 'Password reset token is invalid or has been expired.'	
@@ -301,7 +302,7 @@ function forgotByEmail(req, res, next) {
 			}, function(err, success){
 				if(err){
 					res.status(500).json(
-						response.errors({
+						response.error({
 							source: err,
 							message: 'Failure sending email',
 							success: false
@@ -323,7 +324,13 @@ function forgotByEmail(req, res, next) {
 		}
 	});
 }
-
+function random() {
+	let string = "QWERTYUIOPLKJHGFDSAZXCVBNM12346790";
+	let rand = string.split('');
+	let shuffle = _.shuffle(rand);
+	let num = _.slice(shuffle,0,4);
+	return num.join("");
+}
 function forgotByMobile(req, res, next) {
 	if( !req.body.mobile ) {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
@@ -370,28 +377,22 @@ function forgotByMobile(req, res, next) {
 				}
 			});
 		},
-		// Generate random token
-		function (user, done) {
-			crypto.randomBytes(5, function (err, buffer) {
-				let token = buffer.toString('hex');
-	        	done(err, user, token);
-	      	});
-	    },
 	    // Lookup user by email
-	    function (user, token, done) {
+	    function (user, done) {
+	    	let token = random();
 			User.update(
 				{_id: user._id},
 				{ reset_password: { token: token, timestamp: Date.now() + 86400000, status: true} }, 
 				{ runValidators: true, setDefaultsOnInsert: true },
 				function(err, result){
-					done(err, token, user, result);
+					done(err, token, user);
 				}
 			);
 	    },
 		// If valid email, send reset email using service
 		function(token, user, done){
-	        twilio.sms('Verification code', token)
-			.then(response => res.json(response.success({success: true, message: 'Verification code has been sent on your mobile number'})))
+	        twilio.sms(`Verification code - ${token}`, req.body.mobile)
+			.then(result => res.json(response.success({success: true, message: 'Verification code has been sent on your mobile number'})))
 			.catch(error => done(error));
 		}
 	], function (err) {

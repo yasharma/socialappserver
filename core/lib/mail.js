@@ -3,6 +3,7 @@
 const nodemailer	= require('nodemailer'),
 	path 			= require('path'),
 	config      	= require(require(path.resolve('./core/env')).getEnv),
+	sgTransport     = require('nodemailer-sendgrid-transport'),
 	fs 				= require('fs'),
 	template 		= require(path.resolve('./core/lib/template-render'));
 
@@ -13,9 +14,18 @@ function gmailSMTP(opt, cb) {
 	sendMailer(opt, transporter, cb);
 }
 
+// Using sendgrid SMTP
+function sendgridSMTP(opt, cb) {
+	console.log("in sendgrid smtp--------")
+    var sendgrid     = config.sendgrid,
+    transporter     = nodemailer.createTransport(sgTransport(sendgrid));
+    sendMailer(opt, transporter, cb);
+}
+
 function sendMailer(opt, transporter, cb) {
 	transporter.verify((error, success) => {
 	   	if (error) {
+	   		console.log("in transporter.verify-------"+error);
 	        cb(error);
 	   	} else {
 	   		// setup email data with unicode symbols
@@ -28,8 +38,10 @@ function sendMailer(opt, transporter, cb) {
 	   		// send mail with defined transport object
 	   		transporter.sendMail(mailOptions, (error, info) => {
 	   		    if (error) {
+	   		    	console.log("in sendmailer -errror-------"+error);
 	   		        cb(error);
 	   		    } else {
+	   		    	console.log("in sendmailer --------"+info);
 	   		    	cb(null, info);
 	   		    }
 	   		});
@@ -38,5 +50,16 @@ function sendMailer(opt, transporter, cb) {
 }
 
 exports.send = function (opt, cb) {
-	gmailSMTP(opt, cb);	
+    if (process.env.NODE_ENV === 'test') {
+        stubMail(opt, cb);
+    } else {
+        if (config.mailTransporter === 'sendgrid'){
+        	console.log('in---sendgrid');
+            sendgridSMTP(opt, cb);
+        } else if (config.mailTransporter === 'gmail') {
+            gmailSMTP(opt, cb);
+        } else {
+            cb('Unknown transporter, check your config', null);
+        }
+    }
 };

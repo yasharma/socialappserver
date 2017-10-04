@@ -5,6 +5,7 @@ const path 	 	= require('path'),
 	mongoose 	= require('mongoose'),
 	crypto      = require('crypto'),
 	User 	 	= require(path.resolve('./models/User')),
+	mail 	 	= require(path.resolve('./core/lib/mail')),
 	datatable 	= require(path.resolve('./core/lib/datatable')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./core/lib/paginate'));
@@ -22,10 +23,10 @@ exports.add = (req, res, next) => {
        user.save(function(err, user) {
 	        if(err)next(err);
 	        else{
-	       /*   mail.send({
+	          mail.send({
 				subject: 'New User Registration',
 				html: './public/email_templates/user/register.html',
-				from: config.mail.from, 
+				from: "support@zenbrisa.com", 
 				to: user.email,
 				emailData : {
 		   		    url: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
@@ -33,11 +34,13 @@ exports.add = (req, res, next) => {
 		   		 }
 				}, (err, success) => {
 					if(err){
+					    console.log("error------mail sent"+err);
 						reject(err);
 					} else {
+						console.log("success------mail sent"+success);
 						resolve(success);
 					}
-				});*/
+				});
 	            res.json({
 		          responsedata:{
 		            message:"user signup successfully",
@@ -104,8 +107,8 @@ exports.list = (req, res, next) => {
 	if( reqData.customer_name ){
 		operation.customer_name = {$regex: new RegExp(`${reqData.customer_name}`), $options:"im"};
 	}
-	if( reqData.business_name ){
-		operation.business_name = {$regex: new RegExp(`${reqData.business_name}`), $options:"im"};
+	if( reqData.customer_url ){
+		operation.customer_url = {$regex: new RegExp(`${reqData.customer_url}`), $options:"im"};
 	}
 	if( reqData.status === "active" || reqData.status === "inactive" ){
 		operation.status = reqData.status == "active" ? true : false;
@@ -118,7 +121,16 @@ exports.list = (req, res, next) => {
 			if( reqData.customActionType === 'group_action' && reqData.customActionName === 'remove') {
 				let _ids = _.map(reqData.id, mongoose.Types.ObjectId);
 				User.remove({_id: {$in:_ids}},done);
-			} else {
+			} 
+            else if( reqData.customActionType === 'group_action' && reqData.customActionName === 'active') {
+				let _ids = _.map(reqData.id, mongoose.Types.ObjectId);
+				User.update({_id: {$in:_ids}},{$set:{status:true,email_verified:true}},{multi:true},done);
+			}
+			else if( reqData.customActionType === 'group_action' && reqData.customActionName === 'inactive') {
+				let _ids = _.map(reqData.id, mongoose.Types.ObjectId);
+				User.update({_id: {$in:_ids}},{$set:{status:false,email_verified:false}},{multi:true},done);
+			}
+			else {
 				done(null, null);
 			}
 		},

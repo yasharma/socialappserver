@@ -5,7 +5,7 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class=" icon-user font-green"></i>
-                    <span class="caption-subject font-green sbold uppercase">Update User</span>
+                    <span class="caption-subject font-green sbold uppercase">Update Customer</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -20,10 +20,10 @@
                                 
                             </div>
                         </div>
-                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': editUserForm.lastname.$touched && editUserForm.lastname.$invalid || editUserForm.lastname.$invalid && editUserForm.$submitted }">
-                            <label class="col-md-2 control-label" for="lastname">Business Name </label>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': editUserForm.customer_url.$touched && editUserForm.customer_url.$invalid || editUserForm.customer_url.$invalid && editUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="customer_url">Customer URL </label>
                             <div class="col-md-10">
-                                <input type="text" name="lastname" ng-model="user.business_name" class="form-control" id="lastname" placeholder="Enter your Business name">
+                                <input type="text" name="customer_url" ng-model="user.customer_url" class="form-control" id="customer_url" placeholder="Enter your Business name">
                             </div>
                         </div>
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editUserForm.email.$touched && editUserForm.email.$invalid || editUserForm.email.$invalid && editUserForm.$submitted }">

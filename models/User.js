@@ -80,7 +80,12 @@ UserSchema 	= new Schema({
 	},
 	salt: { type: String },
 	lastLoggedIn: { type: Date },
-	ip: { type: String }
+	ip: { type: String },
+	/*subscription_plan: {
+		name: {
+			type: 
+		}
+	}*/
 },{
     timestamps: {
         createdAt: 'created_at',

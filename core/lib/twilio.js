@@ -15,7 +15,7 @@ module.exports = {
                 to: `${countryCode}${to}`,  // Text this number
                 from: number // From a valid Twilio number
             })
-            .then((message) => resolve(message.sid))
+            .then(message => resolve(message.sid))
             .catch(error => reject(error));
         });    
     },
