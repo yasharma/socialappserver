@@ -1,12 +1,12 @@
 'use strict';
-mimicTrading.controller('cmsCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr',
-	($scope, $state, RestSvr, $rootScope, appSvr) => {
+mimicTrading.controller('termsconditionsCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','termsconditionsSvr',
+	($scope, $state, RestSvr, $rootScope, termsconditionsSvr) => {
 		
 		$scope.$on('$viewContentLoaded', () => {
 			/**
 			 * Initialize the jquery components when view contents loaded properly
 			 */
-			appSvr.init();			
+			termsconditionsSvr.init();			
 
 		    TableAjax.init({
 		    	url: 'cms/list/',

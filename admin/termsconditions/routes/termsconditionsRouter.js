@@ -3,14 +3,14 @@
 /* Application routes */
 mimicTrading.config(['$stateProvider',function($stateProvider){
 
-	let cmsResolver = ['cmsSvr', '$stateParams', (cmsSvr, $stateParams) => cmsSvr.getCmsById($stateParams.id)];
+	let termsconditionsResolver = ['cmsSvr', '$stateParams', (termsconditionsSvr, $stateParams) => termsconditionsSvr.getCmsById($stateParams.id)];
 
 	$stateProvider
-	.state('cms',{
-		url: '/cms',
-		controller: 'cmsCtrl',
-		templateUrl: 'cms/views/cms.html',
-		data: {pageTitle: 'Manage Content'},
+	.state('termsconditions',{
+		url: '/termsconditions',
+		controller: 'termsconditionsCtrl',
+		templateUrl: 'termsconditions/views/termsconditions.html',
+		data: {pageTitle: 'Manage Terms & Conditions'},
 		resolve: {
 		    deps: ['$ocLazyLoad', function($ocLazyLoad) {
 		        return $ocLazyLoad.load({
@@ -29,31 +29,31 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		},
 		authenticate: true
 	})
-	.state('newCms',{
-		url: '/new-cms',
-		controller: 'cmsCreateCtrl',
-		templateUrl: 'cms/views/new_cms.html',
-		data: {pageTitle: 'New CMS'},
+	.state('newTermsConditions',{
+		url: '/new-termsconditions',
+		controller: 'termsconditionsCreateCtrl',
+		templateUrl: 'termsconditions/views/new_termsconditions.html',
+		data: {pageTitle: 'New Terms & Conditions'},
 		authenticate: true
 	})
-	.state('editCms',{
-		url: '/edit-cms/:id',
-		controller: 'cmsEditCtrl',
-		templateUrl: 'cms/views/edit_cms.html',
-		data: {pageTitle: 'Update CMS Detail'},
+	.state('editTermsConditions',{
+		url: '/edit-termsconditions/:id',
+		controller: 'termsconditionsEditCtrl',
+		templateUrl: 'termsconditions/views/edit_termsconditions.html',
+		data: {pageTitle: 'Update Terms & Conditions Detail'},
 		authenticate: true,
 		resolve: {
-		    cms: cmsResolver
+		    cms: termsconditionsResolver
 		}
 	})
-	.state('viewCms',{
-		url: '/view-cms/:id',
-		controller: 'cmsViewCtrl',
-		templateUrl: 'cms/views/view_cms.html',
-		data: {pageTitle: 'View CMS Detail'},
+	.state('viewTermsConditions',{
+		url: '/view-termsconditions/:id',
+		controller: 'termsconditionsViewCtrl',
+		templateUrl: 'termsconditions/views/view_termsconditions.html',
+		data: {pageTitle: 'View Terms & Conditions Detail'},
 		authenticate: true,
 		resolve: {
-		    cms: cmsResolver
+		    cms: termsconditionsResolver
 		}
 	});
 }]);
