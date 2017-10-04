@@ -60,6 +60,11 @@ function fileFilter (req, file, cb) {
 module.exports = {
   	routes: [
   		{ url: '/login', method: ctrls.adminCtrl.login, type: 'post' },
+      { url: '/user/list', method: ctrls.userCtrl.list, type: 'post' },
+      { url: '/user/add', mwear:uploadProfileImage.any(),method: ctrls.userCtrl.add, type: 'post' },
+      { url: '/user/view/:id', method: ctrls.userCtrl.view, type: 'get' },
+      { url: '/user/edit/:id', mwear: uploadProfileImage.any(), method: ctrls.userCtrl.edit, type: 'put' },
+      { url: '/setting', method: ctrls.adminCtrl.setting, type: 'post' },
   		{ url: '/cms/add', method: ctrls.cmsCtrl.add, type: 'post' },
   		{ url: '/cms/list', method: ctrls.cmsCtrl.list, type: 'post' },
   		{ url: '/cms/edit', method: ctrls.cmsCtrl.edit, type: 'put' },
@@ -67,10 +72,7 @@ module.exports = {
   		{ url: '/blog/add', mwear: uploadImage.any(), method: ctrls.blogCtrl.add, type: 'post' },
   		{ url: '/blog/list', method: ctrls.blogCtrl.list, type: 'post' },
   		{ url: '/blog/view/:slug', method: ctrls.blogCtrl.view, type: 'get' },
-      	{ url: '/user/list', method: ctrls.userCtrl.list, type: 'post' },
-      	{ url: '/user/view/:id', method: ctrls.userCtrl.view, type: 'get' },
-      	{ url: '/user/edit/:id', mwear: uploadProfileImage.any(), method: ctrls.userCtrl.edit, type: 'put' },
-      	{ url: '/faq/add', method: ctrls.faqCtrl.add, type: 'post' },
+      { url: '/faq/add', method: ctrls.faqCtrl.add, type: 'post' },
   		{ url: '/faq/list', method: ctrls.faqCtrl.list, type: 'post' },
   		{ url: '/faq/edit', method: ctrls.faqCtrl.edit, type: 'put' },
   		{ url: '/faq/view/:id', method: ctrls.faqCtrl.view, type: 'get' },

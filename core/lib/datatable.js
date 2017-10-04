@@ -75,15 +75,16 @@ exports.userTable = (status_list, recordsTotal, data, draw) => {
 					<input name="id[]" type="checkbox" class="checkboxes" value="${data[i]._id}"/>
 					<span></span>
 				</label>`,
-			firstname: data[i].firstname || '-',
-			lastname: data[i].lastname || '-',
+			customer_name: data[i].customer_name || '-',
+			business_name: data[i].business_name || '-',
 			email: data[i].email,
+			mobile: data[i].mobile,  
 			created_date: moment(data[i].created_at).format('MMM D, YYYY'),
 			status: `<span class="label label-sm label-${status_list.class[data[i].status]}">${status_list.status[data[i].status]}</span>`,
 			action: `
 					<div class="btn-group btn-group-solid">
 						<a href="#!/view-user/${data[i]._id}" class="btn btn-sm btn-outline blue tooltips" data-original-title="View">
-							<i class="fa fa-search"></i>
+							<i class="fa fa-info"></i>
 						</a>
 						<a href="#!/edit-user/${data[i]._id}" class="btn btn-sm btn-outline grey-salsa tooltips" data-original-title="Edit">
 							<i class="fa fa-pencil"></i>

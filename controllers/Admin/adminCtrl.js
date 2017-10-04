@@ -3,6 +3,7 @@ const
 	path 		= require('path'),
 	response 	= require(path.resolve('core/lib/response')),
 	User 		= require(path.resolve('models/User')),
+	Setting 	= require(path.resolve('models/Setting')),
 	_ 			= require('lodash'),
 	jwt 	 	= require('jsonwebtoken'),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
@@ -69,4 +70,12 @@ exports.login = (req, res, next) => {
 			}
 		}
 	});
+};
+
+exports.setting = (req, res, next) => {
+
+	let setting = new Setting(req.body);
+		setting.save()
+		.then(user => console.log('New Setting created') )
+		.catch(err => console.log(err));
 };

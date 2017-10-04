@@ -18,9 +18,10 @@ mimicTrading.controller('userCtrl', ['$scope', '$state', '$rootScope', 'Upload',
 			    	url: 'user/list',
 			    	columns: [
 		                { "data": "id", "orderable": false },
-		                { "data": "firstname" },
-		                { "data": "lastname" },
-		                { "data": "email" },
+		                { "data": "customer_name" },
+		                { "data": "business_name" },
+		                { "data": "email" },  
+		                { "data": "mobile" },
 		                { "data": "status" },
 		                { "data": "created_date" },
 		                { "data": "action", "orderable": false }
@@ -34,20 +35,16 @@ mimicTrading.controller('userCtrl', ['$scope', '$state', '$rootScope', 'Upload',
 		 * @param  {isValid} isValid [form.valid]
 		 * @return {redirect to user listing on successful insertion}
 		 */
-		$scope.new_user = function (isValid) {
+		$scope.new_user = function (isValid,data) {
 			if( !isValid ){
 				App.scrollTop();
 				return;
 			}
-
-			// We need to manaually assign user type to user's scope
-			// for trader the value is 2 (trader -> 2)
-			_.assign($scope.user, {user_type: 2});
-
 			$scope.isLoading = true;
 			Upload.upload({
-				url: baseUrl('user/add/'),
-				data: $scope.user
+				url: baseUrl('user/add'),
+				data: data,
+				method: 'post'
 			})
 			.then(function (response) {
 				$state.go('users');
