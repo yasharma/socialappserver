@@ -23,9 +23,14 @@ const config = {
 		    	pass: process.env.PASSWORD
 		    }
 		},
-		from: `RtiGuru ${process.env.USERNAME}`
+		from: `Social Proof Notification ${process.env.USERNAME}`
 	},
-   	mailTransporter: 'gmail',
+  sendgrid: {
+        auth: {
+            api_key: process.env.SENDGRID_API_KEY
+        }
+    },
+   	mailTransporter: 'sendgrid',
    	salt: '51ca5acbce3e6a5b2dd9772b36cff34c',
    	secret: '876sdf&%&^435345(*^&^654sdsdc&^&kjsdfjbksdureyy3(&(*&(&7$%^#%#&^*(&)*)*',
    	allowed_image_extensions : ['image/jpeg','image/jpg','image/png','image/gif','image/bmp'],
