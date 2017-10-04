@@ -17,7 +17,7 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		url: '/users',
 		controller: 'userCtrl',
 		templateUrl: '/users/views/userListing.html',
-		data: {pageTitle: 'User Management'},
+		data: {pageTitle: 'Customer Management'},
 		resolve: {
 		    deps: ['$ocLazyLoad', function($ocLazyLoad) {
 		        return $ocLazyLoad.load({
@@ -42,14 +42,14 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		url: '/new-user',
 		controller: 'userCtrl',
 		templateUrl: '/users/views/new_user.html',
-		data: {pageTitle: 'Add New User'},
+		data: {pageTitle: 'Add New Customer'},
 		authenticate: true
 	})
 	.state('viewUser',{
 		url: '/view-user/:id',
 		controller: 'userViewCtrl',
 		templateUrl: '/users/views/view_user.html',
-		data: {pageTitle: 'User Detail'},
+		data: {pageTitle: 'Customer Detail'},
 		authenticate: true,
 		resolve: userResolver
 	})
@@ -57,7 +57,7 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		url: '/edit-user/:id',
 		controller: 'userEditCtrl',
 		templateUrl: '/users/views/edit_user.html',
-		data: {pageTitle: 'Update User Detail'},
+		data: {pageTitle: 'Update Customer Detail'},
 		authenticate: true,
 		resolve: userResolver
 	});

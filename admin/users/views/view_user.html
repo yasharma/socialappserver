@@ -4,7 +4,7 @@
 		    <div class="portlet-title">
 		        <div class="caption">
 		            <i class="icon-equalizer font-green-haze"></i>
-		            <span class="caption-subject font-green-haze bold uppercase">View User Info - {{userinfo.firstname + ' ' + userinfo.lastname}}</span>
+		            <span class="caption-subject font-green-haze bold uppercase">View Customer Info - {{userinfo.customer_name}}</span>
 		            <!-- <span class="caption-helper">some info...</span> -->
 		        </div>
 		        <div class="tools">
@@ -29,9 +29,9 @@
 		                    <!--/span-->
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Business Name:</label>
+		                            <label class="control-label col-md-3">Customer URL:</label>
 		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{userinfo.business_name}} </p>
+		                                <p class="form-control-static"> {{userinfo.customer_url}} </p>
 		                            </div>
 		                        </div>
 		                    </div>

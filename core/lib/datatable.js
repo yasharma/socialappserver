@@ -76,7 +76,7 @@ exports.userTable = (status_list, recordsTotal, data, draw) => {
 					<span></span>
 				</label>`,
 			customer_name: data[i].customer_name || '-',
-			business_name: data[i].business_name || '-',
+			customer_url: data[i].customer_url || '-',
 			email: data[i].email,
 			mobile: data[i].mobile,  
 			created_date: moment(data[i].created_at).format('MMM D, YYYY'),

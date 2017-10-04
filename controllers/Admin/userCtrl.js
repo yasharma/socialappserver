@@ -26,7 +26,7 @@ exports.add = (req, res, next) => {
 	          mail.send({
 				subject: 'New User Registration',
 				html: './public/email_templates/user/register.html',
-				from: config.mail.from, 
+				from: "support@zenbrisa.com", 
 				to: user.email,
 				emailData : {
 		   		    url: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
@@ -107,8 +107,8 @@ exports.list = (req, res, next) => {
 	if( reqData.customer_name ){
 		operation.customer_name = {$regex: new RegExp(`${reqData.customer_name}`), $options:"im"};
 	}
-	if( reqData.business_name ){
-		operation.business_name = {$regex: new RegExp(`${reqData.business_name}`), $options:"im"};
+	if( reqData.customer_url ){
+		operation.customer_url = {$regex: new RegExp(`${reqData.customer_url}`), $options:"im"};
 	}
 	if( reqData.status === "active" || reqData.status === "inactive" ){
 		operation.status = reqData.status == "active" ? true : false;
