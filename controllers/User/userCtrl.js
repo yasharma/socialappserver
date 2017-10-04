@@ -316,3 +316,11 @@ exports.reset = function (req, res, next) {
 		}
 	});
 };
+
+exports.forgotByMobile = (req, res, next) => {
+	if( !req.body.mobile ) {
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+		.json(response.required({message: 'Valid Mobile Number is required'}));
+	}
+	console.log(req.body);
+};

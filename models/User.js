@@ -32,6 +32,7 @@ UserSchema 	= new Schema({
 	},
 	mobile: {
 		type: String,
+		unique: 'This mobile number is already registered with us',
 		maxlength: [200, 'Mobile Number cannot be more then {MAXLENGTH} characters.']
 	},
 	business_name: {
