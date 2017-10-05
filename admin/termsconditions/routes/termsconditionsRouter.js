@@ -10,7 +10,7 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		url: '/termsconditions',
 		controller: 'termsconditionsCtrl',
 		templateUrl: 'termsconditions/views/termsconditions.html',
-		data: {pageTitle: 'Manage Terms & Conditions'},
+		data: {pageTitle: 'Manage CMS'},
 		resolve: {
 		    deps: ['$ocLazyLoad', function($ocLazyLoad) {
 		        return $ocLazyLoad.load({
