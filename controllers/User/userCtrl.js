@@ -12,18 +12,31 @@ const
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
 exports.register = (req, res, next) => {
-	if( !req.body.email || !req.body.password ){
+	if( !req.body.email || !req.body.password || !req.body.mobile ){
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
-				.json(response.required({message: 'Email and Password is required'}));
+				.json(response.required({message: 'Email Password and Mobile is required'}));
 	}
-	_.assign(req.body, {ip: req.ip});
-	let user = new User(req.body);
-	user.save()
-	.then(user => {
-		return new Promise((resolve, reject) => {
+	async.waterfall([
+		function (done) {
+			twilio.isValidNumber(req.body.mobile)
+			.then(response => done(null, response))
+			.catch(err => done({errors:{mobile:{message:'Enter a valid Mobile Number'}}}));
+		},
+		function (isValid, done) {
+			_.assign(req.body, {ip: req.ip});
+			let user = new User(req.body);
+			user.save(function (err, user) {
+				if(err){
+					done(err, null);
+				} else {
+					done(null, user);
+				}
+			});
+		},
+		function (user, done) {
 			mail.send({
 				subject: 'New User Registration',
-				html: './public/email_templates/user/register.html',
+				html: './public/email_templates/user/signup.html',
 				from: config.mail.from, 
 				to: user.email,
 				emailData : {
@@ -32,15 +45,16 @@ exports.register = (req, res, next) => {
 		   		}
 			}, (err, success) => {
 				if(err){
-					reject(err);
+					done(err);
 				} else {
-					resolve(success);
+					res.json(response.success({
+						success: true, 
+						message: 'An account verification email has been sent on your email address, make sure to check inbox/spam folder'
+					}));
 				}
 			});
-		});	
-	})
-	.then(result => res.json(response.success({success: true, message: 'An account verification email has been sent on your email address, make sure to check inbox/spam folder'})) )
-	.catch(err => {
+		}
+	], function (err) {
 		User.remove({email: req.body.email});
 		res
 		.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
