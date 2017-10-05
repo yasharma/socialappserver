@@ -23,7 +23,7 @@ const config = {
 		    	pass: process.env.PASSWORD
 		    }
 		},
-		from: `Social Proof Notification ${process.env.USERNAME}`
+		from: 'Social Proof Notification <noreply@socialproof.com>'
 	},
 	twilio: {
 		number: process.env.TWILIO_NUMBER,

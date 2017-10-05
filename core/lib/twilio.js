@@ -19,10 +19,9 @@ module.exports = {
             .catch(error => reject(error));
         });    
     },
-
-    validNumber : (number) => {
+    isValidNumber : (number) => {
         return new Promise((resolve, reject) => {
-            client.lookups.v1.phoneNumbers(`${countryCode}${number}`)
+            client.lookups.v1.phoneNumbers(number)
             .fetch()
             .then(response => resolve(true))
             .catch(error => reject(false));    

@@ -16,14 +16,13 @@ function gmailSMTP(opt, cb) {
 
 // Using sendgrid SMTP
 function sendgridSMTP(opt, cb) {
-	console.log("in sendgrid smtp--------")
     var sendgrid     = config.sendgrid,
     transporter     = nodemailer.createTransport(sgTransport(sendgrid));
     sendMailer(opt, transporter, cb);
 }
 
 function sendMailer(opt, transporter, cb) {
-	transporter.verify((error, success) => {
+	/*transporter.verify((error, success) => {
 	   	if (error) {
 	   		console.log("in transporter.verify-------"+error);
 	        cb(error);
@@ -46,6 +45,22 @@ function sendMailer(opt, transporter, cb) {
 	   		    }
 	   		});
 	   	}
+	});*/
+
+	// setup email data with unicode symbols
+	let mailOptions = {
+	    from: opt.from || config.mail.from, // sender address
+	    to: opt.to, // list of receivers
+	    subject: opt.subject, // Subject line
+	    html: template.render(fs.readFileSync(opt.html, 'utf-8'), null, opt.emailData), // html body
+	}; 
+	// send mail with defined transport object
+	transporter.sendMail(mailOptions, (error, info) => {
+	    if (error) {
+	        cb(error);
+	    } else {
+	    	cb(null, info);
+	    }
 	});
 }
 
@@ -54,7 +69,6 @@ exports.send = function (opt, cb) {
         stubMail(opt, cb);
     } else {
         if (config.mailTransporter === 'sendgrid'){
-        	console.log('in---sendgrid');
             sendgridSMTP(opt, cb);
         } else if (config.mailTransporter === 'gmail') {
             gmailSMTP(opt, cb);
