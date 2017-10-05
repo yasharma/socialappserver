@@ -10,7 +10,7 @@ const config = {
   },
   server: {
     host: 'http://www.socialproof.com',
-    PORT: process.env.PORT || 9000
+    PORT: process.env.PORT || 8028
   },
   mail:{
     poolConfig : {
