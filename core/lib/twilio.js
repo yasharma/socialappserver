@@ -21,7 +21,7 @@ module.exports = {
     },
     isValidNumber : (number) => {
         return new Promise((resolve, reject) => {
-            client.lookups.v1.phoneNumbers(number)
+            client.lookups.v1.phoneNumbers(`${countryCode}${number}`)
             .fetch()
             .then(response => resolve(true))
             .catch(error => reject(false));    
