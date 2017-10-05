@@ -35,6 +35,7 @@ UserSchema 	= new Schema({
 	},
 	mobile: {
 		type: String,
+		unique: 'This mobile number is already registered with us',
 		maxlength: [200, 'Mobile Number cannot be more then {MAXLENGTH} characters.']
 	},
 	business_name: {
@@ -79,7 +80,12 @@ UserSchema 	= new Schema({
 	},
 	salt: { type: String },
 	lastLoggedIn: { type: Date },
-	ip: { type: String }
+	ip: { type: String },
+	/*subscription_plan: {
+		name: {
+			type: 
+		}
+	}*/
 },{
     timestamps: {
         createdAt: 'created_at',

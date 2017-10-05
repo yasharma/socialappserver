@@ -8,6 +8,7 @@ const
 	_ 			= require('lodash'),
 	jwt 	 	= require('jsonwebtoken'),
 	mail 	 	= require(path.resolve('./core/lib/mail')),
+	twilio	 	= require(path.resolve('./core/lib/twilio')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
 exports.register = (req, res, next) => {
@@ -15,10 +16,10 @@ exports.register = (req, res, next) => {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				.json(response.required({message: 'Email and Password is required'}));
 	}
-	
+	_.assign(req.body, {ip: req.ip});
 	let user = new User(req.body);
 	user.save()
-	/*.then(user => {
+	.then(user => {
 		return new Promise((resolve, reject) => {
 			mail.send({
 				subject: 'New User Registration',
@@ -26,7 +27,7 @@ exports.register = (req, res, next) => {
 				from: config.mail.from, 
 				to: user.email,
 				emailData : {
-		   		    url: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
+		   		    signupLink: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
 		   		    email: user.email
 		   		}
 			}, (err, success) => {
@@ -37,7 +38,7 @@ exports.register = (req, res, next) => {
 				}
 			});
 		});	
-	})*/
+	})
 	.then(result => res.json(response.success({success: true, message: 'An account verification email has been sent on your email address, make sure to check inbox/spam folder'})) )
 	.catch(err => {
 		User.remove({email: req.body.email});
@@ -127,15 +128,102 @@ exports.verifyEmail = (req, res, next) => {
  * Forgot for reset password (forgot POST)
  */
 exports.forgot = (req, res, next) => {
-	if(!req.body || !req.body.email){
-		res.status(400).json(
-			response.errors({
-				message: 'Email field is required', 
-				success: false,
-			})	
-		);
-		return;
+
+	if( (!req.body.email || !req.body.mobile ) && !req.body.type){
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+			.json(response.required({message: 'Email or mobile number is required'}));
 	}
+	if( req.body.type === 'email' && req.body.email ) {
+		forgotByEmail(req, res, next);
+	} else if(req.body.type === 'mobile' && req.body.mobile) {
+		forgotByMobile(req, res, next);
+	} else {
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+			.json(response.required({message: 'Email or mobile number is required'}));
+	}
+};
+
+/**
+ * Reset password GET from email token
+ */
+exports.validateResetToken = (req, res, next) => {
+	User.count({ "reset_password.token": req.params.token, "reset_password.timestamp": { $gt: Date.now() }, "reset_password.status": true } , function(err, user){
+    	if(user === 0){
+    		if(process.env.NODE_ENV === 'test'){
+    			return res.sendStatus(400);
+    		}
+    		return res.redirect('/invalid');
+    	} else {
+	    	if(process.env.NODE_ENV === 'test'){
+				return res.sendStatus(200);
+			}
+			res.redirect(`/reset-password/${req.params.token}`);	
+    	}
+    });
+};
+
+/**
+ * Reset password POST from email token
+ */
+exports.reset = function (req, res, next) {
+
+	async.waterfall([
+		function(done){
+			User.findOne(
+				{ "reset_password.token": req.params.token, "reset_password.timestamp": { $gt: Date.now() }, "reset_password.status": true }, 
+				{email: 1, password: 1, reset_password: 1, firstname:1},
+				function(err, user){
+					if(!err && user){
+						user.password = req.body.password;
+						user.reset_password = {
+							status: false
+						};
+						user.save(function(err, saved){
+							if(err){
+								return next(err);
+							} else {
+								// Remove sensitive data before return authenticated user
+	                    		user.password = undefined;
+								res.json(
+									response.success({
+										success: true,
+										message: 'Password has been changed successfully.'
+									})	
+								);
+								done(err, user);
+							}
+						});
+					} else {
+						res.status(400).json(
+							response.error({
+								source: err,
+								success: false,
+				        		message: 'Password reset token is invalid or has been expired.'	
+							})
+				        );
+					}	
+				}
+			);	
+		}/*,
+		function(user, done){
+			mail.send({
+				subject: 'Your password has been changed',
+				html: './public/mail/user/reset-password-confirm.html',
+				from: config.mail.from, 
+				to: user.email,
+				emailData : {
+					firstname: user.firstname || 'User'
+				}
+			},done);
+		}*/
+	], function (err) {
+		if (err) {
+			return next(err);
+		}
+	});
+};
+
+function forgotByEmail(req, res, next) {
 	async.waterfall([
 		// find the user
 		function(done){
@@ -214,7 +302,7 @@ exports.forgot = (req, res, next) => {
 			}, function(err, success){
 				if(err){
 					res.status(500).json(
-						response.errors({
+						response.error({
 							source: err,
 							message: 'Failure sending email',
 							success: false
@@ -235,84 +323,81 @@ exports.forgot = (req, res, next) => {
 			res.status(500).json( response.error( err ) );
 		}
 	});
-};
-
-/**
- * Reset password GET from email token
- */
-exports.validateResetToken = (req, res, next) => {
-	User.count({ "reset_password.token": req.params.token, "reset_password.timestamp": { $gt: Date.now() }, "reset_password.status": true } , function(err, user){
-    	if(user === 0){
-    		if(process.env.NODE_ENV === 'test'){
-    			return res.sendStatus(400);
-    		}
-    		return res.redirect('/invalid');
-    	} else {
-	    	if(process.env.NODE_ENV === 'test'){
-				return res.sendStatus(200);
-			}
-			res.redirect(`/reset-password/${req.params.token}`);	
-    	}
-    });
-};
-
-/**
- * Reset password POST from email token
- */
-exports.reset = function (req, res, next) {
+}
+function random() {
+	let string = "QWERTYUIOPLKJHGFDSAZXCVBNM12346790";
+	let rand = string.split('');
+	let shuffle = _.shuffle(rand);
+	let num = _.slice(shuffle,0,4);
+	return num.join("");
+}
+function forgotByMobile(req, res, next) {
+	if( !req.body.mobile ) {
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+		.json(response.required({message: 'Valid Mobile Number is required'}));
+	}
 
 	async.waterfall([
+		// find the user
 		function(done){
-			User.findOne(
-				{ "reset_password.token": req.params.token, "reset_password.timestamp": { $gt: Date.now() }, "reset_password.status": true }, 
-				{email: 1, password: 1, reset_password: 1, firstname:1},
-				function(err, user){
-					if(!err && user){
-						user.password = req.body.password;
-						user.reset_password = {
-							status: false
-						};
-						user.save(function(err, saved){
-							if(err){
-								return next(err);
-							} else {
-								// Remove sensitive data before return authenticated user
-	                    		user.password = undefined;
-								res.json(
-									response.success({
-										success: true,
-										message: 'Password has been changed successfully.'
-									})	
-								);
-								done(err, user);
-							}
-						});
-					} else {
-						res.status(400).json(
-							response.errors({
-								source: err,
-								success: false,
-				        		message: 'Password reset token is invalid or has been expired.'	
-							})
-				        );
-					}	
+			User.findOne({ mobile: req.body.mobile, role: { $ne: "admin" } }, 'email email_verified deactivate mobile status',function(err, user){
+				if(err){
+					done(err, null);
+				} else {
+					let errors = null, error = false;
+					switch(_.isNull(user) || !_.isNull(user)){
+						// 1. IF User Not Found in Database
+						case _.isNull(user):
+							errors = { name: 'Authentication failed', message: 'No account with that mobile number has been found', success: false};
+							error = true;
+							break;
+
+						// 2. IF User Email is Not Verified
+						case (!user.email_verified):
+							errors = { name: 'Authentication failed', message: 'Your registered email is not verified, kindly verify your email.', success: false};
+							error = true;
+							break;
+
+						// 3. IF User has deactivate his account
+						case (user.deactivate):
+							errors = { name: 'Authentication failed', message: 'Your account is deactivate.', success: false};
+							error = true;
+							break;
+
+						// 4. IF Admin has Deactivate User Account
+						case (!user.status && user.email_verified):
+							errors = { name: 'Authentication failed', message: 'Your account is deactivated by admin, please contact admin.', success: false};
+							error = true;
+							break;
+
+						default: 
+							error = false;
+					}
+					done(errors, user);
 				}
-			);	
-		}/*,
-		function(user, done){
-			mail.send({
-				subject: 'Your password has been changed',
-				html: './public/mail/user/reset-password-confirm.html',
-				from: config.mail.from, 
-				to: user.email,
-				emailData : {
-					firstname: user.firstname || 'User'
+			});
+		},
+	    // Lookup user by email
+	    function (user, done) {
+	    	let token = random();
+			User.update(
+				{_id: user._id},
+				{ reset_password: { token: token, timestamp: Date.now() + 86400000, status: true} }, 
+				{ runValidators: true, setDefaultsOnInsert: true },
+				function(err, result){
+					done(err, token, user);
 				}
-			},done);
-		}*/
+			);
+	    },
+		// If valid email, send reset email using service
+		function(token, user, done){
+	        twilio.sms(`Verification code - ${token}`, req.body.mobile)
+			.then(result => res.json(response.success({success: true, message: 'Verification code has been sent on your mobile number'})))
+			.catch(error => done(error));
+		}
 	], function (err) {
-		if (err) {
-			return next(err);
+		if(err){
+			res.status(500).json( response.error( err ) );
 		}
 	});
 };

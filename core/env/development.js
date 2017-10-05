@@ -25,7 +25,13 @@ const config = {
 		},
 		from: `Social Proof Notification ${process.env.USERNAME}`
 	},
-  sendgrid: {
+	twilio: {
+		number: process.env.TWILIO_NUMBER,
+		accountSid: process.env.ACCOUNT_SID,
+		authToken: process.env.AUTH_TOKEN,
+		countryCode: '+91'
+	},
+  	sendgrid: {
         auth: {
             api_key: process.env.SENDGRID_API_KEY
         }
