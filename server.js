@@ -11,6 +11,7 @@ const express 	= require('express'),
 	mongoose 	= require('mongoose'),
 	helmet 		= require('helmet'),
 	compress 	= require('compression'),
+	cors 		= require('cors'),
 	routes 		= require(path.resolve('./core/routes')),
 	Admin 		= require(path.resolve('./controllers/Admin/adminCtrl')),
 	config 		= require(require(path.resolve('./core/env')).getEnv),
@@ -23,16 +24,9 @@ let conn = mongoose.connection;
 conn.on('error', console.error.bind(console, 'connection error:'));
 
 /**
-enable cors in development mode
+enable cors
 */
-if( process.env.NODE_ENV === 'development' ){
-	var cors = require('cors');
-	var corsOptions = {
-	  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-	};
-	app.use(cors());	
-}
-
+app.use(cors());	
 
 /* Node.js compression middleware
 * The middleware will attempt to compress response bodies for all request that traverse through the middleware
