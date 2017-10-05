@@ -23,24 +23,22 @@ exports.add = (req, res, next) => {
        user.save(function(err, user) {
 	        if(err)next(err);
 	        else{
-	          mail.send({
+	      	mail.send({
 				subject: 'New User Registration',
 				html: './public/email_templates/user/register.html',
-				from: "support@zenbrisa.com", 
+				from: config.mail.from, 
 				to: user.email,
 				emailData : {
-		   		    url: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
+		   		    signupLink: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
 		   		    email: user.email
-		   		 }
-				}, (err, success) => {
-					if(err){
-					    console.log("error------mail sent"+err);
-						reject(err);
-					} else {
-						console.log("success------mail sent"+success);
-						resolve(success);
-					}
-				});
+		   		}
+			}, (err, success) => {
+				if(err){
+					reject(err);
+				} else {
+					resolve(success);
+				}
+			});
 	            res.json({
 		          responsedata:{
 		            message:"user signup successfully",
