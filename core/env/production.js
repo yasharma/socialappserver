@@ -9,7 +9,7 @@ const config = {
     }
   },
   server: {
-    host: 'http://www.socialproof.com',
+    host: 'http://158.85.67.166:8027',
     PORT: process.env.PORT || 8028
   },
   mail:{
