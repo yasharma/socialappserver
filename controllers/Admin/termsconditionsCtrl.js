@@ -3,24 +3,24 @@ const path 	 	= require('path'),
 	async 	 	= require('async'),
 	_ 			= require('lodash'),
 	mongoose 	= require('mongoose'),
-	CMS 	 	= require(path.resolve('./models/Cms')),
+	TermsConditions = require(path.resolve('./models/TermsConditions')),
 	datatable 	= require(path.resolve('./core/lib/datatable')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
 exports.add = (req, res, next) => {
-	if(!req.body.title || !req.body.type) {
+	if(!req.body.title ) {
 		res.status(422).json({
 			errors: {
-				message: 'Title and type is required', 
+				message: 'Title  is required', 
 				success: false,
 			}	
 		});
 		return;
 	}	 
     
-    let cms = new CMS(req.body);
-    cms.save()
+    let termsconditions = new TermsConditions(req.body);
+    termsconditions.save()
     .then(result => res.json({success: true}))
     .catch(error => res.json({errors: error}));
 };
@@ -37,7 +37,7 @@ exports.edit = (req, res, next) => {
 	}	 
     
     
-    CMS.update({_id: req.body._id},{$set: { title: req.body.title, type: req.body.type, description: req.body.description }}, 
+    TermsConditions.update({_id: req.body._id},{$set: { title: req.body.title, type: req.body.type, description: req.body.description }}, 
     	function (error, result) {
     		if(error){
     			res.json({errors: error});
@@ -48,10 +48,10 @@ exports.edit = (req, res, next) => {
 };
 
 exports.view = (req, res, next) => {
-	if(!req.params.type) {
+	if(!req.params.id) {
 		res.status(422).json({
 			errors: {
-				message: 'Type is required', 
+				message: 'Id is required', 
 				success: false,
 			}	
 		});
@@ -59,7 +59,7 @@ exports.view = (req, res, next) => {
 	}	 
     
     
-    CMS.findOne({type: req.params.type}, 
+    TermsConditions.findOne({_id: req.params.id}, 
     	function (error, result) {
     		if(error){
     			res.json({errors: error});
@@ -75,8 +75,9 @@ exports.list = (req, res, next) => {
 	if( reqData.title ){
 		operation.title = {$regex: new RegExp(`${reqData.title}`), $options:"im"};
 	}
-	if( reqData.type ){
-		operation.type = {$regex: new RegExp(`${reqData.type}`), $options:"im"};
+
+	if( reqData.description ){
+		operation.description = {$regex: new RegExp(`${reqData.description}`), $options:"im"};
 	}
 	if( reqData.status === "true" || reqData.status === "false" ){
 		operation.status = reqData.status == "true" ? true : false;
@@ -89,7 +90,7 @@ exports.list = (req, res, next) => {
 			if( reqData.customActionType === 'group_action' ) {
 				let _ids = _.map(reqData.id, mongoose.Types.ObjectId);
 				let _status =  ( reqData.customActionName === 'inactive' ) ? false : true;
-				CMS.update({_id: {$in:_ids}},{$set:{status: _status}},{multi:true}, done);
+				TermsConditions.update({_id: {$in:_ids}},{$set:{status: _status}},{multi:true}, done);
 			} else {
 				done(null, null);
 			}
@@ -97,10 +98,10 @@ exports.list = (req, res, next) => {
 		function (data, done) {
 			async.parallel({
 				count: (done) => {
-					CMS.count(operation,done);
+					TermsConditions.count(operation,done);
 				},
 				records: (done) => {
-					CMS.find(operation,done);	
+					TermsConditions.find(operation,done);	
 				}
 			}, done);	
 		}
@@ -119,7 +120,7 @@ exports.list = (req, res, next) => {
 			}
 		};
 		
-		let dataTableObj = datatable.cmsTable(status_list, result.count, result.records, reqData.draw);
+		let dataTableObj = datatable.termsConditionsTable(status_list, result.count, result.records, reqData.draw);
 		res.json(dataTableObj);
 	});
 };

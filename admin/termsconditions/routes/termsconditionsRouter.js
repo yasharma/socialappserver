@@ -3,7 +3,7 @@
 /* Application routes */
 mimicTrading.config(['$stateProvider',function($stateProvider){
 
-	let termsconditionsResolver = ['cmsSvr', '$stateParams', (termsconditionsSvr, $stateParams) => termsconditionsSvr.getCmsById($stateParams.id)];
+	let termsconditionsResolver = ['termsconditionsSvr', '$stateParams', (termsconditionsSvr, $stateParams) => termsconditionsSvr.getTermsConditionsById($stateParams.id)];
 
 	$stateProvider
 	.state('termsconditions',{
@@ -43,7 +43,7 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		data: {pageTitle: 'Update Terms & Conditions Detail'},
 		authenticate: true,
 		resolve: {
-		    cms: termsconditionsResolver
+		    termsconditions: termsconditionsResolver
 		}
 	})
 	.state('viewTermsConditions',{
@@ -53,7 +53,7 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		data: {pageTitle: 'View Terms & Conditions Detail'},
 		authenticate: true,
 		resolve: {
-		    cms: termsconditionsResolver
+		    termsconditions: termsconditionsResolver
 		}
 	});
 }]);

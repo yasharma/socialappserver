@@ -1,14 +1,14 @@
 'use strict';
-mimicTrading.controller('termsconditionsViewCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','termsconditionsSvr','cms',
-	($scope, $state, RestSvr, $rootScope, termsconditionsSvr, cms) => {
+mimicTrading.controller('termsconditionsViewCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','termsconditions',
+	($scope, $state, RestSvr, $rootScope, appSvr, termsconditions) => {
 		
 		$scope.$on('$viewContentLoaded', () => {
 			/**
 			 * Initialize the jquery components when view contents loaded properly
 			 */
-			termsconditionsSvr.init();
+			appSvr.init();
 		});
-		$scope.cms = cms.record;
-		$scope.goToEdit = () => $state.go('editTermsConditions',{id: $scope.cms.type});
+		$scope.termsconditions = termsconditions.record;
+		$scope.goToEdit = () => $state.go('editTermsConditions',{id: $scope.termsconditions.id});
 	}
 ]);
