@@ -17,15 +17,15 @@ function getRandomInt(min, max) {
       return (Math.floor(Math.random() * (max - min)) + min).toString(); 
   };
 exports.add = (req, res, next) => { 
-    req.body.password=crypto.createHash('md5').update(getRandomInt()).digest("hex");
 
+    req.body.password=crypto.createHash('md5').update(getRandomInt()).digest("hex");
     let user = new User(req.body);
        user.save(function(err, user) {
 	        if(err)next(err);
 	        else{
 	      	mail.send({
 				subject: 'New User Registration',
-				html: './public/email_templates/user/register.html',
+				html: './public/email_templates/user/signup.html',
 				from: config.mail.from, 
 				to: user.email,
 				emailData : {
@@ -34,21 +34,20 @@ exports.add = (req, res, next) => {
 		   		}
 			}, (err, success) => {
 				if(err){
-					reject(err);
+					next(err);
 				} else {
-					resolve(success);
+					res.json({
+			          responsedata:{
+			            message:"user signup successfully",
+			            user:user,
+			            success:1
+			          }    
+	       	       })
 				}
 			});
-	            res.json({
-		          responsedata:{
-		            message:"user signup successfully",
-		            user:user,
-		            success:1
-		           }    
-	       	    })
+	           
 	        }
-	      
-	   });
+	  });
 };
 
 exports.edit = (req, res, next) => {

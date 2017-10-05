@@ -6,6 +6,7 @@ const
 	Setting 	= require(path.resolve('models/Setting')),
 	_ 			= require('lodash'),
 	jwt 	 	= require('jsonwebtoken'),
+	async		= require('async'),
 	mail 	 	= require(path.resolve('./core/lib/mail')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
@@ -82,7 +83,7 @@ exports.forgotpassword= (req,res,next) => {
 	        success: 0} 
 	      });
 	  }
-/*  let email = req.body.email,
+  let email = req.body.email,
   tmpEmail = _.escapeRegExp(req.body.email);
 
   async.waterfall([
@@ -108,19 +109,23 @@ exports.forgotpassword= (req,res,next) => {
     function (user, done) {
       
 		mail.send({
-			subject: 'Forgot Password',
-			html: './public/email_templates/user/admin_forgot_password.html',
+			subject: 'Social-Proof Forgot Password',
+			html: './public/email_templates/admin/forgot_password.html',
 			from: config.mail.from, 
 			to: user.email,
 			emailData : {
-	   		    email: user.email,
+				name    : user.customer_name,
+	   		    username: user.email,
 	   		    password: user.password
 	   		}
 		}, (err, success) => {
 			if(err){
-				reject(err);
+				done(err);
 			} else {
-				resolve(success);
+				res.json({
+					success: true, 
+					message: 'Email has been sent on your email address with username and password'
+				});
 			}
 		});
     }
@@ -129,7 +134,7 @@ exports.forgotpassword= (req,res,next) => {
       return res.json({responsedata:{name:"error",status:0,message:err.message}});
     }
       return res.json({responsedata:{name:"success",status:1,message:result}});
-  });*/
+  });
 
 }
 
