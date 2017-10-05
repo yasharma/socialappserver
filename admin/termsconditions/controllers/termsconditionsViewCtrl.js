@@ -9,6 +9,6 @@ mimicTrading.controller('termsconditionsViewCtrl', ['$scope', '$state', 'RestSvr
 			appSvr.init();
 		});
 		$scope.termsconditions = termsconditions.record;
-		$scope.goToEdit = () => $state.go('editTermsConditions',{id: $scope.termsconditions.id});
+		$scope.goToEdit = () => $state.go('editTermsConditions',{id: $state.params.id});
 	}
 ]);
