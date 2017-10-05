@@ -9,17 +9,17 @@ mimicTrading.controller('termsconditionsCreateCtrl', ['$scope', '$state', 'RestS
 			appSvr.init();
 		});
 		
-		$scope.cms_type = termsconditionsvr.getCmsTypes();
+		$scope.termsconditions_type = termsconditionsSvr.getTermsConditionsTypes();
 
-		$scope.new_cms = (isValid) => {
+		$scope.new_termscondition = (isValid) => {
 			if( !isValid ){
 				return;
 			}
 			
 			$scope.isLoading = true;
-			RestSvr.post('cms/add', $scope.cms)
+			RestSvr.post('termsconditions/add', $scope.termsconditions)
 			.then(response => {
-				$state.go('cms');
+				$state.go('termsconditions');
 			})
 			.catch(errors => {
 				App.alert({type: ('danger'), icon: ( 'warning'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'});

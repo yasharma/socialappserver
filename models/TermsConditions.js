@@ -6,11 +6,8 @@ const
     config          = require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
     Schema          = mongoose.Schema,
 
-CMSSchema   = new Schema({
+TermsCondSchema   = new Schema({
     title: {
-        type: String,
-    },
-    type: {
         type: String,
     },
     description: {
@@ -28,4 +25,4 @@ CMSSchema   = new Schema({
 });
 
 
-module.exports = mongoose.model('CMS', CMSSchema, 'cms');
+module.exports = mongoose.model('TermsConditions', TermsCondSchema, 'termsconditions');
