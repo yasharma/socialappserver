@@ -82,8 +82,36 @@ var TableAjax = function () {
                 grid.setAjaxParam("customActionType", "group_action");
                 grid.setAjaxParam("customActionName", action.val());
                 grid.setAjaxParam("id", grid.getSelectedRows());
-                grid.getDataTable().ajax.reload();
-                grid.clearAjaxParams();
+                if(action.val()==="remove"){
+                  bootbox.confirm({
+                    title: "Delete User",
+                    message: "Are you sure you want to delete?",
+                    buttons: {
+                        cancel: {
+                            label: '<i class="fa fa-times"></i> Cancel'
+                        },
+                        confirm: {
+                            label: '<i class="fa fa-check"></i> Confirm'
+                        }
+                    },
+                    callback: function (result) {
+                        if(result===true){
+                          grid.getDataTable().ajax.reload();
+                          grid.clearAjaxParams();
+                        }
+                        else{
+                           return;
+                        }
+                    },
+                    size:"small"
+                 });
+                }
+                else{
+                  grid.getDataTable().ajax.reload();
+                  grid.clearAjaxParams();
+                }
+             
+                
             } else if (action.val() === "") {
                 App.alert({
                     type: 'danger',
