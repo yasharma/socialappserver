@@ -23,8 +23,12 @@ module.exports = {
         return new Promise((resolve, reject) => {
             client.lookups.v1.phoneNumbers(`${countryCode}${number}`)
             .fetch()
-            .then(response => resolve(true))
-            .catch(error => reject(false));    
+            .then(response => {
+                resolve(true);
+            })
+            .catch(error => {
+                reject(false);
+            });    
         });
     }
 }; 
