@@ -16,6 +16,7 @@ exports.register = (req, res, next) => {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				.json(response.required({message: 'Email Password and Mobile is required'}));
 	}
+	
 	async.waterfall([
 		function (done) {
 			twilio.isValidNumber(req.body.mobile)
@@ -34,13 +35,14 @@ exports.register = (req, res, next) => {
 			});
 		},
 		function (user, done) {
+			let baseUrl = `${req.protocol}://${req.headers.host}`;
 			mail.send({
 				subject: 'New User Registration',
 				html: './public/email_templates/user/signup.html',
 				from: config.mail.from, 
 				to: user.email,
 				emailData : {
-		   		    signupLink: `${config.server.host}:${config.server.PORT}/api/verify_email/${user.salt}`,
+		   		    signupLink: `${baseUrl}/api/verify_email/${user.salt}`,
 		   		    email: user.email
 		   		}
 			}, (err, success) => {
@@ -126,13 +128,13 @@ exports.verifyEmail = (req, res, next) => {
 		function(err, user){
     		if(err || !user){
     			if( process.env.NODE_ENV === 'development' ){
-    				res.redirect('http://localhost:9000/?emailVerified=false');	
+    				res.redirect(`${config.server.host}/?emailVerified=false`);	
     			} else {
-    				res.redirect('/?emailVerified=false');
+    				res.redirect(`${config.server.host}/?emailVerified=false`);
     			}
     			
     		} else {
-				res.redirect('/?emailVerified=true');
+				res.redirect(`${config.server.host}/?emailVerified=true`);
     		}
     	}
     );
@@ -171,7 +173,7 @@ exports.validateResetToken = (req, res, next) => {
 	    	if(process.env.NODE_ENV === 'test'){
 				return res.sendStatus(200);
 			}
-			res.redirect(`/reset-password/${req.params.token}`);	
+			res.redirect(`${config.server.host}/reset-password/${req.params.token}`);	
     	}
     });
 };
@@ -185,7 +187,7 @@ exports.reset = function (req, res, next) {
 		function(done){
 			User.findOne(
 				{ "reset_password.token": req.params.token, "reset_password.timestamp": { $gt: Date.now() }, "reset_password.status": true }, 
-				{email: 1, password: 1, reset_password: 1, firstname:1},
+				{email: 1, password: 1, reset_password: 1, customer_name:1},
 				function(err, user){
 					if(!err && user){
 						user.password = req.body.password;
@@ -218,18 +220,18 @@ exports.reset = function (req, res, next) {
 					}	
 				}
 			);	
-		}/*,
+		},
 		function(user, done){
 			mail.send({
 				subject: 'Your password has been changed',
-				html: './public/mail/user/reset-password-confirm.html',
+				html: './public/email_templates/user/reset-password-confirm.html',
 				from: config.mail.from, 
 				to: user.email,
 				emailData : {
-					firstname: user.firstname || 'User'
+					customer_name: user.customer_name || 'User'
 				}
 			},done);
-		}*/
+		}
 	], function (err) {
 		if (err) {
 			return next(err);
@@ -241,7 +243,7 @@ function forgotByEmail(req, res, next) {
 	async.waterfall([
 		// find the user
 		function(done){
-			User.findOne({ email: req.body.email, role: { $ne: "admin" } }, 'email email_verified deactivate status',function(err, user){
+			User.findOne({ email: req.body.email, role: { $ne: "admin" } }, 'email email_verified deactivate status customer_name',function(err, user){
 				if(err){
 					done(err, null);
 				} else {
@@ -299,19 +301,14 @@ function forgotByEmail(req, res, next) {
 		// If valid email, send reset email using service
 		function(token, user, done){
 			let baseUrl = `${req.protocol}://${req.headers.host}`;
-			return res.json(
-				response.success({
-					success: true,
-	        		message: `${baseUrl}/reset/${token}`
-				})	
-	        );
-			/*mail.send({
+			mail.send({
 				subject: 'Reset your password',
-				html: './public/mail/user/reset-password.html',
+				html: './public/email_templates/user/forgotpassword.html',
 				from: config.mail.from, 
 				to: user.email,
 				emailData : {
-		   		    url: `${baseUrl}/reset/${token}`
+		   		    changePasswordLink: `${baseUrl}/api/reset/${token}`,
+		   		    customer_name: user.customer_name
 		   		}
 			}, function(err, success){
 				if(err){
@@ -330,7 +327,7 @@ function forgotByEmail(req, res, next) {
 						})	
 			        );
 				}
-			});*/
+			});
 		}
 	], function (err) {
 		if(err){

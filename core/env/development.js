@@ -9,7 +9,7 @@ const config = {
     }
 	},
 	server: {
-    host: 'http://localhost',
+    host: 'http://localhost:3000',
 		PORT: 9000
 	},
 	mail:{
