@@ -45,6 +45,7 @@ admin.use(expressJWT({
 	path:[
 		'/admin/register',
 		'/adminapi/login',
+		'/adminapi/forgotpassword',
 		'/admin/forgot',
 		/^\/admin\/reset\/.*/,
 		/^\/admin\/generate-password\/.*/
