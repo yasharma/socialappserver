@@ -8,7 +8,7 @@ const
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
 exports.getCmsLinks = (req, res, next) => {
-	CMS.find({},{title: 1, slug: 1, url: 1},(err, links) => {
+	CMS.find({status: true},{title: 1, slug: 1, url: 1},(err, links) => {
 		if(err) {
 			return res.json( response.error( err ) );
 		}
