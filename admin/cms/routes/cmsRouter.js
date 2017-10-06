@@ -3,13 +3,13 @@
 /* Application routes */
 mimicTrading.config(['$stateProvider',function($stateProvider){
 
-	let termsconditionsResolver = ['termsconditionsSvr', '$stateParams', (termsconditionsSvr, $stateParams) => termsconditionsSvr.getTermsConditionsById($stateParams.id)];
+	let cmsResolver = ['cmsSvr', '$stateParams', (cmsSvr, $stateParams) => cmsSvr.getCMSById($stateParams.slug)];
 
 	$stateProvider
-	.state('termsconditions',{
-		url: '/termsconditions',
-		controller: 'termsconditionsCtrl',
-		templateUrl: 'termsconditions/views/termsconditions.html',
+	.state('cms',{
+		url: '/cms',
+		controller: 'cmsCtrl',
+		templateUrl: 'cms/views/cms.html',
 		data: {pageTitle: 'Manage CMS'},
 		resolve: {
 		    deps: ['$ocLazyLoad', function($ocLazyLoad) {
@@ -29,31 +29,31 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		},
 		authenticate: true
 	})
-	.state('newTermsConditions',{
-		url: '/new-termsconditions',
-		controller: 'termsconditionsCreateCtrl',
-		templateUrl: 'termsconditions/views/new_termsconditions.html',
-		data: {pageTitle: 'New Terms & Conditions'},
+	.state('newcms',{
+		url: '/new-cms',
+		controller: 'cmsCreateCtrl',
+		templateUrl: 'cms/views/new_cms.html',
+		data: {pageTitle: 'New CMS'},
 		authenticate: true
 	})
-	.state('editTermsConditions',{
-		url: '/edit-termsconditions/:id',
-		controller: 'termsconditionsEditCtrl',
-		templateUrl: 'termsconditions/views/edit_termsconditions.html',
-		data: {pageTitle: 'Update Terms & Conditions Detail'},
+	.state('editcms',{
+		url: '/edit-cms/:slug',
+		controller: 'cmsEditCtrl',
+		templateUrl: 'cms/views/edit_cms.html',
+		data: {pageTitle: 'Update CMS Detail'},
 		authenticate: true,
 		resolve: {
-		    termsconditions: termsconditionsResolver
+		    cms: cmsResolver
 		}
 	})
-	.state('viewTermsConditions',{
-		url: '/view-termsconditions/:id',
-		controller: 'termsconditionsViewCtrl',
-		templateUrl: 'termsconditions/views/view_termsconditions.html',
-		data: {pageTitle: 'View Terms & Conditions Detail'},
+	.state('viewcms',{
+		url: '/view-cms/:slug',
+		controller: 'cmsViewCtrl',
+		templateUrl: 'cms/views/view_cms.html',
+		data: {pageTitle: 'View CMS Detail'},
 		authenticate: true,
 		resolve: {
-		    termsconditions: termsconditionsResolver
+		    cms: cmsResolver
 		}
 	});
 }]);

@@ -1,5 +1,5 @@
 'use strict';
-mimicTrading.controller('termsconditionsCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr',
+mimicTrading.controller('cmsCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr',
 	($scope, $state, RestSvr, $rootScope, appSvr) => {
 		
 		$scope.$on('$viewContentLoaded', () => {
@@ -9,11 +9,13 @@ mimicTrading.controller('termsconditionsCtrl', ['$scope', '$state', 'RestSvr', '
 			appSvr.init();			
 
 		    TableAjax.init({
-		    	url: 'termsconditions/list/',
+		    	url: 'cms/list/',
 		    	columns: [
 	                { "data": "id", "orderable": false },
                     { "data": "title" },
                     { "data": "description"},
+                    { "data": "meta_title" },
+                    { "data": "meta_description" },
                     { "data": "status" },
                     { "data": "created_date" },
                     { "data": "action", "orderable": false }

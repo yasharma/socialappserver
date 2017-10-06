@@ -43,6 +43,6 @@ mimicTrading.controller('loginCtrl', ['$scope', '$state','$http','RestSvr', 'log
 			.then(() => {
 				$scope.isLoading = false;
 			});
-	  }
+	  };
 	}
 ]);

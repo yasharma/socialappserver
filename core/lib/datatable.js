@@ -1,7 +1,7 @@
 'use strict';
 const moment = require('moment');
 
-exports.termsConditionsTable = (status_list, recordsTotal, data, draw) => {
+exports.cmsTable = (status_list, recordsTotal, data, draw) => {
 	
 	let result = [];
 	for (var i = data.length - 1; i >= 0; i--) {
@@ -12,14 +12,16 @@ exports.termsConditionsTable = (status_list, recordsTotal, data, draw) => {
 				</label>`,
 			title: data[i].title,
 			description: data[i].description,
+			meta_title: data[i].meta_title,
+			meta_description: data[i].meta_description,
 			created_date: moment(data[i].created_at).format('MMM D, YYYY'),
 			status: `<span class="label label-sm label-${status_list.class[data[i].status]}">${status_list.status[data[i].status]}</span>`,
 			action: `
 					<div class="btn-group btn-group-solid">
-						<a href="#!/view-termsconditions/${data[i]._id}" class="btn btn-sm btn-outline blue tooltips" data-original-title="View">
+						<a href="#!/view-cms/${data[i].slug}" class="btn btn-sm btn-outline blue tooltips" data-original-title="View">
 							<i class="fa fa-search"></i>
 						</a>
-						<a href="#!/edit-termsconditions/${data[i]._id}" class="btn btn-sm btn-outline grey-salsa tooltips" data-original-title="Edit">
+						<a href="#!/edit-cms/${data[i].slug}" class="btn btn-sm btn-outline grey-salsa tooltips" data-original-title="Edit">
 							<i class="fa fa-pencil"></i>
 						</a>
 					</div>`

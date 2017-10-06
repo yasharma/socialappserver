@@ -1,6 +1,6 @@
 'use strict';
-mimicTrading.controller('termsconditionsEditCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','termsconditions','termsconditionsSvr',
-	($scope, $state, RestSvr, $rootScope, appSvr, termsconditions, termsconditionsSvr) => {
+mimicTrading.controller('cmsCreateCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','cmsSvr',
+	($scope, $state, RestSvr, $rootScope, appSvr, cmsSvr) => {
 		
 		$scope.$on('$viewContentLoaded', () => {
 			/**
@@ -8,17 +8,18 @@ mimicTrading.controller('termsconditionsEditCtrl', ['$scope', '$state', 'RestSvr
 			 */
 			appSvr.init();
 		});
-		$scope.termsconditions = termsconditions.record;
 		
-		$scope.edit_termsconditions = (isValid) => {
+		$scope.cms_type = cmsSvr.getCMSTypes();
+
+		$scope.new_cms = (isValid) => {
 			if( !isValid ){
 				return;
 			}
 			
 			$scope.isLoading = true;
-			RestSvr.put('termsconditions/edit', $scope.termsconditions)
+			RestSvr.post('cms/add', $scope.cms)
 			.then(response => {
-				$state.go('termsconditions');
+				$state.go('cms');
 			})
 			.catch(errors => {
 				App.alert({type: ('danger'), icon: ( 'warning'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'});
