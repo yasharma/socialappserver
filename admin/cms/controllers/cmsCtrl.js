@@ -13,7 +13,7 @@ mimicTrading.controller('cmsCtrl', ['$scope', '$state', 'RestSvr', '$rootScope',
 		    	columns: [
 	                { "data": "id", "orderable": false },
                     { "data": "title" },
-                    { "data": "description"},
+                    //{ "data": "description"},
                     { "data": "meta_title" },
                     { "data": "meta_description" },
                     { "data": "status" },
