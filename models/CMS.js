@@ -5,16 +5,36 @@ var
     path            = require('path'),
     slug            = require('mongoose-slug-generator'),
     config          = require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
-    mongoose.plugin(slug);
+    
 var    Schema          = mongoose.Schema,
 
 CMSSchema   = new Schema({
+    banner_image:{
+        name: {
+            type: String,
+            default: config.image_name
+        },
+        path: {
+            type: String,
+            default: config.image_path
+        },
+        original_name:  {
+            type: String,
+            default: `${config.image_path}/${config.image_name}`
+        },
+        fullImagePath: {
+            type: String
+        }
+    },
     title: {
         type: String,
     },
     description: {
         type: String
     }, 
+    url: {
+        type: String
+    },
     slug: { 
         type: String, 
         slug: "title",
@@ -36,5 +56,5 @@ CMSSchema   = new Schema({
         updatedAt: 'updated_at'
     }
 });
-
+mongoose.plugin(slug);
 module.exports = mongoose.model('cms', CMSSchema, 'cms');
