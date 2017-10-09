@@ -48,8 +48,9 @@ admin.use(expressJWT({
 		'/admin/register',
 		'/adminapi/login',
 		'/adminapi/forgotpassword',
+		/^\/adminapi\/reset|reset_password\/.*/,
 		'/admin/forgot',
-		/^\/admin\/reset\/.*/,
+		/^\/admin\/reset|reset_password\/.*/,
 		/^\/admin\/generate-password\/.*/
 	]
 }));

@@ -3,10 +3,11 @@ const
 	path 		= require('path'),
 	response 	= require(path.resolve('core/lib/response')),
 	User 		= require(path.resolve('models/User')),
-	Setting 	= require(path.resolve('models/Setting')),
+	//Setting 	= require(path.resolve('models/Setting')),
 	_ 			= require('lodash'),
 	jwt 	 	= require('jsonwebtoken'),
 	async		= require('async'),
+	crypto      = require('crypto'),
 	mail 	 	= require(path.resolve('./core/lib/mail')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
@@ -106,25 +107,39 @@ exports.forgotpassword= (req,res,next) => {
         }
       });
     },
-    function (user, done) {
-      
+	function (user, done) {
+		crypto.randomBytes(20, function (err, buffer) {
+			let token = buffer.toString('hex');
+        	done(err, user, token);
+      	});
+    },
+    function (user, token, done) {
+		User.update(
+			{_id: user._id},
+			{ reset_password: { token: token, timestamp: Date.now() + 86400000, status: true} },
+			function(err, result){
+				done(err, token, user, result);
+			}
+		);
+    },
+    function (token,user, done) {
+      let baseUrl = `${req.protocol}://${req.headers.host}`;
+      let changePasswordLink=`${baseUrl}/adminapi/reset/${token}`;
 		mail.send({
-			subject: 'Social-Proof Forgot Password',
-			html: './public/email_templates/admin/forgot_password.html',
+			subject: 'Social-Proof Reset Password',
+			html: './public/email_templates/admin/forgotpassword.html',
 			from: config.mail.from, 
 			to: user.email,
 			emailData : {
-				name    : user.customer_name,
-	   		    username: user.email,
-	   		    password: user.password
-	   		}
+				changePasswordLink: changePasswordLink
+	  	    }
 		}, (err, success) => {
 			if(err){
 				done(err);
 			} else {
 				res.json({
 					success: true, 
-					message: 'Email has been sent on your email address with username and password'
+					message: 'An email has been sent to the provided email with further instructions.'
 				});
 			}
 		});
@@ -135,14 +150,79 @@ exports.forgotpassword= (req,res,next) => {
     }
       return res.json({responsedata:{name:"success",status:1,message:result}});
   });
-
 }
-
-
-exports.setting = (req, res, next) => {
-
-	let setting = new Setting(req.body);
-		setting.save()
-		.then(user => console.log('New Setting created') )
-		.catch(err => console.log(err));
+/**
+ * Reset password GET from email token
+ */
+exports.validateResetToken = (req, res, next) => {
+	User.count({ "reset_password.token": req.params.token, "reset_password.timestamp": { $gt: Date.now() }, "reset_password.status": true } , function(err, user){
+    	if(user === 0){
+    		if(process.env.NODE_ENV === 'test'){
+    			return res.sendStatus(400);
+    		}
+    		return res.redirect('/invalid');
+    	} else {
+	    	if(process.env.NODE_ENV === 'test'){
+				return res.sendStatus(200);
+			}
+			res.redirect(`http://localhost:${config.server.PORT}/#!/resetpassword/${req.params.token}`);	
+    	}
+    });
 };
+/**
+ * Reset password POST from email token
+ */
+exports.reset = function (req, res, next) {
+	async.waterfall([
+		function(done){
+			User.findOne(
+				{ "reset_password.token": req.params.token, "reset_password.timestamp": { $gt: Date.now() }, "reset_password.status": true }, 
+				{email: 1, password: 1, reset_password: 1},
+				function(err, user){
+					if(!err && user){
+						user.password = req.body.password;
+						user.reset_password = {
+							status: false
+						};
+						user.save(function(err, saved){
+							if(err){
+								return next(err);
+							} else {
+								// Remove sensitive data before return authenticated user
+	                    		user.password = undefined;
+								res.json(
+									response.success({
+										success: true,
+										message: 'Password has been changed successfully.'
+									})	
+								);
+								done(err, user);
+							}
+						});
+					} else {
+						res.status(400).json(
+							response.error({
+								source: err,
+								success: false,
+				        		message: 'Password reset token is invalid or has been expired.'	
+							})
+				        );
+					}	
+				}
+			);	
+		},
+		function(user, done){
+			mail.send({
+				subject: 'Your password has been changed',
+				html: './public/email_templates/admin/reset-password-confirm.html',
+				from: config.mail.from, 
+				to: user.email
+			},done);
+		}
+	], function (err) {
+		if (err) {
+			return next(err);
+		}
+	});
+};
+
