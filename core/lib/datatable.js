@@ -11,9 +11,8 @@ exports.cmsTable = (status_list, recordsTotal, data, draw) => {
 					<span></span>
 				</label>`,
 			title: data[i].title,
-			description: data[i].description,
-			meta_title: data[i].meta_title,
-			meta_description: data[i].meta_description,
+			meta_title: data[i].meta_title || '-',
+			meta_description: data[i].meta_description || '-',
 			created_date: moment(data[i].created_at).format('MMM D, YYYY'),
 			status: `<span class="label label-sm label-${status_list.class[data[i].status]}">${status_list.status[data[i].status]}</span>`,
 			action: `

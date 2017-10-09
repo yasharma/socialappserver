@@ -11,7 +11,7 @@ mimicTrading.controller('cmsCreateCtrl', ['$scope', '$state', 'RestSvr', '$rootS
 		
 		$scope.cms_type = cmsSvr.getCMSTypes();
 
-		$scope.new_cms = (isValid) => {
+		$scope._new_cms = (isValid) => {
 			if( !isValid ){
 				return;
 			}
@@ -29,7 +29,7 @@ mimicTrading.controller('cmsCreateCtrl', ['$scope', '$state', 'RestSvr', '$rootS
 			});
 		};
 
-		$scope._new_cms = (isValid,_data) => {
+		$scope.new_cms = (isValid,_data) => {
 			if( !isValid ){
 				App.scrollTop();
 				return;

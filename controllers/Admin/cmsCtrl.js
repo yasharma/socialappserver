@@ -3,27 +3,64 @@ const path 	 	= require('path'),
 	async 	 	= require('async'),
 	_ 			= require('lodash'),
 	mongoose 	= require('mongoose'),
+	formidable 	= require('formidable'),
 	CMS 		= require(path.resolve('./models/CMS')),
 	datatable 	= require(path.resolve('./core/lib/datatable')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
 exports.add = (req, res, next) => {
-	if(!req.body.title ) {
-		res.status(422).json({
-			errors: {
-				message: 'Title  is required', 
-				success: false,
-			}	
-		});
-		return;
-	}	 
+    // parse a file upload 
+    var form = new formidable.IncomingForm();
     
-    let cms = new CMS(req.body);
-    cms.save()
-    .then(result => res.json({success: true}))
-    .catch(error => res.json({errors: error}));
+    form.uploadDir = "./assets/cms_banner";
+    form.keepExtensions = true;
+    form.parse(req, function(err, fields, files) {
+    	if( err ) {
+    		return res.json({errors: error});
+    	}
+    	if(!fields.title ) {
+			return fields.status(422).json({
+				errors: {
+					message: 'Title  is required', 
+					success: false,
+				}	
+			});
+		}
+		let banner_image = {};
+		if( _.has(files, 'banner_image') ) {
+			banner_image = {
+				name: files.banner_image.name,
+				path: files.banner_image.path
+			}
+			_.assign(fields, {banner_image: banner_image});
+		}
+		if( _.has(fields, '_id') ){
+			edit(res, fields);
+		} else {
+			save(res, fields);
+		}
+    });
 };
+
+function save(res, body) {
+	let cms = new CMS(body);
+	cms.save()
+	.then(result => res.json({success: true}))
+	.catch(error => res.json({errors: error}));
+}
+
+function edit(res, body) {
+
+	CMS.update({_id: body._id},{$set: body}, 
+		function (error, result) {
+			if(error){
+				return res.json({errors: error});
+			}
+			res.json({success: true});
+		}
+	);
+}
 
 exports.edit = (req, res, next) => {
 	if(!req.body.slug) {

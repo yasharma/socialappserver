@@ -20,9 +20,7 @@ module.exports = {
       { url: '/reset/:token', method: ctrls.userCtrl.validateResetToken, type: 'get' },
       { url: '/reset_password/:token', method: ctrls.userCtrl.reset, type: 'post' },
       { url: '/verify_email/:salt', method: ctrls.userCtrl.verifyEmail, type: 'get' },
-      { url: '/blog/list/:type', method: ctrls.blogCtrl.list, type: 'get' },
-      { url: '/faq/list', method: ctrls.faqCtrl.list, type: 'get' },
-      { url: '/testimonial/list', method: ctrls.testimonialCtrl.list, type: 'get' },
       { url: '/cmsLinks', method: ctrls.cmsCtrl.getCmsLinks, type: 'get' },
+      { url: '/cms/get/:slug', method: ctrls.cmsCtrl.getCMS, type: 'get' }
   ]
 };

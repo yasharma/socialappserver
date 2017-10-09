@@ -84,8 +84,12 @@ module.exports = {
   		{ url: '/cms/edit', method: ctrls.cmsCtrl.edit, type: 'put' },
   		{ url: '/cms/view/:slug', method: ctrls.cmsCtrl.view, type: 'get' },
       { url: '/homepage/add', mwear:uploadHomepageBanner.any(),method: ctrls.homepageCtrl.add, type: 'post' },
+<<<<<<< HEAD
       { url: '/homepage/view', method: ctrls.homepageCtrl.view, type: 'get' },
   		{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
+=======
+  		/*{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
+>>>>>>> 2c783f4fc65b66ff9bb603b8b94ff7406b6ceff8
       { url: '/privacypolicy/list', method: ctrls.privacypolicyCtrl.list, type: 'post' },
       { url: '/privacypolicy/edit', method: ctrls.privacypolicyCtrl.edit, type: 'put' },
       { url: '/privacypolicy/view/:id', method: ctrls.privacypolicyCtrl.view, type: 'get'},
@@ -102,6 +106,6 @@ module.exports = {
       { url: '/cmsLink/add', method: ctrls.cmsLinkCtrl.add, type: 'post' },
       { url: '/cmsLink/list', method: ctrls.cmsLinkCtrl.list, type: 'post' },
       { url: '/cmsLink/edit', method: ctrls.cmsLinkCtrl.edit, type: 'put' },
-      { url: '/cmsLink/view/:id', method: ctrls.cmsLinkCtrl.view, type: 'get' }
+      { url: '/cmsLink/view/:id', method: ctrls.cmsLinkCtrl.view, type: 'get' }*/
 	]
 };
