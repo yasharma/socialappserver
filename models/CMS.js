@@ -11,18 +11,9 @@ var    Schema          = mongoose.Schema,
 CMSSchema   = new Schema({
     banner_image:{
         name: {
-            type: String,
-            default: config.image_name
+            type: String
         },
         path: {
-            type: String,
-            default: config.image_path
-        },
-        original_name:  {
-            type: String,
-            default: `${config.image_path}/${config.image_name}`
-        },
-        fullImagePath: {
             type: String
         }
     },
@@ -56,5 +47,6 @@ CMSSchema   = new Schema({
         updatedAt: 'updated_at'
     }
 });
+
 mongoose.plugin(slug);
 module.exports = mongoose.model('cms', CMSSchema, 'cms');

@@ -14,6 +14,7 @@
 # images
 assets/blog/
 assets/profile_image/
+assets/cms_banner/
 
 # misc
 .DS_Store

@@ -1,6 +1,6 @@
 'use strict';
-mimicTrading.controller('cmsEditCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','cms','cmsSvr',
-	($scope, $state, RestSvr, $rootScope, appSvr, cms, cmsSvr) => {
+mimicTrading.controller('cmsEditCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','cms','cmsSvr','Upload',
+	($scope, $state, RestSvr, $rootScope, appSvr, cms, cmsSvr, Upload) => {
 		
 		$scope.$on('$viewContentLoaded', () => {
 			/**
@@ -9,21 +9,26 @@ mimicTrading.controller('cmsEditCtrl', ['$scope', '$state', 'RestSvr', '$rootSco
 			appSvr.init();
 		});
 		$scope.cms = cms.record;
+		if( $scope.cms.banner_image ) {
+			$scope.cms.banner_image = $scope.cms.banner_image.path;
+		}
 		
-		$scope.edit_cms = (isValid) => {
+		$scope.edit_cms = (isValid, _data) => {
 			if( !isValid ){
 				return;
 			}
 			
-			$scope.isLoading = true;
-			RestSvr.put('cms/edit', $scope.cms)
-			.then(response => {
+			Upload.upload({
+				url: baseUrl('cms/add'),
+				data: _data
+			})
+			.then(function (response) {
 				$state.go('cms');
 			})
-			.catch(errors => {
+			.catch(function (errors) {
 				App.alert({type: ('danger'), icon: ( 'warning'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'});
 			})
-			.then(() => {
+			.finally(function () {
 				$scope.isLoading = false;
 			});
 		};

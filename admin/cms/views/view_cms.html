@@ -37,30 +37,6 @@
 		                    </div>
 		                    <!--/span-->
 		                </div>
-		                <!--/row-->
-		                <div class="row">
-		                    <div class="col-md-6">
-		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Description:</label>
-		                            <div class="col-md-9">
-		                                <p class="form-control-static" ng-bind-html="cms.description">  </p>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    <!--/span-->
-		                    <div class="col-md-6">
-		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Status:</label>
-		                            <div class="col-md-9">
-		                                <p class="form-control-static"> 
-		                                	<status-label status="cms.status"></status-label>
-		                                </p>
-		                            </div>
-		                        </div>
-		                    </div>
-		                </div>
-		                <!--/row-->
-		                         <!--/row-->
 		                <div class="row">
 		                    <div class="col-md-6">
 		                        <div class="form-group">
@@ -81,6 +57,41 @@
 		                    </div>
 		                </div>
 		                <!--/row-->
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">image:</label>
+		                            <div class="col-md-9">
+		                                <div class="col-md-9">
+		                	        	<div class="thumbnail" style="width: 200px;">
+		                	            	<img class="img-responsive" ng-src="{{cms.banner_image.path}}" alt="{{cms.banner_image.path}}"/>
+		                	            </div>
+		                	        </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Status:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> 
+		                                	<status-label status="cms.status"></status-label>
+		                                </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Description:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static" ng-bind-html="cms.description">  </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>    
 		            </div>
 		            <div class="form-actions">
 		                <div class="row">

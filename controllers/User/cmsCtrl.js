@@ -15,3 +15,13 @@ exports.getCmsLinks = (req, res, next) => {
 		return res.json(response.success(links))
 	});
 };
+
+exports.getCMS = (req, res, next) => {
+	console.log(req.params.slug);
+	CMS.findOne({slug: req.params.slug, status: true}, function (err, CMS) {
+		if(err)	{
+			return res.json( response.error( err ) );	
+		}
+		return res.json(response.success(CMS));
+	});
+}

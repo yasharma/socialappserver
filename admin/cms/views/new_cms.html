@@ -70,17 +70,17 @@
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCMSForm.banner.$touched && newCMSForm.banner.$invalid || newCMSForm.banner.$invalid && newCMSForm.$submitted }">
                             <label class="col-md-2 control-label" for="banner">CMS Page Banner Image</label>
                             <div class="col-md-10">
-                                <input ngf-pattern="'image/*'" type="file" ngf-select name="banner" ng-model="cms.banner_img" class="form-control" id="banner" placeholder="Click to select file"></textarea>
+                                <input ngf-pattern="'image/*'" type="file" ngf-select name="banner" ng-model="cms.banner_image" class="form-control" id="banner" placeholder="Click to select file"></textarea>
                                 <div ng-messages="newCMSForm.banner.$error"
                                     ng-show="newCMSForm.banner.$touched || newCMSForm.$submitted">
                                     <span class="help-block" ng-message="required">Banner Image is required.</span>
                                 </div>    
                             </div>
                         </div>
-                        <div class="row" ng-show="cms.banner_img">
+                        <div class="row" ng-show="cms.banner_image">
                             <div class="col-sm-6 col-md-3 col-md-offset-2">
                                 <div class="thumbnail" style="width: 200px;">
-                                    <img class="img-responsive" ngf-thumbnail="cms.banner_img" alt="Preview">
+                                    <img class="img-responsive" ngf-thumbnail="cms.banner_image" alt="Preview">
                                 </div>
                             </div>
                         </div>
