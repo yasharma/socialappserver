@@ -61,6 +61,8 @@ module.exports = {
   	routes: [
   		{ url: '/login', method: ctrls.adminCtrl.login, type: 'post' },
       { url: '/forgotpassword', method: ctrls.adminCtrl.forgotpassword, type: 'post' },
+      { url: '/reset/:token', method: ctrls.adminCtrl.validateResetToken, type: 'get' },
+      { url: '/reset_password/:token', method: ctrls.adminCtrl.reset, type: 'post' },
       { url: '/user/list', method: ctrls.userCtrl.list, type: 'post' },
       { url: '/user/add', mwear:uploadProfileImage.any(),method: ctrls.userCtrl.add, type: 'post' },
       { url: '/user/view/:id', method: ctrls.userCtrl.view, type: 'get' },
