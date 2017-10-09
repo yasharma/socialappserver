@@ -23,6 +23,7 @@ router.use(expressJWT({
 		'/api/register',
 		'/api/login',
 		'/api/forgot_password',
+		'/api/cmsLinks',
 		/^\/api\/(reset|reset_password)\/.*/,
 		/^\/api\/verify_email\/.*/,
 	]

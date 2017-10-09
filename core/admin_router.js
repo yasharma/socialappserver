@@ -15,7 +15,19 @@ fs.readdirSync(path.resolve('./controllers/Admin')).forEach(file => {
 let uploadImage = multer({
     limits: config.fileLimits,
     storage: multer.diskStorage({
-    	destination: 'assets/blog/',
+      destination: 'assets/blog/',
+      filename: function (req, file, cb) {
+        cb(null, Date.now() + '.' + config.file_extensions[file.mimetype]);
+      }
+    }),
+    fileFilter: fileFilter
+    
+});
+
+let uploadCMSBanner = multer({
+    limits: config.fileLimits,
+    storage: multer.diskStorage({
+    	destination: 'assets/cms_banner/',
     	filename: function (req, file, cb) {
     		cb(null, Date.now() + '.' + config.file_extensions[file.mimetype]);
   		}
@@ -86,5 +98,9 @@ module.exports = {
   		{ url: '/testimonial/add', mwear: uploadTestimonialImage.any(), method: ctrls.testimonialCtrl.add, type: 'post' },
   		{ url: '/testimonial/list', method: ctrls.testimonialCtrl.list, type: 'post' },
   		{ url: '/testimonial/view/:id', method: ctrls.testimonialCtrl.view, type: 'get' },
+      { url: '/cmsLink/add', method: ctrls.cmsLinkCtrl.add, type: 'post' },
+      { url: '/cmsLink/list', method: ctrls.cmsLinkCtrl.list, type: 'post' },
+      { url: '/cmsLink/edit', method: ctrls.cmsLinkCtrl.edit, type: 'put' },
+      { url: '/cmsLink/view/:id', method: ctrls.cmsLinkCtrl.view, type: 'get' }
 	]
 };

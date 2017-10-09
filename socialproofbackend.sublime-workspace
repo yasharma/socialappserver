@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"email",
+				"email_templates"
+			],
+			[
+				"base",
+				"baseUrl"
+			],
+			[
+				"bas",
+				"baseUrl"
+			],
+			[
+				"s",
+				"success"
+			],
+			[
+				"is",
+				"isValid"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"for",
+				"forgotByMobile"
+			],
+			[
+				"re",
+				"reject"
+			],
+			[
+				"rs",
+				"resolve"
+			],
+			[
 				"con",
 				"config"
 			],
@@ -80,14 +116,6 @@
 				"_index"
 			],
 			[
-				"res",
-				"reset"
-			],
-			[
-				"is",
-				"isUndefined"
-			],
-			[
 				"an",
 				"angular"
 			],
@@ -146,10 +174,6 @@
 			[
 				"mar",
 				"margin-bottom"
-			],
-			[
-				"s",
-				"strategy"
 			],
 			[
 				"fav",
@@ -268,16 +292,8 @@
 				"width"
 			],
 			[
-				"re",
-				"response"
-			],
-			[
 				"user",
 				"user_info"
-			],
-			[
-				"rs",
-				"result"
 			],
 			[
 				"pr",
@@ -498,111 +514,16 @@
 			[
 				"text",
 				"text-align"
-			],
-			[
-				"pass",
-				"password"
-			],
-			[
-				"print",
-				"print_r"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"box",
-				"box-shadow"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "package.json",
+			"file": "admin/cmsLinks/routes/cmsLinkRouter.js",
 			"settings":
 			{
-				"buffer_size": 1222,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "server.js",
-			"settings":
-			{
-				"buffer_size": 3157,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "admin/index.html",
-			"settings":
-			{
-				"buffer_size": 3541,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "assets/css/admin-style.css",
-			"settings":
-			{
-				"buffer_size": 1044,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "admin/users/routes/userRouter.js",
-			"settings":
-			{
-				"buffer_size": 2176,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "admin/tpl/admin.header.html",
-			"settings":
-			{
-				"buffer_size": 5314,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "gulp.assets.js",
-			"settings":
-			{
-				"buffer_size": 3082,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "admin/core/admin.routes.js",
-			"settings":
-			{
-				"buffer_size": 2937,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "admin/notifications/directives/notification-panel-directive.js",
-			"settings":
-			{
-				"buffer_size": 577,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".env",
-			"settings":
-			{
-				"buffer_size": 20,
+				"buffer_size": 1984,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -640,9 +561,17 @@
 	"command_palette":
 	{
 		"height": 354.0,
-		"last_filter": "html",
+		"last_filter": "pre",
 		"selected_items":
 		[
+			[
+				"pre",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"json",
+				"Pretty JSON: Validate"
+			],
 			[
 				"html",
 				"Snippet: html"
@@ -673,14 +602,6 @@
 			],
 			[
 				"valid",
-				"Pretty JSON: Validate"
-			],
-			[
-				"pre",
-				"Pretty JSON: Format and Sort JSON"
-			],
-			[
-				"json",
 				"Pretty JSON: Validate"
 			],
 			[
@@ -1026,12 +947,59 @@
 	"expanded_folders":
 	[
 		"/home/yash/social_proof_notification_backend",
-		"/home/yash/social_proof_notification_backend/admin/notifications/directives",
-		"/home/yash/social_proof_notification_backend/admin/users/routes",
-		"/home/yash/social_proof_notification_backend/assets/css"
+		"/home/yash/social_proof_notification_backend/admin",
+		"/home/yash/social_proof_notification_backend/admin/cms",
+		"/home/yash/social_proof_notification_backend/admin/cmsLinks",
+		"/home/yash/social_proof_notification_backend/admin/cmsLinks/controllers",
+		"/home/yash/social_proof_notification_backend/admin/cmsLinks/factories",
+		"/home/yash/social_proof_notification_backend/admin/cmsLinks/routes",
+		"/home/yash/social_proof_notification_backend/admin/cmsLinks/views",
+		"/home/yash/social_proof_notification_backend/core/env",
+		"/home/yash/social_proof_notification_backend/public/email_templates",
+		"/home/yash/social_proof_notification_backend/public/email_templates/user"
 	],
 	"file_history":
 	[
+		"/home/yash/social_proof_notification_backend/admin/cms/views/cms.html",
+		"/home/yash/social_proof_notification_backend/public/email_templates/user/reset-password-confirm.html",
+		"/home/yash/social_proof_notification_backend/controllers/User/userCtrl.js",
+		"/home/yash/social_proof_notification_backend/core/lib/twilio.js",
+		"/home/yash/social_proof_notification_backend/core/env/production.js",
+		"/home/yash/social_proof_notification_backend/.env",
+		"/home/yash/social_proof_notification_backend/public/email_templates/user/forgotpassword.html",
+		"/home/yash/social_proof_notification_backend/models/User.js",
+		"/home/yash/social_proof_notification_backend/core/env/development.js",
+		"/home/yash/social_proof_notification_backend/core/lib/mail.js",
+		"/home/yash/social_proof_notification_backend/public/email_templates/user/signup.html",
+		"/home/yash/social_proof_notification_backend/server.js",
+		"/home/yash/social_proof_notification_backend/core/lib/response.js",
+		"/home/yash/social_proof_notification_backend/node_modules/mongoose/lib/model.js",
+		"/home/yash/zenbrisa_plus/public/views/email/forgotPassword.hbs",
+		"/home/yash/onlineRTI/core/lib/mail.js",
+		"/home/yash/social_proof_notification_backend/controllers/Admin/userCtrl.js",
+		"/home/yash/social_proof_notification_backend/node_modules/lodash/assign.js",
+		"/home/yash/social_proof_notification_backend/ecosystem.json",
+		"/home/yash/zenbrisa_plus/config/routes.js",
+		"/home/yash/zenbrisa_plus/server.js",
+		"/home/yash/social_proof_notification_backend/admin/users/views/userListing.html",
+		"/home/yash/social_proof_notification_backend/package.json",
+		"/home/yash/zenbrisa_plus/models/User.js",
+		"/home/yash/zenbrisa_plus/config/lib/redirections.js",
+		"/home/yash/zenbrisa_plus/config/lib/maintenance.js",
+		"/home/yash/social_proof_notification_backend/core/user_router.js",
+		"/home/yash/social_proof_notification_backend/twilio.js",
+		"/home/yash/social_proof_notification_backend/core/lib/matchRoute.js",
+		"/home/yash/social_proof_notification_backend/core/routes.js",
+		"/home/yash/socialappserver/core/routes.js",
+		"/home/yash/socialappserver/core/user_router.js",
+		"/home/yash/social_proof_notification_backend/admin/notifications/directives/notification-panel-directive.js",
+		"/home/yash/social_proof_notification_backend/admin/core/admin.routes.js",
+		"/home/yash/social_proof_notification_backend/gulp.assets.js",
+		"/home/yash/social_proof_notification_backend/admin/index.html",
+		"/home/yash/social_proof_notification_backend/assets/css/admin-style.css",
+		"/home/yash/social_proof_notification_backend/admin/users/routes/userRouter.js",
+		"/home/yash/social_proof_notification_backend/admin/tpl/admin.header.html",
+		"/home/yash/social_proof_notification_backend/paypal.js",
 		"/home/yash/social_proof_notification_backend/ecosystem.config.js",
 		"/home/yash/social_proof_notification_backend/admin/tpl/admin.footer.html",
 		"/home/yash/BHBackend/admin/dashboard/controllers/dashboardCtrl.js",
@@ -1072,7 +1040,6 @@
 		"/home/yash/onlineRTI/config/env/development.js",
 		"/home/yash/zenbrisa_plus/chat_server.js",
 		"/home/yash/zenbrisa_plus/controllers/socketio/socketio.js",
-		"/home/yash/zenbrisa_plus/server.js",
 		"/home/yash/social_proof_notification/src/index.js",
 		"/home/yash/social_proof_notification/src/components/common/FormSubmit.js",
 		"/home/yash/social_proof_notification/src/components/common/FormField.js",
@@ -1120,46 +1087,7 @@
 		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/main.js",
 		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/realTime.js",
 		"/home/yash/mimic_trader/public/user/traders/controllers/traderStrategiesCtrl.js",
-		"/home/yash/mimic_trader/public/index.html",
-		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/contractMetadata.js",
-		"/home/yash/mimic_trader/public/user/factories/socket.js",
-		"/home/yash/mimic_trader/public/user/login/controllers/loginCtrl.js",
-		"/home/yash/mimic_trader/public/user/home/controllers/homeCtrl.js",
-		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/account.js",
-		"/home/yash/mimic_trader/public/user/dashboard/controllers/dashboardCtrl.js",
-		"/home/yash/mimic_trader/public/admin/factories/socket.js",
-		"/home/yash/mimic_trader/public/admin/core/admin.config.js",
-		"/home/yash/mimic_trader/public/admin/dashboard/controllers/dashboardCtrl.js",
-		"/home/yash/mimic_trader/public/user/signup/controllers/signupCtrl.js",
-		"/home/yash/mimic_trader/public/user/traders/controllers/reviewStrategyCtrl.js",
-		"/home/yash/mimic_trader/public/admin/admin.app.js",
-		"/home/yash/mimic_trader/public/gulpfile.js",
-		"/home/yash/mimic_trader/public/user/factories/toast-service.js",
-		"/home/yash/mimic_trader/public/assets/js/admin.app.min.js",
-		"/home/yash/mimic_trader/public/user/core/config.js",
-		"/home/yash/mimic_trader/public/user/signup/factories/webSocketSrv.js",
-		"/home/yash/python-socketio/pythonsocketio.py",
-		"/home/yash/python-socketio/templates/index.html",
-		"/home/yash/python-socketio/index.html",
-		"/home/yash/mimic_trader/public/CQGWebAPIJavaScriptClient/scripts/webapi.js",
-		"/home/yash/mimic_trader/public/user/traders/routes/traderRouter.js",
-		"/home/yash/mimic_trader/public/.jshintrc",
-		"/home/yash/Downloads/geodata/new_file_3.csv",
-		"/home/yash/.cache/.fr-bUkcQU/allCountries.txt",
-		"/home/yash/python-socketio/python-socketio.py",
-		"/home/yash/mimic_trader/public/node_modules/lodash/assign.js",
-		"/home/yash/mimic_trader/public/user/traders/views/trader_create_strategy.html",
-		"/home/yash/Downloads/WebAPI JavaScript Samples for Distribution/2LogonMeta/scripts/main.js",
-		"/home/yash/mimic_trader/public/user/traders/factories/traderSrv.js",
-		"/home/yash/react-redux-app/node_modules/react-router/umd/react-router.js",
-		"/home/yash/react-redux-app_v1/src/pages/Home.js",
-		"/home/yash/react-redux-app_v1/src/pages/UserEdit.js",
-		"/home/yash/react-redux-app_v1/src/index.js",
-		"/home/yash/react-redux-app_v1/src/pages/NotFound.js",
-		"/home/yash/mimic_trader/public/admin/factories/rest-service.js",
-		"/home/yash/mimic_trader/public/node_modules/.bin/user-home",
-		"/home/yash/mimic_trader/public/user/factories/dialog-service.js",
-		"/home/yash/mimic_trader/public/node_modules/uglify-js/bin/uglifyjs"
+		"/home/yash/mimic_trader/public/index.html"
 	],
 	"find":
 	{
@@ -1231,6 +1159,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"firstname",
+			"zenbrisa",
+			"./public/",
+			"sign",
+			"assign",
+			"{{",
+			"zenb",
+			"response.errors",
 			"socialproofbackend",
 			".page-header",
 			"notificationSvr",
@@ -1350,15 +1286,7 @@
 			"straddle",
 			"process_symbol_by_uderlying_report",
 			"expDates",
-			"symbolsByUnderlyingReport",
-			"$scope.strategy.legs[",
-			"$scope.strategy.index",
-			"$scope.strategy.legs",
-			"$scope.strategy.legs[",
-			"processingSymbol",
-			"symbol_resolution_report",
-			"processSymbol",
-			"authSrv.User().id"
+			"symbolsByUnderlyingReport"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1376,155 +1304,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "package.json",
+					"file": "admin/cmsLinks/routes/cmsLinkRouter.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1222,
+						"buffer_size": 1984,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								575,
-								575
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Theme - SoDaReloaded/settings/langs/npm JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 154.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "server.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3157,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1736,
-								1736
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "admin/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3541,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 69.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "assets/css/admin-style.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1044,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1023,
-								1023
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 115.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "admin/users/routes/userRouter.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2176,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2049,
-								2049
+								1506,
+								1506
 							]
 						],
 						"settings":
@@ -1536,171 +1333,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": -0.0,
-						"translation.y": 897.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "admin/tpl/admin.header.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5314,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								223,
-								223
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 414.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "gulp.assets.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3082,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1173.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "admin/core/admin.routes.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2937,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2527,
-								2527
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "admin/notifications/directives/notification-panel-directive.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 577,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								515,
-								515
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": ".env",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 20,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								20,
-								20
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"open_with_edit": true,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1767,6 +1403,46 @@
 		"selected_items":
 		[
 			[
+				"cms.h",
+				"admin/cms/views/cms.html"
+			],
+			[
+				"twi",
+				"core/lib/twilio.js"
+			],
+			[
+				"user.js",
+				"models/User.js"
+			],
+			[
+				"server",
+				"server.js"
+			],
+			[
+				"mai",
+				"core/lib/mail.js"
+			],
+			[
+				"response.js",
+				"core/lib/response.js"
+			],
+			[
+				"model",
+				"node_modules/mongoose/lib/model.js"
+			],
+			[
+				"userc",
+				"controllers/Admin/userCtrl.js"
+			],
+			[
+				"assign",
+				"node_modules/lodash/assign.js"
+			],
+			[
+				"admin/users/views/userlisting.html",
+				"admin/users/views/userListing.html"
+			],
+			[
 				"admin.foo",
 				"admin/tpl/admin.footer.html"
 			],
@@ -1825,10 +1501,6 @@
 			[
 				"seeking",
 				"app/routes/seeking.js"
-			],
-			[
-				"user.js",
-				"app/models/user.js"
 			],
 			[
 				"search",
@@ -2241,42 +1913,6 @@
 			[
 				"gulpfile",
 				"gulpfile.js"
-			],
-			[
-				"view_assignment",
-				"admin/assignments/views/view_assignment.html"
-			],
-			[
-				"new_as",
-				"admin/assignments/views/new_assignment.html"
-			],
-			[
-				"profiler",
-				"user/profile/routes/profileRouter.js"
-			],
-			[
-				"profiles",
-				"user/profile/factories/profileSrv.js"
-			],
-			[
-				"traderstar",
-				"user/traders/controllers/traderStrategiesCtrl.js"
-			],
-			[
-				"account",
-				"CQGWebAPIJavaScriptClient/scripts/account.js"
-			],
-			[
-				"step",
-				"user/signup/views/step_4.html"
-			],
-			[
-				"generate_pas",
-				"user/generatePassword/views/generate_password.html"
-			],
-			[
-				"passwo",
-				"user/passwordReset/views/password_reset.html"
 			]
 		],
 		"width": 0.0

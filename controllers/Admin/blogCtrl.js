@@ -9,6 +9,9 @@ const path 	 	= require('path'),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
 exports.add = (req, res, next) => {
+	console.log(req.files);
+	console.log(req.body);
+	return;
 	if(!req.body.title || !req.body.type ) {
 		res.status(422).json({
 			errors: {
