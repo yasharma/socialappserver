@@ -84,6 +84,7 @@ module.exports = {
   		{ url: '/cms/edit', method: ctrls.cmsCtrl.edit, type: 'put' },
   		{ url: '/cms/view/:slug', method: ctrls.cmsCtrl.view, type: 'get' },
       { url: '/homepage/add', mwear:uploadHomepageBanner.any(),method: ctrls.homepageCtrl.add, type: 'post' },
+      { url: '/homepage/view', method: ctrls.homepageCtrl.view, type: 'get' },
   		{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
       { url: '/privacypolicy/list', method: ctrls.privacypolicyCtrl.list, type: 'post' },
       { url: '/privacypolicy/edit', method: ctrls.privacypolicyCtrl.edit, type: 'put' },

@@ -26,9 +26,25 @@ exports.add = (req, res, next) => {
 	  fax:req.body.fax,
 	  domain:req.body.domain,	
 	}
+	req.body.simple_steps={
+	  step1:req.body.step1,
+	  step2:req.body.step2,
+	  step3:req.body.step3
+	}
     let setting = new Setting(req.body);
     setting.save()
     .then(result => res.json({success: true}))
     .catch(error => res.json({errors: error}));
 
+};
+
+exports.view = (req, res, next) => {
+   Setting.find({}, 
+    	function (error, result) {
+    		if(error){
+    			res.json({errors: error});
+    		}
+    		res.json({success: true, result: result});
+    	}
+    );
 };

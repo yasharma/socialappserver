@@ -3,7 +3,7 @@
 /* Application routes */
 mimicTrading.config(['$stateProvider',function($stateProvider){
 
-	let cmsResolver = ['cmsSvr', '$stateParams', (cmsSvr, $stateParams) => cmsSvr.getCMSById($stateParams.slug)];
+	let homepageResolver = ['homepageSvr', '$stateParams', (homepageSvr, $stateParams) => homepageSvr.getHomepageData()];
 
 	$stateProvider
 	.state('newhomepage',{
@@ -12,7 +12,19 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		templateUrl: 'homepage/views/new_homepage.html',
 		data: {pageTitle: 'New Homepage'},
 		authenticate: true
+	})
+
+	.state('viewhomepage',{
+		url: '/view-homepage',
+		controller: 'homepageViewCtrl',
+		templateUrl: 'homepage/views/view_homepage.html',
+		data: {pageTitle: 'View Homepage Management Detail'},
+		authenticate: true,
+		resolve: {
+		    homepage: homepageResolver
+		}
 	});
+
 /*	.state('edithomepage',{
 		url: '/edit-homepage/:slug',
 		controller: 'homepageEditCtrl',
@@ -20,17 +32,8 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		data: {pageTitle: 'Update Homepage Detail'},
 		authenticate: true,
 		resolve: {
-		    cms: cmsResolver
+		    homepage: homepageResolver
 		}
 	})
-	.state('viewcms',{
-		url: '/view-cms/:slug',
-		controller: 'cmsViewCtrl',
-		templateUrl: 'cms/views/view_cms.html',
-		data: {pageTitle: 'View CMS Detail'},
-		authenticate: true,
-		resolve: {
-		    cms: cmsResolver
-		}
-	});*/
+	*/
 }]);
