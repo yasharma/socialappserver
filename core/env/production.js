@@ -2,8 +2,8 @@
 const config = {
   db: {
     URL: 'mongodb://localhost/socialproof',
-    DEBUG: false,
-    autoIndex: false,
+    DEBUG: true,
+    autoIndex: true,
     options: {
       useMongoClient: true
     }
