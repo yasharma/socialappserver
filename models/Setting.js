@@ -7,13 +7,27 @@ const   mongoose  = require('mongoose'),
 
 settingSchema 	= new Schema({
 
-    steps : {
-        type : Object
+    banner_img : {
+        type : Array
     },
-    how_it_works: {
-        type: Object
+    video_url: {
+        type: String
+    },
+    site: {
+        address:{
+            type:String
+        },
+        fax:{
+            type:String
+        },
+        phone:{
+            type:String
+        },
+        domain:{
+            type:String
+        }    
     }
-   
+       
 }, { timestamps : { createdAt: 'created_at' ,  updatedAt: 'updated_at'}});
 
 module.exports = mongoose.model('setting', settingSchema);

@@ -24,10 +24,10 @@ let uploadImage = multer({
     
 });
 
-let uploadCMSBanner = multer({
+let uploadHomepageBanner = multer({
     limits: config.fileLimits,
     storage: multer.diskStorage({
-    	destination: 'assets/cms_banner/',
+    	destination: 'assets/homepage_banner/',
     	filename: function (req, file, cb) {
     		cb(null, Date.now() + '.' + config.file_extensions[file.mimetype]);
   		}
@@ -79,11 +79,11 @@ module.exports = {
       { url: '/user/add', mwear:uploadProfileImage.any(),method: ctrls.userCtrl.add, type: 'post' },
       { url: '/user/view/:id', method: ctrls.userCtrl.view, type: 'get' },
       { url: '/user/edit/:id', mwear: uploadProfileImage.any(), method: ctrls.userCtrl.edit, type: 'put' },
-      { url: '/setting', method: ctrls.adminCtrl.setting, type: 'post' },
-  		{ url: '/cms/add', method: ctrls.cmsCtrl.add, type: 'post' },
+      { url: '/cms/add', method: ctrls.cmsCtrl.add, type: 'post' },
   		{ url: '/cms/list', method: ctrls.cmsCtrl.list, type: 'post' },
   		{ url: '/cms/edit', method: ctrls.cmsCtrl.edit, type: 'put' },
   		{ url: '/cms/view/:slug', method: ctrls.cmsCtrl.view, type: 'get' },
+      { url: '/homepage/add', mwear:uploadHomepageBanner.any(),method: ctrls.homepageCtrl.add, type: 'post' },
   		{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
       { url: '/privacypolicy/list', method: ctrls.privacypolicyCtrl.list, type: 'post' },
       { url: '/privacypolicy/edit', method: ctrls.privacypolicyCtrl.edit, type: 'put' },

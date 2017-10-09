@@ -3,7 +3,7 @@ const
 	path 		= require('path'),
 	response 	= require(path.resolve('core/lib/response')),
 	User 		= require(path.resolve('models/User')),
-	Setting 	= require(path.resolve('models/Setting')),
+	//Setting 	= require(path.resolve('models/Setting')),
 	_ 			= require('lodash'),
 	jwt 	 	= require('jsonwebtoken'),
 	async		= require('async'),
@@ -226,10 +226,3 @@ exports.reset = function (req, res, next) {
 	});
 };
 
-exports.setting = (req, res, next) => {
-
-	let setting = new Setting(req.body);
-		setting.save()
-		.then(user => console.log('New Setting created') )
-		.catch(err => console.log(err));
-};

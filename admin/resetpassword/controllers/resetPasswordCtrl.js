@@ -1,6 +1,6 @@
 'use strict';
-mimicTrading.controller('resetPasswordCtrl', ['$scope','$state','$rootScope','$http','$state',
-	($scope,$state,$rootScope,$http,$state) => {
+mimicTrading.controller('resetPasswordCtrl', ['$scope','$state','$rootScope','$http',
+	($scope,$state,$rootScope,$http) => {
 
 	   $scope.resetpassword= (valid,formdata)=> {
 
@@ -9,11 +9,11 @@ mimicTrading.controller('resetPasswordCtrl', ['$scope','$state','$rootScope','$h
                     inputJson.password=formdata.new_password;
                 if(pwdregex.test(formdata.new_password)){
                   $http.post('http://localhost:9000/adminapi/reset_password/'+$state.params.key,inputJson).then(function(response){
-                       App.alert({type: ('success'), icon: ( 'success'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'});
-                       formdata.new_password="",formdata.confirm_password="";
+                       App.alert({type: ('success'), icon: ( 'success'), message: response.message, container: $rootScope.settings.errorContainer, place: 'prepend'});
+                       formdata={};
                   }).catch(function(response) {
                     console.log("Error"+response.status);
-                  })
+                  });
                 
                 }
                 else

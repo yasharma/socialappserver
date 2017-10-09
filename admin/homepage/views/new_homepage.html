@@ -1,0 +1,108 @@
+<div class="row fade-in-up">
+    <div class="col-md-12">
+        <!-- BEGIN VALIDATION STATES-->
+        <div class="portlet light portlet-fit portlet-form ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-user font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">Add New Homepage Section</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <!-- BEGIN FORM-->
+                <form novalidate ng-submit="new_homepage(newHomepageForm.$valid, homepage)" class="form-horizontal" name="newHomepageForm" ng-keydown="clear($event.target.name, newHomepageForm)">
+                    <div class="form-body">
+
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newHomepageForm.banner.$touched && newHomepageForm.banner.$invalid || newHomepageForm.banner.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="banner">Homepage Banner Image</label>
+                            <div class="col-md-9">
+                                <input ngf-pattern="'image/*'" type="file" ngf-multiple="true" ngf-select name="banner" ng-model="homepage.banner_img" class="form-control" id="banner" placeholder="Click to select file"></textarea>
+                                <div ng-messages="newHomepageForm.banner.$error"
+                                    ng-show="newHomepageForm.banner.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">Banner Image is required.</span>
+                                </div>    
+                            </div>
+                        </div>
+
+                        <div class="row"  ng-show="homepage.banner_img">
+                            <div class="col-sm-12 col-md-8 col-md-offset-3" >
+                                <div class="col-sm-12 col-md-4" ng-repeat="f in homepage.banner_img">
+                                    <div class="thumbnail" style="width: 200px;">
+                                        <img class="img-responsive" ngf-thumbnail="f" alt="Preview">
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newHomepageForm.video_url.$touched && newHomepageForm.video_url.$invalid || newHomepageForm.video_url.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="video_url">How_It_Works Video URL<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" name="video_url" ng-model="homepage.video_url" class="form-control" id="video_url" placeholder="Enter your video url" required>
+                                <div ng-messages="newHomepageForm.video_url.$error"
+                                    ng-show="newHomepageForm.video_url.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">URL is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                 
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newHomepageForm.address.$touched && newHomepageForm.address.$invalid || newHomepageForm.address.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="address">Address<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <textarea rows="3" name="address" ng-model="homepage.address" class="form-control" id="address" placeholder="Enter your address"></textarea>
+                                <div ng-messages="newHomepageForm.address.$error"
+                                    ng-show="newHomepageForm.address.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required"> Address is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newHomepageForm.phone.$touched && newHomepageForm.phone.$invalid || newHomepageForm.phone.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="phone">Fax<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" name="phone" ng-model="homepage.phone" class="form-control" id="phone" placeholder="Enter your phone" required>
+                                <div ng-messages="newHomepageForm.phone.$error"
+                                    ng-show="newHomepageForm.phone.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">Phone is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                       <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newHomepageForm.fax.$touched && newHomepageForm.fax.$invalid || newHomepageForm.fax.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="fax">Fax<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" name="fax" ng-model="homepage.fax" class="form-control" id="fax" placeholder="Enter your fax" required>
+                                <div ng-messages="newHomepageForm.fax.$error"
+                                    ng-show="newHomepageForm.fax.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">FAX is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newHomepageForm.domain.$touched && newHomepageForm.domain.$invalid || newHomepageForm.domain.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="domain">Domain<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" name="domain" ng-model="homepage.domain" class="form-control" id="domain" placeholder="Enter your domain" required>
+                                <div ng-messages="newHomepageForm.domain.$error"
+                                    ng-show="newHomepageForm.domain.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">Domain is required.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-9">
+                                <button type="submit" ladda="isLoading" class="btn green">Submit</button>
+                                <a href ui-sref="homepage" class="btn default">cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END VALIDATION STATES-->
+    </div>
+</div>
