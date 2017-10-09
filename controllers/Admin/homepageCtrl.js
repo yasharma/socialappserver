@@ -20,26 +20,15 @@ exports.add = (req, res, next) => {
 	} else {
 		delete req.body.banner_img
 	}
-	req.body.site={
-	  address:req.body.address,
-	  phone:req.body.phone,
-	  fax:req.body.fax,
-	  domain:req.body.domain,	
-	}
-	req.body.simple_steps={
-	  step1:req.body.step1,
-	  step2:req.body.step2,
-	  step3:req.body.step3
-	}
-    let setting = new Setting(req.body);
-    setting.save()
+
+    Setting.update({_id:req.body._id},{$set:req.body})
     .then(result => res.json({success: true}))
     .catch(error => res.json({errors: error}));
 
 };
 
 exports.view = (req, res, next) => {
-   Setting.find({}, 
+   Setting.findOne({}, 
     	function (error, result) {
     		if(error){
     			res.json({errors: error});

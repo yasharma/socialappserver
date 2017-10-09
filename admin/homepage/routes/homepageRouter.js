@@ -10,8 +10,11 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		url: '/new-homepage',
 		controller: 'homepageCreateCtrl',
 		templateUrl: 'homepage/views/new_homepage.html',
-		data: {pageTitle: 'New Homepage'},
-		authenticate: true
+		data: {pageTitle: 'Update Homepage'},
+		authenticate: true,
+		resolve: {
+		    homepage: homepageResolver
+		}
 	})
 
 	.state('viewhomepage',{
