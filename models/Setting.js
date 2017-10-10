@@ -13,6 +13,9 @@ settingSchema 	= new Schema({
     video_url: {
         type: String
     },
+    video_text: {
+        type: String
+    },
     site: {
         address:{
             type:String
@@ -26,6 +29,17 @@ settingSchema 	= new Schema({
         domain:{
             type:String
         }    
+    },
+    simple_steps: {
+        step1:{
+            type:String
+        },
+        step2:{
+            type:String
+        },
+        step3:{
+            type:String
+        } 
     }
        
 }, { timestamps : { createdAt: 'created_at' ,  updatedAt: 'updated_at'}});

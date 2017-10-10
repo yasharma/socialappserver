@@ -1,6 +1,6 @@
 'use strict';
-mimicTrading.controller('homepageCreateCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','Upload',
-	($scope, $state, RestSvr, $rootScope, appSvr, Upload) => {
+mimicTrading.controller('homepageCreateCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','Upload','homepage',
+	($scope, $state, RestSvr, $rootScope, appSvr, Upload, homepage) => {
 		
 		$scope.$on('$viewContentLoaded', () => {
 			/**
@@ -8,8 +8,13 @@ mimicTrading.controller('homepageCreateCtrl', ['$scope', '$state', 'RestSvr', '$
 			 */
 			appSvr.init();
 		});
+
+		$scope.homepage = homepage.record;
+		$scope.homepage.banner_img.forEach(function (val, index) {
+			$scope.homepage.banner_img[index]=val.path;
+		});
 		
-	   $scope.new_homepage = (isValid,data) => {
+	   	$scope.new_homepage = (isValid,data) => {
 			if( !isValid ){
 				App.scrollTop();
 				return;

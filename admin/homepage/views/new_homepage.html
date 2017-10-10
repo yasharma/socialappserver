@@ -5,7 +5,7 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class=" icon-user font-green"></i>
-                    <span class="caption-subject font-green sbold uppercase">Add New Homepage Section</span>
+                    <span class="caption-subject font-green sbold uppercase">Update Homepage Section</span>
                 </div>
             </div>
             <div class="portlet-body">
@@ -38,10 +38,22 @@
                         ng-class="{ 'has-error': newHomepageForm.video_url.$touched && newHomepageForm.video_url.$invalid || newHomepageForm.video_url.$invalid && newHomepageForm.$submitted }">
                             <label class="col-md-3 control-label" for="video_url">How_It_Works Video URL<span class="required">*</span></label>
                             <div class="col-md-9">
-                                <input type="text" name="video_url" ng-model="homepage.video_url" class="form-control" id="video_url" placeholder="Enter your video url" required>
+                                <input type="text" name="video_url" ng-model="homepage.video_url" ng-pattern="/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/" class="form-control" id="video_url" placeholder="Enter your video url" required>
                                 <div ng-messages="newHomepageForm.video_url.$error"
                                     ng-show="newHomepageForm.video_url.$touched || newHomepageForm.$submitted">
                                     <span class="help-block" ng-message="required">URL is required.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newHomepageForm.video_text.$touched && newHomepageForm.video_text.$invalid || newHomepageForm.video_text.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="video_text">How_It_Works Video Text<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" name="video_text" ng-model="homepage.video_text" class="form-control" id="video_text" placeholder="Enter your video text" required>
+                                <div ng-messages="newHomepageForm.video_text.$error"
+                                    ng-show="newHomepageForm.video_text.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">video text is required.</span>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +61,7 @@
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': newHomepageForm.address.$touched && newHomepageForm.address.$invalid || newHomepageForm.address.$invalid && newHomepageForm.$submitted }">
                             <label class="col-md-3 control-label" for="address">Address<span class="required">*</span></label>
                             <div class="col-md-9">
-                                <textarea rows="3" name="address" ng-model="homepage.address" class="form-control" id="address" placeholder="Enter your address"></textarea>
+                                <textarea rows="3" name="address" ng-model="homepage.site.address" class="form-control" id="address" placeholder="Enter your address"></textarea>
                                 <div ng-messages="newHomepageForm.address.$error"
                                     ng-show="newHomepageForm.address.$touched || newHomepageForm.$submitted">
                                     <span class="help-block" ng-message="required"> Address is required.</span>
@@ -58,9 +70,9 @@
                         </div>
                         <div class="form-group form-md-line-input" 
                         ng-class="{ 'has-error': newHomepageForm.phone.$touched && newHomepageForm.phone.$invalid || newHomepageForm.phone.$invalid && newHomepageForm.$submitted }">
-                            <label class="col-md-3 control-label" for="phone">Fax<span class="required">*</span></label>
+                            <label class="col-md-3 control-label" for="phone">Phone<span class="required">*</span></label>
                             <div class="col-md-9">
-                                <input type="text" name="phone" ng-model="homepage.phone" class="form-control" id="phone" placeholder="Enter your phone" required>
+                                <input type="text" name="phone" ng-model="homepage.site.phone" class="form-control" id="phone" placeholder="Enter your phone" required>
                                 <div ng-messages="newHomepageForm.phone.$error"
                                     ng-show="newHomepageForm.phone.$touched || newHomepageForm.$submitted">
                                     <span class="help-block" ng-message="required">Phone is required.</span>
@@ -71,21 +83,55 @@
                         ng-class="{ 'has-error': newHomepageForm.fax.$touched && newHomepageForm.fax.$invalid || newHomepageForm.fax.$invalid && newHomepageForm.$submitted }">
                             <label class="col-md-3 control-label" for="fax">Fax<span class="required">*</span></label>
                             <div class="col-md-9">
-                                <input type="text" name="fax" ng-model="homepage.fax" class="form-control" id="fax" placeholder="Enter your fax" required>
+                                <input type="text" name="fax" ng-model="homepage.site.fax" class="form-control" id="fax" placeholder="Enter your fax" required>
                                 <div ng-messages="newHomepageForm.fax.$error"
                                     ng-show="newHomepageForm.fax.$touched || newHomepageForm.$submitted">
                                     <span class="help-block" ng-message="required">FAX is required.</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group form-md-line-input" 
+                       <div class="form-group form-md-line-input" 
                         ng-class="{ 'has-error': newHomepageForm.domain.$touched && newHomepageForm.domain.$invalid || newHomepageForm.domain.$invalid && newHomepageForm.$submitted }">
                             <label class="col-md-3 control-label" for="domain">Domain<span class="required">*</span></label>
                             <div class="col-md-9">
-                                <input type="text" name="domain" ng-model="homepage.domain" class="form-control" id="domain" placeholder="Enter your domain" required>
+                                <input type="text" name="domain" ng-model="homepage.site.domain" class="form-control" id="domain" placeholder="Enter your domain" required>
                                 <div ng-messages="newHomepageForm.domain.$error"
                                     ng-show="newHomepageForm.domain.$touched || newHomepageForm.$submitted">
                                     <span class="help-block" ng-message="required">Domain is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                       <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newHomepageForm.step1.$touched && newHomepageForm.step1.$invalid || newHomepageForm.step1.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="step1">Step 1<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" name="step1" ng-model="homepage.simple_steps.step1" class="form-control" id="step1" placeholder="Enter your step1" required>
+                                <div ng-messages="newHomepageForm.step1.$error"
+                                    ng-show="newHomepageForm.step1.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">Step 1 is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newHomepageForm.step2.$touched && newHomepageForm.step2.$invalid || newHomepageForm.step2.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="step2">Step 2<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" name="step2" ng-model="homepage.simple_steps.step2" class="form-control" id="step2" placeholder="Enter your step2" required>
+                                <div ng-messages="newHomepageForm.step2.$error"
+                                    ng-show="newHomepageForm.step2.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">Step 2 is required.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newHomepageForm.step3.$touched && newHomepageForm.step3.$invalid || newHomepageForm.step3.$invalid && newHomepageForm.$submitted }">
+                            <label class="col-md-3 control-label" for="step3">Step 3<span class="required">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" name="step3" ng-model="homepage.simple_steps.step3" class="form-control" id="step3" placeholder="Enter your step3" required>
+                                <div ng-messages="newHomepageForm.step3.$error"
+                                    ng-show="newHomepageForm.step3.$touched || newHomepageForm.$submitted">
+                                    <span class="help-block" ng-message="required">Step 3 is required.</span>
                                 </div>
                             </div>
                         </div>
