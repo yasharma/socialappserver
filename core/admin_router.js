@@ -79,6 +79,7 @@ module.exports = {
       { url: '/user/add', mwear:uploadProfileImage.any(),method: ctrls.userCtrl.add, type: 'post' },
       { url: '/user/view/:id', method: ctrls.userCtrl.view, type: 'get' },
       { url: '/user/edit/:id', mwear: uploadProfileImage.any(), method: ctrls.userCtrl.edit, type: 'put' },
+      { url: '/user/exportcsv', method: ctrls.userCtrl.exportcsv, type: 'get' },
       { url: '/cms/add', method: ctrls.cmsCtrl.add, type: 'post' },
   		{ url: '/cms/list', method: ctrls.cmsCtrl.list, type: 'post' },
   		{ url: '/cms/edit', method: ctrls.cmsCtrl.edit, type: 'put' },

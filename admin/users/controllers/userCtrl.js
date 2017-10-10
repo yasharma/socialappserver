@@ -1,6 +1,6 @@
 'use strict';
-mimicTrading.controller('userCtrl', ['$scope', '$state', '$rootScope', 'Upload','appSvr',
-	function($scope, $state, $rootScope, Upload, appSvr){
+mimicTrading.controller('userCtrl', ['$scope', '$state', '$rootScope', 'Upload','appSvr','RestSvr',
+	function($scope, $state, $rootScope, Upload, appSvr,RestSvr){
 		
 		$scope.$on('$viewContentLoaded', function() {
 			/**
@@ -69,5 +69,23 @@ mimicTrading.controller('userCtrl', ['$scope', '$state', '$rootScope', 'Upload',
 		$scope.clear = function (name, form) {
 			form[name].$setValidity('unique', true);
 		};
+
+		/**
+		 * this will export customer data in csv
+		 */
+		$scope.exportCustomerCsv=function(){
+           RestSvr.get('/user/exportcsv').then(function (response) {
+			if(response.errors){
+				App.alert({message: response.errors.message, class: 'error'});
+			} else {
+			   var anchor = angular.element('<a/>');
+			     anchor.attr({
+			         href: 'data:attachment/csv;charset=utf-8,' + encodeURI(response.record),
+			         target: '_blank',
+			         download: 'customercsv'+new Date()'.csv'
+			    })[0].click();
+			}
+		  });
+        };
 	}
 ]);
