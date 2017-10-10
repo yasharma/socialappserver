@@ -82,7 +82,7 @@ mimicTrading.controller('userCtrl', ['$scope', '$state', '$rootScope', 'Upload',
 			     anchor.attr({
 			         href: 'data:attachment/csv;charset=utf-8,' + encodeURI(response.record),
 			         target: '_blank',
-			         download: 'customercsv'+new Date()'.csv'
+			         download: response.filename
 			    })[0].click();
 			}
 		  });

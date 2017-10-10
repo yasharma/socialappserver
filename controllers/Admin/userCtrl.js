@@ -171,12 +171,14 @@ exports.exportcsv = (req, res, next) => {
 			if(error){
 				res.json({errors: error});
 			}
-		var csv = json2csv({ data: result, fields: fields }); 
-		fs.writeFile('./assets/customer_csv/file.csv', csv, function(err) {
+		var csv = json2csv({ data: result, fields: fields }),
+		    filename="customercsv_"+new Date().getTime()+".csv"; 
+
+		fs.writeFile('./assets/customer_csv/'+filename, csv, function(err) {
 	      if (err) throw err;
 	      console.log('file saved');
 	    });
-		res.json({success: true, result: csv});
+		res.json({success: true, result: csv,filename:filename});
 		}
     );
 }
