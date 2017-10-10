@@ -21,6 +21,7 @@ module.exports = {
       { url: '/reset_password/:token', method: ctrls.userCtrl.reset, type: 'post' },
       { url: '/verify_email/:salt', method: ctrls.userCtrl.verifyEmail, type: 'get' },
       { url: '/cmsLinks', method: ctrls.cmsCtrl.getCmsLinks, type: 'get' },
-      { url: '/cms/get/:slug', method: ctrls.cmsCtrl.getCMS, type: 'get' }
+      { url: '/cms/get/:slug', method: ctrls.cmsCtrl.getCMS, type: 'get' },
+      { url: '/settings', method: ctrls.cmsCtrl.getSettings, type: 'get' }
   ]
 };
