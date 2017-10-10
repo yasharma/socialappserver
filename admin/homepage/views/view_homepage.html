@@ -28,8 +28,8 @@
 			         		    <div class="col-sm-12 col-md-4" ng-repeat="image in homepage.banner_img">
 	                                <div class="thumbnail" style="width: 200px;">
 	                                 <img class="img-responsive" ngf-thumbnail="image.path" alt="Preview">
-	                                 <div class="caption">
-	                                 	<p><a href="#" class="btn btn-block btn-default" role="button">Remove</a></p>
+	                                 <div class="caption" ng-if="homepage.banner_img.length > 1">
+	                                 	<p><button ng-click="open(image.path)"  class="btn btn-block btn-default" role="button">Remove</button></p>
 	                                 </div>
 	                                </div>
 	                                
@@ -37,7 +37,7 @@
 			                   </div>
 		    	            </div>
 		                </div>
-		                
+		                <hr />
 		                <h3 class="form-section">Using Tool In 3 Simple Steps Section</h3>
 		                <div class="row">
 		                    <div class="col-md-4">
@@ -93,6 +93,7 @@
 		                        </div>
 		                    </div>
 		                </div>
+		                <hr />
 		                <h3 class="form-section">How it Works Section</h3>
 		                <div class="row">
 		                    <div class="col-md-6">
@@ -114,6 +115,7 @@
 		                    </div>
 		                    <!--/span-->
 		                </div>
+		                <hr />
 		                <h3 class="form-section">Footer Contact Section</h3>
 		                <div class="row">
 		                    <div class="col-md-3">
