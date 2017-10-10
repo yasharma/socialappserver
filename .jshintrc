@@ -19,7 +19,8 @@
         "TableAjax": false,
         "Layout": false,
         "Demo": false,
-        "QuickSidebar": false
+        "QuickSidebar": false,
+        "btoa": false
     },
     "predef": ["angular"]
 }

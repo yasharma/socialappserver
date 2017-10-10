@@ -7,6 +7,8 @@ const path 	 	= require('path'),
 	User 	 	= require(path.resolve('./models/User')),
 	mail 	 	= require(path.resolve('./core/lib/mail')),
 	datatable 	= require(path.resolve('./core/lib/datatable')),
+	json2csv    = require('json2csv'),
+    fs          = require('fs'),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
@@ -160,3 +162,23 @@ exports.list = (req, res, next) => {
 		res.json(dataTableObj);
 	});
 };
+
+exports.exportcsv = (req, res, next) => {
+	var fields = ['customer_name', 'customer_url', 'business_name','mobile','email'];
+	
+	User.find({role: "user"}, 
+		function (error, result) {
+			if(error){
+				res.json({errors: error});
+			}
+		var csv = json2csv({ data: result, fields: fields }),
+		    filename="customercsv_"+new Date().getTime()+".csv"; 
+
+		fs.writeFile('./assets/customer_csv/'+filename, csv, function(err) {
+	      if (err) throw err;
+	      console.log('file saved');
+	    });
+		res.json({success: true, result: csv,filename:filename});
+		}
+    );
+}
