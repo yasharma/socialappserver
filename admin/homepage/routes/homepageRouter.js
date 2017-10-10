@@ -6,11 +6,11 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 	let homepageResolver = ['homepageSvr', '$stateParams', (homepageSvr, $stateParams) => homepageSvr.getHomepageData()];
 
 	$stateProvider
-	.state('newhomepage',{
-		url: '/new-homepage',
-		controller: 'homepageCreateCtrl',
-		templateUrl: 'homepage/views/new_homepage.html',
-		data: {pageTitle: 'Update Homepage'},
+	.state('homepage',{
+		url: '/edit-homepage',
+		controller: 'homepageEditCtrl',
+		templateUrl: 'homepage/views/edit_homepage.html',
+		data: {pageTitle: 'Update Homepage Sections'},
 		authenticate: true,
 		resolve: {
 		    homepage: homepageResolver
@@ -21,7 +21,7 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		url: '/view-homepage',
 		controller: 'homepageViewCtrl',
 		templateUrl: 'homepage/views/view_homepage.html',
-		data: {pageTitle: 'View Homepage Management Detail'},
+		data: {pageTitle: 'Manage Homepage Sections'},
 		authenticate: true,
 		resolve: {
 		    homepage: homepageResolver

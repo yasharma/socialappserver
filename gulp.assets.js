@@ -33,7 +33,8 @@ exports.adminVendorList = [
 	"./bower_components/angular-ui-mask/dist/mask.min.js",
 	"./bower_components/textAngular/dist/textAngular-rangy.min.js",
 	"./bower_components/textAngular/dist/textAngular-sanitize.min.js",
-	"./bower_components/textAngular/dist/textAngular.min.js"
+	"./bower_components/textAngular/dist/textAngular.min.js",
+	"./bower_components/bootbox.js/bootbox.js"
 ];
 
 /*

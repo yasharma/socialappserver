@@ -4,7 +4,7 @@
 		    <div class="portlet-title">
 		        <div class="caption">
 		            <i class="icon-equalizer font-green-haze"></i>
-		            <span class="caption-subject font-green-haze bold uppercase">View Homepage Info </span>
+		            <span class="caption-subject font-green-haze bold uppercase">Homepage Info </span>
 		            <span class="caption-helper"><i>(last update on {{homepage.updated_at | date: format : 'dd/m/y'}})</i></span>
 		        </div>
 		    <!--     <div class="tools">
@@ -16,38 +16,107 @@
 		        <form class="form-horizontal" role="form">
 		            <div class="form-body">
 		                <!-- <h2 class="margin-bottom-20"> View User Info - Bob Nilson </h2> -->
-		                <h3 class="form-section">Homepage Section Info</h3>
+		                <h3 class="form-section">Homepage Banner Section </h3>
+		               	<div class="row">
+		                    <div class="col-md-3">
+		                        <div class="form-group">
+		                           <label class="control-label col-md-6">Banner images:</label>
+		       	                </div>
+		                    </div>
+		                    <div class="col-md-9">
+	                          <div class="form-group">
+			         		    <div class="col-sm-12 col-md-4" ng-repeat="image in homepage.banner_img">
+	                                <div class="thumbnail" style="width: 200px;">
+	                                 <img class="img-responsive" ngf-thumbnail="image.path" alt="Preview">
+	                                 <div class="caption">
+	                                 	<p><a href="#" class="btn btn-block btn-default" role="button">Remove</a></p>
+	                                 </div>
+	                                </div>
+	                                
+	                            </div>  
+			                   </div>
+		    	            </div>
+		                </div>
+		                
+		                <h3 class="form-section">Using Tool In 3 Simple Steps Section</h3>
+		                <div class="row">
+		                    <div class="col-md-4">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Step 1 Title:</label>
+		                            <div class="col-md-9">
+		                              <p class="form-control-static">{{homepage.simple_steps.step1.title}}</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                     
+		                    <div class="col-md-4">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Step 2 Title:</label>
+		                            <div class="col-md-9">
+		                              <p class="form-control-static">{{homepage.simple_steps.step2.title}}</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-4">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Step 3 Title:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static">{{homepage.simple_steps.step3.title}}</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="row">
+		                    <div class="col-md-4">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Step 1 Text:</label>
+		                            <div class="col-md-9">
+		                              <p class="form-control-static">{{homepage.simple_steps.step1.text}}</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                     
+		                    <div class="col-md-4">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Step 2 Text:</label>
+		                            <div class="col-md-9">
+		                              <p class="form-control-static">{{homepage.simple_steps.step2.text}}</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-4">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Step 3 Text:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static" >{{homepage.simple_steps.step3.text}}</p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <h3 class="form-section">How it Works Section</h3>
 		                <div class="row">
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Video Url:</label>
+		                            <label class="control-label col-md-3">YouTube Video URL:</label>
 		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{homepage.video_url}} </p>
+		                                <p class="form-control-static"> <a href="{{homepage.video_url}}" target="_blank">{{homepage.how_it_works.video_url}} </a></p>
 		                            </div>
 		                        </div>
 		                    </div>
 		                    <!--/span-->
 		                    <div class="col-md-6">
 		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Video Text:</label>
+		                            <label class="control-label col-md-3">Text:</label>
 		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{homepage.video_text}}  </p>
+		                                <p class="form-control-static"> {{homepage.how_it_works.video_text}}  </p>
 		                            </div>
 		                        </div>
 		                    </div>
 		                    <!--/span-->
 		                </div>
-		                <!--/row-->
+		                <h3 class="form-section">Footer Contact Section</h3>
 		                <div class="row">
-		                      <div class="col-md-6">
-		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Date:</label>
-		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{homepage.created_at | date: format : 'dd/m/y'}}  </p>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    <div class="col-md-6">
+		                    <div class="col-md-3">
 		                        <div class="form-group">
 		                            <label class="control-label col-md-3">Address:</label>
 		                            <div class="col-md-9">
@@ -55,12 +124,7 @@
 		                            </div>
 		                        </div>
 		                    </div>
-		              
-		                </div>
-		                  <!--/row-->
-		                <div class="row">
-		                    <!--/span-->
-		                    <div class="col-md-6">
+		                    <div class="col-md-3">
 		                        <div class="form-group">
 		                            <label class="control-label col-md-3">Phone:</label>
 		                            <div class="col-md-9">
@@ -68,8 +132,7 @@
 		                            </div>
 		                        </div>
 		                    </div>
-		                    <!--/span-->
-		                    <div class="col-md-6">
+		                    <div class="col-md-3">
 		                        <div class="form-group">
 		                            <label class="control-label col-md-3">Domain:</label>
 		                            <div class="col-md-9">
@@ -77,10 +140,7 @@
 		                            </div>
 		                        </div>
 		                    </div>
-		                </div>
-		               <!--/row-->
-		                <div class="row">
-		                    <div class="col-md-6">
+		                    <div class="col-md-3">
 		                        <div class="form-group">
 		                            <label class="control-label col-md-3">Fax:</label>
 		                            <div class="col-md-9">
@@ -88,58 +148,7 @@
 		                            </div>
 		                        </div>
 		                    </div>
-		                   <div class="col-md-6">
-		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Step 1:</label>
-		                            <div class="col-md-9">
-		                                <p class="form-control-static" ng-bind-html="homepage.simple_steps.step1">  </p>
-		                            </div>
-		                        </div>
-		                    </div>
 		                </div>
-		                <!--/row-->
-		              <!--/row-->
-		                <div class="row">
-		                
-		                    <!--/span-->
-		                    <div class="col-md-6">
-		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Step 2:</label>
-		                            <div class="col-md-9">
-		                              <p class="form-control-static" ng-bind-html="homepage.simple_steps.step2">  </p>
-		                            </div>
-		                        </div>
-		                    </div>
-		                     <!--/span-->
-		                    <div class="col-md-6">
-		                        <div class="form-group">
-		                            <label class="control-label col-md-3">Step 3:</label>
-		                            <div class="col-md-9">
-		                              <p class="form-control-static" ng-bind-html="homepage.simple_steps.step3">  </p>
-		                            </div>
-		                        </div>
-		                    </div>
-		                </div>
-		                <!--/row-->
-		                         <!--/row-->
-		               <div class="row">
-	                    <div class="col-md-3">
-	                        <div class="form-group">
-	                           <label class="control-label col-md-6">Banner_image:</label>
-	       	                </div>
-	                    </div>
-	                    <div class="col-md-9">
-                          <div class="form-group">
-		         		    <div class="col-sm-12 col-md-4" ng-repeat="f in homepage.banner_img">
-                                <div class="thumbnail" style="width: 200px;">
-                                 <img class="img-responsive" ngf-thumbnail="f.path" alt="Preview">
-                                </div>
-                            </div>  
-		                   </div>
-	    	            </div>
-		               
-		                </div>
-		                <!--/row-->
 		            </div>
 		            <div class="form-actions">
 		                <div class="row">
@@ -148,7 +157,6 @@
 		                            <div class="col-md-offset-3 col-md-9">
 		                                <button type="button" ng-click="goToEdit()" class="btn green">
 		                                    <i class="fa fa-pencil"></i> Edit</button>
-		                           
 		                            </div>
 		                        </div>
 		                    </div>

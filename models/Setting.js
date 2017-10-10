@@ -10,11 +10,13 @@ settingSchema 	= new Schema({
     banner_img : {
         type : Array
     },
-    video_url: {
-        type: String
-    },
-    video_text: {
-        type: String
+    how_it_works: {
+        video_url: {
+            type: String
+        },
+        video_text: {
+            type: String
+        }    
     },
     site: {
         address:{
@@ -32,13 +34,28 @@ settingSchema 	= new Schema({
     },
     simple_steps: {
         step1:{
-            type:String
+            title: {
+                type:String    
+            },
+            text: {
+                type:String      
+            }
         },
         step2:{
-            type:String
+            title: {
+                type:String    
+            },
+            text: {
+                type:String      
+            }
         },
         step3:{
-            type:String
+            title: {
+                type:String    
+            },
+            text: {
+                type:String      
+            }
         } 
     }
        

@@ -1,7 +1,7 @@
 'use strict';
-mimicTrading.controller('homepageCreateCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','Upload','homepage',
+mimicTrading.controller('homepageEditCtrl', ['$scope', '$state', 'RestSvr', '$rootScope','appSvr','Upload','homepage',
 	($scope, $state, RestSvr, $rootScope, appSvr, Upload, homepage) => {
-		
+		console.log('Hello');
 		$scope.$on('$viewContentLoaded', () => {
 			/**
 			 * Initialize the jquery components when view contents loaded properly
@@ -14,18 +14,18 @@ mimicTrading.controller('homepageCreateCtrl', ['$scope', '$state', 'RestSvr', '$
 			$scope.homepage.banner_img[index]=val.path;
 		});
 		
-	   	$scope.new_homepage = (isValid,data) => {
+	   	$scope.update_homepage = (isValid,data) => {
 			if( !isValid ){
 				App.scrollTop();
 				return;
 			}
 			$scope.isLoading = true;
 			Upload.upload({
-				url: baseUrl('homepage/add'),
+				url: baseUrl('homepage/edit'),
 				data: data
 			})
 			.then(function (response) {
-				$state.go('newhomepage');
+				$state.go('viewhomepage');
 			})
 			.catch(function (errors) {
 				App.alert({type: ('danger'), icon: ( 'warning'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'});

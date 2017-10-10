@@ -9,6 +9,6 @@ mimicTrading.controller('homepageViewCtrl', ['$scope', '$state', 'RestSvr', '$ro
 			appSvr.init();
 		}); 
 		$scope.homepage = homepage.record;
-		$scope.goToEdit = () => $state.go('newhomepage');
+		$scope.goToEdit = () => $state.go('homepage');
 	}
 ]);

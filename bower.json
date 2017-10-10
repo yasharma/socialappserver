@@ -41,7 +41,8 @@
     "angular-ui-mask": "^1.8.7",
     "moment": "^2.18.1",
     "ui-cropper": "^1.0.4",
-    "textAngular": "^1.5.16"
+    "textAngular": "^1.5.16",
+    "bootbox.js": "bootbox#^4.4.0"
   },
   "resolutions": {
     "jquery": "~1.9.0",

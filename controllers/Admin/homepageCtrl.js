@@ -1,22 +1,36 @@
 'use strict';
 const path 	 	= require('path'),
+	_ 			= require('lodash'),
 	mongoose 	= require('mongoose'),
 	Setting 	= require(path.resolve('models/Setting')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
-exports.add = (req, res, next) => {
-    let imgArr=[];
+exports.edit = (req, res, next) => {
+    let imgArr=[], oldFileArray=[];
 	if(req.files.length > 0){
-	
-	req.files.forEach((file) => {
-		let image = {};
-		image.name = file.filename;
-		image.original_name = file.originalname;
-		image.path = file.path;
-		imgArr.push(image);
-	});
-	req.body.banner_img = imgArr;	
+		req.files.forEach((file) => {
+			let image = {};
+			image.name = file.filename;
+			image.original_name = file.originalname;
+			image.path = file.path;
+			imgArr.push(image);
+		});
+
+		if( !_.isEmpty(req.body.banner_img) && _.isArray(req.body.banner_img) ) {
+			for( var i = 0; i< req.body.banner_img.length; i++  ){
+			
+				oldFileArray.push({
+					path: req.body.banner_img[i]
+				});
+			}
+			
+			
+			req.body.banner_img = _.concat(oldFileArray, imgArr);
+		} else {
+			req.body.banner_img = imgArr;	
+		}
+		
 	} else {
 		delete req.body.banner_img
 	}
