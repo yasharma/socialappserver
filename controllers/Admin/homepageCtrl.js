@@ -45,9 +45,20 @@ exports.view = (req, res, next) => {
    Setting.findOne({}, 
     	function (error, result) {
     		if(error){
-    			res.json({errors: error});
+    			return res.json({errors: error});
     		}
     		res.json({success: true, result: result});
     	}
     );
+};
+
+exports.delete = (req, res, next) => {
+	let buf = Buffer.from(req.params.path, 'base64'),
+	path = buf.toString();
+	Setting.update({}, {$pull:{"banner_img":{path:path}}}, function (err, success) {
+		if(err){
+			return res.json({errors: err});
+		}
+		res.json({success: true});
+	});
 };

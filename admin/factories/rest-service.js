@@ -48,6 +48,28 @@ mimicTrading.factory('RestSvr', ['$http', '$window', '$httpParamSerializerJQLike
 					});	
 				});
 			},
+			delete: (apiUrl, params) => {
+				let p = !angular.isUndefined(params) ? params : null,
+				req = {
+					method: 'DELETE',
+					url: baseUrl(apiUrl),
+				 	params: p
+				};
+				
+				return $q((resolve, reject) => {
+					$http(req).then(response => {
+						resolve({
+							record: response.data.result
+						});
+					})
+					.catch(response => {
+						reject({
+							errors: true,
+							message: response.data.errors.message || 'Internal Server Error',
+						});
+					});	
+				});
+			},
 			post: (apiUrl, data) => {
 				let req = {
 					method: 'POST',
