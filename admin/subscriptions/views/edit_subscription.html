@@ -41,10 +41,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.duration.$touched && editSubscriptionForm.duration.$invalid || editSubscriptionForm.duration.$invalid && editSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="duration">Plan Duration </label>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.type.$touched && editSubscriptionForm.type.$invalid || editSubscriptionForm.type.$invalid && editSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="type">Plan Type </label>
                             <div class="col-md-10">
-                                <input type="text" name="duration" ng-model="subscription.duration" class="form-control" id="duration" placeholder="Enter your plan duration">
+                               <select id="type" class="form-control" name="type" ng-model="subscription.type" required>
+                                    <option value="">Select Blog Type</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="yearly">Yearly</option>
+                               </select>
                             </div>
                         </div>
 

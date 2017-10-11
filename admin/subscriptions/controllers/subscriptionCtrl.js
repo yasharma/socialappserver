@@ -22,7 +22,7 @@ mimicTrading.controller('subscriptionCtrl', ['$scope', '$state', '$rootScope', '
 		                { "data": "description" },
 		                { "data": "price" },
 		                { "data": "features" },  
-		         		{ "data": "duration" },
+		         		{ "data": "type" },
 		         		{ "data": "status" },
 		                { "data": "created_date" },
 		                { "data": "action", "orderable": false }

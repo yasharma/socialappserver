@@ -48,7 +48,7 @@ exports.subscriptionTable = (status_list, recordsTotal, data, draw) => {
 			description: data[i].description || '-',
 			price: data[i].price,
 			features: data[i].features, 
-			duration:data[i].duration, 
+			type:data[i].type, 
 			created_date: moment(data[i].created_at).format('MMM D, YYYY'),
 			status: `<span class="label label-sm label-${status_list.class[data[i].status]}">${status_list.status[data[i].status]}</span>`,
 			action: `
