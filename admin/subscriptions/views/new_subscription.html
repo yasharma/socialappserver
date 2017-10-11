@@ -1,0 +1,103 @@
+<div class="row fade-in-up">
+    <div class="col-md-12">
+        <!-- BEGIN VALIDATION STATES-->
+        <div class="portlet light portlet-fit portlet-form ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-subscription font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">Add New Subscription Plan</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <!-- BEGIN FORM-->
+                <form novalidate ng-submit="new_subscription(newSubscriptionForm.$valid,subscription)" class="form-horizontal" name="newSubscriptionForm" ng-keydown="clear($event.target.name, newSubscriptionForm)">
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newSubscriptionForm.name.$touched && newSubscriptionForm.name.$invalid || newSubscriptionForm.name.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="name">Plan Name <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="name" ng-model="subscription.name" class="form-control" id="name" placeholder="Enter your plan name" ng-maxlength="20" required>
+                                <div ng-messages="newSubscriptionForm.name.$error"
+                                    ng-show="newSubscriptionForm.name.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Name is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Plan Name cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.description.$touched && newSubscriptionForm.description.$invalid || newSubscriptionForm.description.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="description">Plan Description <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="description" ng-model="subscription.description" class="form-control" id="description" placeholder="Enter your plan description"  required>
+                                <div ng-messages="newSubscriptionForm.description.$error"
+                                    ng-show="newSubscriptionForm.description.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Description is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.price.$touched && newSubscriptionForm.price.$invalid || newSubscriptionForm.price.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="price">Plan Price <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="number" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" ng-maxlength="20" required>
+                                <div ng-messages="newSubscriptionForm.price.$error"
+                                    ng-show="newSubscriptionForm.price.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Price is required.</span>
+                                </div>
+                            </div>
+                        </div>
+             
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.features.$touched && newSubscriptionForm.features.$invalid || newSubscriptionForm.features.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="features">Plan Features <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="features" ng-model="subscription.features" class="form-control" id="features" placeholder="Enter your plan features"  required>
+                                <div ng-messages="newSubscriptionForm.features.$error"
+                                    ng-show="newSubscriptionForm.features.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Features is required.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.duration.$touched && newSubscriptionForm.duration.$invalid || newSubscriptionForm.duration.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="duration">Plan Duration <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="duration" ng-model="subscription.duration" class="form-control" id="duration" placeholder="Enter your plan duration"  required>
+                                <div ng-messages="newSubscriptionForm.duration.$error"
+                                    ng-show="newSubscriptionForm.duration.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Duration is required.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                      <!-- <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.expiration_date.$touched && newSubscriptionForm.expiration_date.$invalid || newSubscriptionForm.expiration_date.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="expiration_date">Expiration Date <span class="required">*</span></label>
+                            <div class="col-md-10">
+                               <div class="input-group date date-picker margin-bottom-5"  data-date-format="yyyy-mm-dd">
+                                <input type="text" class="form-control form-filter input-sm" readonly ng-model="subscription.expiration_date" placeholder="Expiration date">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-sm default" type="button">
+                                        <i class="fa fa-calendar"></i>
+                                    </button>
+                                </span>
+                                </div>
+                                <div ng-messages="editSubscriptionForm.expiration_date.$error"
+                                    ng-show="editSubscriptionForm.expiration_date.$touched || editSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Expiration Date is required.</span>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-9">
+                                <button type="submit" ladda="isLoading" class="btn green">Submit</button>
+                                <a href ui-sref="subscriptions" class="btn default">cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END VALIDATION STATES-->
+    </div>
+</div>

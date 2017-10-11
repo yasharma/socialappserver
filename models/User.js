@@ -81,29 +81,39 @@ UserSchema 	= new Schema({
 	salt: { type: String },
 	lastLoggedIn: { type: Date },
 	ip: { type: String },
-	subscription_plan: {
-		name: {
-			type: String,
-			default: 'trail'
-		},
-		duration: {
-			type: Number,
-			default: 14
-		},
-		features: {
-			type: Array
-		},
-		start_date: {
-			type: Date,
-			default: Date.now
-		},
-		renew_date: {
-			type: Date
-		},
-		expiration_date: {
-			type: Date
-		}
-	}
+	subscription_plan:{type: Array}
+	// subscription_plan: {
+	// 	name: {
+	// 		type: String,
+	// 		default: 'trial'
+	// 	},
+	// 	description: {
+	// 		type: String
+	// 	},
+	// 	price: {
+	// 		type: Number
+	// 	},
+	// 	status: {
+	// 		type: String
+	// 	},
+	// 	duration: {
+	// 		type: Number,
+	// 		default: 14
+	// 	},
+	// 	features: {
+	// 		type: Array
+	// 	},
+	// 	start_date: {
+	// 		type: Date,
+	// 		default: Date.now
+	// 	},
+	// 	renew_date: {
+	// 		type: Date
+	// 	},
+	// 	expiration_date: {
+	// 		type: Date
+	// 	}
+	// }
 },{
     timestamps: {
         createdAt: 'created_at',

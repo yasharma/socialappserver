@@ -85,13 +85,15 @@ module.exports = {
   		{ url: '/cms/edit', method: ctrls.cmsCtrl.edit, type: 'put' },
   		{ url: '/cms/view/:slug', method: ctrls.cmsCtrl.view, type: 'get' },
       { url: '/homepage/edit', mwear:uploadHomepageBanner.any(),method: ctrls.homepageCtrl.edit, type: 'post' },
-
       { url: '/homepage/view', method: ctrls.homepageCtrl.view, type: 'get' },
       { url: '/homepage/remove_banner/:path', method: ctrls.homepageCtrl.delete, type: 'delete' },
   		{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
-
+      
+      { url: '/subscription/list', method: ctrls.subscriptionCtrl.list, type: 'post' },
+      { url: '/subscription/add', mwear:uploadProfileImage.any(),method: ctrls.subscriptionCtrl.add, type: 'post' },
+      { url: '/subscription/view/:id', method: ctrls.subscriptionCtrl.view, type: 'get' },
+      { url: '/subscription/edit/:id', mwear: uploadProfileImage.any(), method: ctrls.subscriptionCtrl.edit, type: 'put' },
   		/*{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
-
       { url: '/privacypolicy/list', method: ctrls.privacypolicyCtrl.list, type: 'post' },
       { url: '/privacypolicy/edit', method: ctrls.privacypolicyCtrl.edit, type: 'put' },
       { url: '/privacypolicy/view/:id', method: ctrls.privacypolicyCtrl.view, type: 'get'},
