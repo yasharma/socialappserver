@@ -11,6 +11,82 @@ const
 	twilio	 	= require(path.resolve('./core/lib/twilio')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
+exports.updateProfile = (req, res, next) => {
+	let image = {}, _body;
+	if( req.files.length > 0 ) {
+		req.files.forEach(x => {
+			image.path = x.path;
+			image.name = x.originalname;
+		});
+	}
+	if( !_.isEmpty(image) ) {
+		_body = _.assign(req.body, {profile_image: image});	
+	} else {
+		_body = req.body;
+	}
+	async.waterfall([
+		function (done) {
+			User.update(
+				{ email: req.body.email },
+				{$set:_body},done);
+		},
+		function (result, done) {
+			User.findOne({email: _body.email},{password:0, salt: 0}, done);
+		}
+	],function (err, user) {
+			if(err){
+				return res.json(response.error(err));
+			}
+			res.json(response.success(user));
+		}
+	)
+};
+
+exports.changePassword = (req, res, next) => {
+	if( !req.body.password && !req.body.new_password ){
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+				.json(response.required({message: 'Current Password and New Password is required'}));
+	}
+	if (req.body.new_password !== req.body.confirm_password) {
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+				.json(response.required({message: 'New password and confirm password should match'}));
+    }
+    let user = new User(),
+    hashedPassword = user.hashPassword(config.salt, req.body.password);
+    User.findOne({ $and: [{ '_id': req.params.id }, {'password': hashedPassword }] },
+    (err, finaluser) => {
+        if(finaluser){
+            finaluser.password = req.body.new_password;
+            finaluser.save(function(err, saveduser) {
+                if (err) {
+                    next(err);
+                } else {
+                	mail.send({
+                		subject: 'Your password has been changed',
+                		html: './public/email_templates/user/reset-password-confirm.html',
+                		from: config.mail.from, 
+                		to: saveduser.email,
+                		emailData : {
+                			customer_name: saveduser.customer_name || 'User'
+                		}
+                	}, function(err, success) {
+                        if (err) {
+                            res.json( response.error( err ) );
+                        } else {
+                        	res.json(response.success({
+                        		success: true, 
+                        		message: 'Your password has been changed'
+                        	}));
+                        }
+                    }); 
+                }
+            });
+        } else {
+            res.status(500).json( response.error( {message: 'Current password did not match.'} ) );
+        }
+    });
+};
+
 exports.register = (req, res, next) => {
 	if( !req.body.email || !req.body.password || !req.body.mobile ){
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
