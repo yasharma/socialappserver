@@ -41,6 +41,7 @@ mimicTrading.controller('subscriptionCtrl', ['$scope', '$state', '$rootScope', '
 				App.scrollTop();
 				return;
 			}
+			data.features=data.features.split(',');
 			$scope.isLoading = true;
 			Upload.upload({
 				url: baseUrl('subscription/add'),

@@ -46,7 +46,7 @@
                         </div>
              
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.features.$touched && newSubscriptionForm.features.$invalid || newSubscriptionForm.features.$invalid && newSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="features">Plan Features <span class="required">*</span></label>
+                            <label class="col-md-2 control-label" for="features">Plan Features(comma seperated) <span class="required">*</span></label>
                             <div class="col-md-10">
                                 <input type="text" name="features" ng-model="subscription.features" class="form-control" id="features" placeholder="Enter your plan features"  required>
                                 <div ng-messages="newSubscriptionForm.features.$error"

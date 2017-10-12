@@ -14,7 +14,7 @@ SubscriptionSchema   = new Schema({
 			type: Number
 		},
 		features: {
-			type: String
+			type: Array
 		},
         type: {
 			type: String
