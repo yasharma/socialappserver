@@ -46,7 +46,7 @@
                         </div>
              
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.features.$touched && newSubscriptionForm.features.$invalid || newSubscriptionForm.features.$invalid && newSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="features">Plan Features <span class="required">*</span></label>
+                            <label class="col-md-2 control-label" for="features">Plan Features(comma seperated) <span class="required">*</span></label>
                             <div class="col-md-10">
                                 <input type="text" name="features" ng-model="subscription.features" class="form-control" id="features" placeholder="Enter your plan features"  required>
                                 <div ng-messages="newSubscriptionForm.features.$error"
@@ -56,13 +56,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.duration.$touched && newSubscriptionForm.duration.$invalid || newSubscriptionForm.duration.$invalid && newSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="duration">Plan Duration <span class="required">*</span></label>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.type.$touched && newSubscriptionForm.type.$invalid || newSubscriptionForm.type.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="type">Plan Type <span class="required">*</span></label>
                             <div class="col-md-10">
-                                <input type="text" name="duration" ng-model="subscription.duration" class="form-control" id="duration" placeholder="Enter your plan duration"  required>
-                                <div ng-messages="newSubscriptionForm.duration.$error"
-                                    ng-show="newSubscriptionForm.duration.$touched || newSubscriptionForm.$submitted">
-                                    <span class="help-block" ng-message="required">Plan Duration is required.</span>
+                                <select id="type" class="form-control" name="type" ng-model="subscription.type" required>
+                                    <option value="">Select Blog Type</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="yearly">Yearly</option>
+                                </select>
+                                <div ng-messages="newSubscriptionForm.type.$error"
+                                    ng-show="newSubscriptionForm.type.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Type is required.</span>
                                 </div>
                             </div>
                         </div>

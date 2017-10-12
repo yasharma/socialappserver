@@ -14,9 +14,9 @@ SubscriptionSchema   = new Schema({
 			type: Number
 		},
 		features: {
-			type: String
+			type: Array
 		},
-        duration: {
+        type: {
 			type: String
 		},
 		expiration_date: {

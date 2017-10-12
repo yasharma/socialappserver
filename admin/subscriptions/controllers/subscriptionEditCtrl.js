@@ -23,6 +23,7 @@ mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscriptio
 			}
 		
 			$scope.isLoading = true;
+			$scope.subscription.features=$scope.subscription.features.split(',');
 			Upload.upload({
 				url: baseUrl(`subscription/edit/${subscription._id}`),
 				data: $scope.subscription,

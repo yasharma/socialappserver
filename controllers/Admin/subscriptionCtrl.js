@@ -83,8 +83,8 @@ exports.list = (req, res, next) => {
 	if( reqData.features ){
 		operation.features = {$regex: new RegExp(`${reqData.features}`), $options:"im"};
 	}
-	if( reqData.duration ){
-		operation.duration = {$regex: new RegExp(`${reqData.duration}`), $options:"im"};
+	if( reqData.type ){
+		operation.type = {$regex: new RegExp(`${reqData.type}`), $options:"im"};
 	}
 	if( reqData.status === "active" || reqData.status === "inactive" ){
 		operation.status = reqData.status == "active" ? true : false;
