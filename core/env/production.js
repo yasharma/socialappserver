@@ -48,8 +48,8 @@ const config = {
       'image/bmp' : 'bmp',
     },
     blog_image_destination: 'assets/blog',
-    image_path: 'images/',
-    image_name: 'noimage.jpg',
+    image_path: 'assets/images/default-user.png',
+    image_name: 'default-user.png',
     fileLimits: {
         fileSize: 2000000, //the max file size (in bytes)
         files: 10 //the max number of file
