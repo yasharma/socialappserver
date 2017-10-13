@@ -5,11 +5,13 @@ const
 	User 		= require(path.resolve('models/User')),
 	Subscription= require(path.resolve('./models/Subscription')),
 	async 		= require('async'),
+	paginate 	= require(path.resolve('./core/lib/paginate')),
 	crypto 		= require('crypto'),
 	_ 			= require('lodash'),
 	jwt 	 	= require('jsonwebtoken'),
 	mail 	 	= require(path.resolve('./core/lib/mail')),
 	twilio	 	= require(path.resolve('./core/lib/twilio')),
+	mongoose 	= require('mongoose'),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
 exports.updateProfile = (req, res, next) => {
@@ -534,21 +536,46 @@ exports.addWebsite = (req, res, next) => {
 };
 
 exports.websiteList=(req, res, next) => {
+
+	let page= req.query.page || 1;
+	let _skip = (page - 1) * config.docLimit; 
 	if(!req.body._id){
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				  .json(response.required({message: 'Id is required'}));
 	}
 
-	User.findOne({_id:req.body._id}).select({subscription_plan:1}).exec(function (err, websiteresult) {
-		if(err){
-			next(err, null);
-		} else {
-			res.json(
-			   response.success({
-				 success: true,
-			     result: websiteresult.subscription_plan
-			   })	
-			);
+	async.parallel({
+		count: (done) => {
+			User.aggregate([
+		      {$match:{"_id": mongoose.Types.ObjectId( req.body._id) }},
+		      {
+		      	$project: {
+		      		_id:0,
+		           count: { $size: "$subscription_plan" }
+		         }
+		      }
+		   ],done);
+		},
+		records: (done) => {
+			User.findOne({"_id":req.body._id},{_id:0,subscription_plan:1})
+			.limit(config.docLimit).skip(_skip).exec(done);	
 		}
-	});
+	}, (err, result) => {
+		if(err){
+			return res.json({errors: err});
+		}
+		let _records = [];
+		if( !_.isEmpty(result.records) ) {
+			_records = result.records.subscription_plan;
+		}
+		let count = (result.count.length) > 0 ? result.count[0].count: 0;
+
+        let paginateObj = paginate._paging(count, _records, page);
+		res.json({
+			records:_records,
+			paging: paginateObj
+		});
+		
+	});	
+
 };
