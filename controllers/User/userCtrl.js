@@ -504,9 +504,9 @@ exports.subscriptionList=(req, res, next) => {
 };
 
 exports.addWebsite = (req, res, next) => {
-	if(!req.body.email){
+	if(!req.body._id){
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
-				  .json(response.required({message: 'Email is required'}));
+				  .json(response.required({message: 'Id is required'}));
 	}
 	let curDate=new Date();
 	req.body.start_date=new Date();
@@ -518,7 +518,7 @@ exports.addWebsite = (req, res, next) => {
       req.body.duration=365;	
 	  req.body.expiration_date=curDate.setDate(curDate.getDate() + 365);
 	}
-	User.update({email:req.body.email},{ $push: { subscription_plan: req.body } },function (err, user) {
+	User.update({_id:req.body._id},{ $push: { subscription_plan: req.body } },function (err, user) {
 		if(err){
 			next(err, null);
 		} else {
@@ -531,4 +531,24 @@ exports.addWebsite = (req, res, next) => {
 		}
 	});
 
+};
+
+exports.websiteList=(req, res, next) => {
+	if(!req.body._id){
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+				  .json(response.required({message: 'Id is required'}));
+	}
+
+	User.findOne({_id:req.body._id}).select({subscription_plan:1}).exec(function (err, websiteresult) {
+		if(err){
+			next(err, null);
+		} else {
+			res.json(
+			   response.success({
+				 success: true,
+			     result: websiteresult.subscription_plan
+			   })	
+			);
+		}
+	});
 };

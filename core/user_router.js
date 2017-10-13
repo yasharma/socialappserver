@@ -43,12 +43,10 @@ module.exports = {
       { url: '/cmsLinks', method: ctrls.cmsCtrl.getCmsLinks, type: 'get' },
       { url: '/cms/get/:slug', method: ctrls.cmsCtrl.getCMS, type: 'get' },
       { url: '/settings', method: ctrls.cmsCtrl.getSettings, type: 'get' },
-<<<<<<< HEAD
       { url: '/add_website', method: ctrls.userCtrl.addWebsite, type: 'post' },
-      { url: '/subscription_list', method: ctrls.userCtrl.subscriptionList, type: 'get' }
-=======
+      { url: '/subscription_list', method: ctrls.userCtrl.subscriptionList, type: 'get' },
+      { url: '/website_list', method: ctrls.userCtrl.websiteList, type: 'post' },
       { url: '/change_password/:id', method: ctrls.userCtrl.changePassword, type: 'post' },
       { url: '/profile', mwear: uploadProfileImage.any(),method: ctrls.userCtrl.updateProfile, type: 'post' },
->>>>>>> 02e6f6b3fbd6f47fd9a4424125fc527369105088
   ]
 };
