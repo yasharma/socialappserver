@@ -22,6 +22,8 @@ module.exports = {
       { url: '/verify_email/:salt', method: ctrls.userCtrl.verifyEmail, type: 'get' },
       { url: '/cmsLinks', method: ctrls.cmsCtrl.getCmsLinks, type: 'get' },
       { url: '/cms/get/:slug', method: ctrls.cmsCtrl.getCMS, type: 'get' },
-      { url: '/settings', method: ctrls.cmsCtrl.getSettings, type: 'get' }
+      { url: '/settings', method: ctrls.cmsCtrl.getSettings, type: 'get' },
+      { url: '/add_website', method: ctrls.userCtrl.addWebsite, type: 'post' },
+      { url: '/subscription_list', method: ctrls.userCtrl.subscriptionList, type: 'get' }
   ]
 };

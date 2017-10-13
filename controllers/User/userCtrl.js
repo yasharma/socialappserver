@@ -3,6 +3,7 @@ const
 	path 		= require('path'),
 	response 	= require(path.resolve('core/lib/response')),
 	User 		= require(path.resolve('models/User')),
+	Subscription= require(path.resolve('./models/Subscription')),
 	async 		= require('async'),
 	crypto 		= require('crypto'),
 	_ 			= require('lodash'),
@@ -411,4 +412,47 @@ function forgotByMobile(req, res, next) {
 			res.status(500).json( response.error( err ) );
 		}
 	});
+};
+
+exports.subscriptionList=(req, res, next) => {
+    Subscription.find({}).exec(function(err,subscriptionresult){
+        if(err){
+        	next(err);
+        }
+        else{
+        	res.json({
+        		success:true,result:subscriptionresult
+        	})
+        }
+    });
+};
+
+exports.addWebsite = (req, res, next) => {
+	if(!req.body.email){
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+				  .json(response.required({message: 'Email is required'}));
+	}
+	let curDate=new Date();
+	req.body.start_date=new Date();
+	if(req.body.plan_type==="monthly"){
+	  req.body.duration=30;	
+	  req.body.expiration_date=curDate.setDate(curDate.getDate() + 30);
+	}
+	else{
+      req.body.duration=365;	
+	  req.body.expiration_date=curDate.setDate(curDate.getDate() + 365);
+	}
+	User.update({email:req.body.email},{ $push: { subscription_plan: req.body } },function (err, user) {
+		if(err){
+			next(err, null);
+		} else {
+			res.json(
+			   response.success({
+				 success: true,
+			     message: 'website added successfully.'
+			   })	
+			);
+		}
+	});
+
 };
