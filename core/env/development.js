@@ -61,6 +61,7 @@ const config = {
     	role: 'admin',
     	status: true,
       email_verified: true
-    }
+    },
+    default_plan_description: 14
 };
 module.exports = config;

@@ -579,3 +579,24 @@ exports.websiteList=(req, res, next) => {
 	});	
 
 };
+
+exports.trailPlan = (req, res, next) => {
+	if( !req.body._id && !req.body.planId) {
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+		.json(response.required({message: 'Plan is required'}));
+	}
+	const{ _id, planId } = req.body;
+	User.update({_id: _id}, {
+		$set: {
+			plan_start_during_signup: {
+				plan_id: planId,
+				duration: req.body.duration || config.default_plan_description
+			}	
+		}
+	}, function (err, result) {
+		if(err){
+			return res.json(response.error(err));
+		}
+		res.json(response.success({message: 'Plan updated successfully'}));
+	});
+}

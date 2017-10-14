@@ -19,7 +19,7 @@ exports.userTable = (status_list, recordsTotal, data, draw) => {
 			action: `
 					<div class="btn-group btn-group-solid">
 						<a href="#!/view-user/${data[i]._id}" class="btn btn-sm btn-outline blue tooltips" data-original-title="View">
-							<i class="fa fa-info"></i>
+							<i class="fa fa-search"></i>
 						</a>
 						<a href="#!/edit-user/${data[i]._id}" class="btn btn-sm btn-outline grey-salsa tooltips" data-original-title="Edit">
 							<i class="fa fa-pencil"></i>
@@ -54,7 +54,7 @@ exports.subscriptionTable = (status_list, recordsTotal, data, draw) => {
 			action: `
 					<div class="btn-group btn-group-solid">
 						<a href="#!/view-subscription/${data[i]._id}" class="btn btn-sm btn-outline blue tooltips" data-original-title="View">
-							<i class="fa fa-info"></i>
+							<i class="fa fa-search"></i>
 						</a>
 						<a href="#!/edit-subscription/${data[i]._id}" class="btn btn-sm btn-outline grey-salsa tooltips" data-original-title="Edit">
 							<i class="fa fa-pencil"></i>

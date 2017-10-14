@@ -18,6 +18,23 @@ UserSchema 	= new Schema({
 			default: config.image_path
 		}
 	},
+	plan_start_during_signup: {
+		plan_id: {
+			type: mongoose.Schema.Types.ObjectId
+		},
+		duration: {
+			type: Number,
+			default: config.default_plan_description
+		}
+	},
+	stripe: {
+		customer: {
+			id: String,
+			account_balance: String,
+			default_source: String,
+			description: String,
+		}
+	},
 	customer_name: {
 		type: String,
 		maxlength: [200, 'Customer Name cannot be more then {MAXLENGTH} characters.']
@@ -74,38 +91,25 @@ UserSchema 	= new Schema({
 	salt: { type: String },
 	lastLoggedIn: { type: Date },
 	ip: { type: String },
-	//subscription_plan:{type: Array}
 	subscription_plan: [
-       {
-		website_url: {
-			type: String
-		},
-		plan_name: {
-			type: String
-		},
-		plan_price: {
-			type: Number
-		},
-		plan_type: {
-			type: String
-		},
-		duration: {
-			type: Number,
-			default: 14
-		},
-		start_date: {
-			type: Date,
-			default: Date.now
-		},
-		renew_date: {
-			type: Date
-		},
-		expiration_date: {
-			type: Date
-		}
-      }
-     ]
-	
+   		{
+			website_url: {
+				type: String
+			},
+			plan_id: {
+				type: mongoose.Schema.Types.ObjectId
+			},
+			start_date: {
+				type: Date
+			},
+			renew_date: {
+				type: Date
+			},
+			expiration_date: {
+				type: Date
+			}
+      	}
+    ]
 },{
     timestamps: {
         createdAt: 'created_at',

@@ -60,6 +60,7 @@ const config = {
       password: '123456',
       role: 'admin',
       status: true
-    }
+    },
+    default_plan_description: 14
 };
 module.exports = config;
