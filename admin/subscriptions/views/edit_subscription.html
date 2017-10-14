@@ -16,28 +16,45 @@
                         ng-class="{ 'has-error': editSubscriptionForm.name.$touched && editSubscriptionForm.name.$invalid || editSubscriptionForm.name.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="name">Plan Name </label>
                             <div class="col-md-10">
-                                <input type="text" name="name" ng-model="subscription.name" class="form-control" id="name" placeholder="Enter your plan name">
-                                
+                                <input type="text" name="name" ng-model="subscription.name" class="form-control" id="name" placeholder="Enter your plan name" required>
+                                <div ng-messages="editSubscriptionForm.name.$error"
+                                    ng-show="editSubscriptionForm.name.$touched || editSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Name is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Plan Name cannot be greater than 20 characters</span>
+                                 </div> 
                             </div>
+         
                         </div>
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.description.$touched && editSubscriptionForm.description.$invalid || editSubscriptionForm.description.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="description">Plan Description </label>
                             <div class="col-md-10">
                                 <input type="text" name="description" ng-model="subscription.description" class="form-control" id="description" placeholder="Enter your plan description">
+                                <div ng-messages="editSubscriptionForm.description.$error"
+                                    ng-show="editSubscriptionForm.description.$touched || editSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Description is required.</span>
+                                </div>
                             </div>
                         </div>
                                     
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.price.$touched && editSubscriptionForm.price.$invalid || editSubscriptionForm.price.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="price">Plan Price </label>
                             <div class="col-md-10">
-                                <input type="text" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price">
+                                <input type="text" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" required>
+                                <div ng-messages="editSubscriptionForm.price.$error"
+                                    ng-show="editSubscriptionForm.price.$touched || editSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Price is required.</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.features.$touched && editSubscriptionForm.features.$invalid || editSubscriptionForm.features.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="features">Plan Features(comma seperated) </label>
                             <div class="col-md-10">
-                                <input type="text" name="features" ng-model="subscription.features" class="form-control" id="features" placeholder="Enter your plan features">
+                                <input type="text" name="features" ng-model="subscription.features" class="form-control" id="features" placeholder="Enter your plan features" required>
+                                <div ng-messages="editSubscriptionForm.features.$error"
+                                    ng-show="editSubscriptionForm.features.$touched || editSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Features is required.</span>
+                                </div>
                             </div>
                         </div>
 
@@ -49,6 +66,26 @@
                                     <option value="monthly">Monthly</option>
                                     <option value="yearly">Yearly</option>
                                </select>
+                              <div ng-messages="editSubscriptionForm.type.$error"
+                                    ng-show="editSubscriptionForm.type.$touched || editSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Type is required.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.order.$touched && editSubscriptionForm.order.$invalid || editSubscriptionForm.order.$invalid && editSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="order">Plan Order <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <select id="order" class="form-control" name="order" ng-model="subscription.order" required>
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <div ng-messages="editSubscriptionForm.order.$error"
+                                    ng-show="editSubscriptionForm.order.$touched || editSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Order is required.</span>
+                                </div>
                             </div>
                         </div>
 

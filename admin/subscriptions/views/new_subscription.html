@@ -60,7 +60,7 @@
                             <label class="col-md-2 control-label" for="type">Plan Type <span class="required">*</span></label>
                             <div class="col-md-10">
                                 <select id="type" class="form-control" name="type" ng-model="subscription.type" required>
-                                    <option value="">Select Blog Type</option>
+                                    <option value="">Select</option>
                                     <option value="monthly">Monthly</option>
                                     <option value="yearly">Yearly</option>
                                 </select>
@@ -71,6 +71,32 @@
                             </div>
                         </div>
 
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.order.$touched && newSubscriptionForm.order.$invalid || newSubscriptionForm.order.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="order">Plan Order <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <select id="order" class="form-control" name="order" ng-model="subscription.order" required>
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <div ng-messages="newSubscriptionForm.order.$error"
+                                    ng-show="newSubscriptionForm.order.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Order is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.status.$touched && newSubscriptionForm.status.$invalid || newSubscriptionForm.status.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="status">Plan Status <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <select id="status" class="form-control" name="status" ng-model="subscription.status" required ng-options="trade.value as trade.text for trade in [{text: 'Active', value:true},{text: 'Inactive', value: false}]">
+                                </select>
+                                <div ng-messages="newSubscriptionForm.status.$error"
+                                    ng-show="newSubscriptionForm.status.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Plan Status is required.</span>
+                                </div>
+                            </div>    
+                        </div>
                       <!-- <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.expiration_date.$touched && newSubscriptionForm.expiration_date.$invalid || newSubscriptionForm.expiration_date.$invalid && newSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="expiration_date">Expiration Date <span class="required">*</span></label>
                             <div class="col-md-10">
@@ -82,8 +108,8 @@
                                     </button>
                                 </span>
                                 </div>
-                                <div ng-messages="editSubscriptionForm.expiration_date.$error"
-                                    ng-show="editSubscriptionForm.expiration_date.$touched || editSubscriptionForm.$submitted">
+                                <div ng-messages="newSubscriptionForm.expiration_date.$error"
+                                    ng-show="newSubscriptionForm.expiration_date.$touched || newSubscriptionForm.$submitted">
                                     <span class="help-block" ng-message="required">Expiration Date is required.</span>
                                 </div>
                             </div>

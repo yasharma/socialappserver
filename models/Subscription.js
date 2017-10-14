@@ -13,6 +13,9 @@ SubscriptionSchema   = new Schema({
 		price: {
 			type: Number
 		},
+		order: {
+			type: Number
+		},
 		features: {
 			type: Array
 		},
