@@ -3,12 +3,15 @@ const
 	path 		= require('path'),
 	response 	= require(path.resolve('core/lib/response')),
 	User 		= require(path.resolve('models/User')),
+	Subscription= require(path.resolve('./models/Subscription')),
 	async 		= require('async'),
+	paginate 	= require(path.resolve('./core/lib/paginate')),
 	crypto 		= require('crypto'),
 	_ 			= require('lodash'),
 	jwt 	 	= require('jsonwebtoken'),
 	mail 	 	= require(path.resolve('./core/lib/mail')),
 	twilio	 	= require(path.resolve('./core/lib/twilio')),
+	mongoose 	= require('mongoose'),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
 exports.updateProfile = (req, res, next) => {
@@ -487,4 +490,92 @@ function forgotByMobile(req, res, next) {
 			res.status(500).json( response.error( err ) );
 		}
 	});
+};
+
+exports.subscriptionList=(req, res, next) => {
+    Subscription.find({}).exec(function(err,subscriptionresult){
+        if(err){
+        	next(err);
+        }
+        else{
+        	res.json({
+        		success:true,result:subscriptionresult
+        	})
+        }
+    });
+};
+
+exports.addWebsite = (req, res, next) => {
+	if(!req.body._id){
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+				  .json(response.required({message: 'Id is required'}));
+	}
+	let curDate=new Date();
+	req.body.start_date=new Date();
+	if(req.body.plan_type==="monthly"){
+	  req.body.duration=30;	
+	  req.body.expiration_date=curDate.setDate(curDate.getDate() + 30);
+	}
+	else{
+      req.body.duration=365;	
+	  req.body.expiration_date=curDate.setDate(curDate.getDate() + 365);
+	}
+	User.update({_id:req.body._id},{ $push: { subscription_plan: req.body } },function (err, user) {
+		if(err){
+			next(err, null);
+		} else {
+			res.json(
+			   response.success({
+				 success: true,
+			     message: 'website added successfully.'
+			   })	
+			);
+		}
+	});
+
+};
+
+exports.websiteList=(req, res, next) => {
+
+	let page= req.query.page || 1;
+	let _skip = (page - 1) * config.docLimit; 
+	if(!req.body._id){
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+				  .json(response.required({message: 'Id is required'}));
+	}
+
+	async.parallel({
+		count: (done) => {
+			User.aggregate([
+		      {$match:{"_id": mongoose.Types.ObjectId( req.body._id) }},
+		      {
+		      	$project: {
+		      		_id:0,
+		           count: { $size: "$subscription_plan" }
+		         }
+		      }
+		   ],done);
+		},
+		records: (done) => {
+			User.findOne({"_id":req.body._id},{_id:0,subscription_plan:1})
+			.limit(config.docLimit).skip(_skip).exec(done);	
+		}
+	}, (err, result) => {
+		if(err){
+			return res.json({errors: err});
+		}
+		let _records = [];
+		if( !_.isEmpty(result.records) ) {
+			_records = result.records.subscription_plan;
+		}
+		let count = (result.count.length) > 0 ? result.count[0].count: 0;
+
+        let paginateObj = paginate._paging(count, _records, page);
+		res.json({
+			records:_records,
+			paging: paginateObj
+		});
+		
+	});	
+
 };
