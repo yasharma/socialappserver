@@ -1,6 +1,7 @@
 'use strict';
 mimicTrading.controller('subscriptionCtrl', ['$scope', '$state', '$rootScope', 'Upload','appSvr','RestSvr',
 	function($scope, $state, $rootScope, Upload, appSvr,RestSvr){
+		$scope.subscription= {};
 		
 		$scope.$on('$viewContentLoaded', function() {
 			/**
@@ -30,7 +31,16 @@ mimicTrading.controller('subscriptionCtrl', ['$scope', '$state', '$rootScope', '
 			    });
 			}    
 		});
-
+		$scope.subscription.features = [];
+	    $scope.featuresArr = [];
+	    $scope.featuresArr.push("");
+	    $scope.addNewInput = function () {
+	        $scope.featuresArr.push("");
+	    };
+	    $scope.removeInput = function (input) {
+	        var index = $scope.featuresArr.indexOf(input);
+	        $scope.featuresArr.splice(index, 1);
+	    };
 		/**
 		 * Check if form is valid and send the data to server
 		 * @param  {isValid} isValid [form.valid]
@@ -41,7 +51,6 @@ mimicTrading.controller('subscriptionCtrl', ['$scope', '$state', '$rootScope', '
 				App.scrollTop();
 				return;
 			}
-			data.features=data.features.split(',');
 			$scope.isLoading = true;
 			Upload.upload({
 				url: baseUrl('subscription/add'),

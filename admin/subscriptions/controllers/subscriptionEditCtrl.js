@@ -7,8 +7,16 @@ mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscriptio
 			 */
 			appSvr.init();
 		});
-
+         
 		$scope.subscription = subscription.record;
+
+	    $scope.addNewInput = function () {
+	        $scope.subscription.features.push("");
+	    };
+	    $scope.removeInput = function (input) {
+	        var index = $scope.subscription.features.indexOf(input);
+	        $scope.subscription.features.splice(index, 1);
+	    };
 
 		/**
 		 * Check if form is valid and send the data to server
@@ -23,7 +31,6 @@ mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscriptio
 			}
 		
 			$scope.isLoading = true;
-			$scope.subscription.features=$scope.subscription.features.split(',');
 			Upload.upload({
 				url: baseUrl(`subscription/edit/${subscription._id}`),
 				data: $scope.subscription,

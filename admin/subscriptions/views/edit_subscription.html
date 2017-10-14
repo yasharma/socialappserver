@@ -47,15 +47,37 @@
                             </div>
                         </div>
 
-                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.features.$touched && editSubscriptionForm.features.$invalid || editSubscriptionForm.features.$invalid && editSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="features">Plan Features(comma seperated) </label>
-                            <div class="col-md-10">
-                                <input type="text" name="features" ng-model="subscription.features" class="form-control" id="features" placeholder="Enter your plan features" required>
-                                <div ng-messages="editSubscriptionForm.features.$error"
-                                    ng-show="editSubscriptionForm.features.$touched || editSubscriptionForm.$submitted">
+
+                    <div data-ng-repeat="features in subscription.features track by $index" class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': editSubscriptionForm['features_'+$index].$touched && editSubscriptionForm['features_'+$index].$invalid || editSubscriptionForm['features_'+$index].$invalid && editSubscriptionForm.$submitted }">
+
+                            <label class="col-md-2 control-label" for="features">Plan Features {{$index + 1}}<span class="required">*</span></label>
+                        
+                              <div  class="col-md-10">
+
+                                  <input type="text" 
+                                  name="features_0" 
+                                  ng-model="subscription.features[$index]" 
+                                  class="form-control col-md-7" 
+                                  id="features_{{$index}}" 
+                                  placeholder="Enter your plan features"  required>
+                        
+                              <div  ng-if="$last" ng-click="addNewInput()" class="col-md-1" style="background-color: #32c5d2!important;color:white;">
+                                <div>
+                                  <i class="fa fa-plus"></i>
+                                </div>
+                              </div>
+                               <div  class="col-md-1" ng-if="subscription.features.length>1 && !$last" ng-click="removeInput(features)" style="background-color: #32c5d2!important;color:white;">
+                                <div>
+                                 <i class="fa fa-minus"></i>
+                                </div>
+                              </div>
+                                
+                                <div ng-messages="editSubscriptionForm['features_'+$index].$error"
+                                    ng-show="editSubscriptionForm['features_'+$index].$touched || editSubscriptionForm.$submitted">
                                     <span class="help-block" ng-message="required">Plan Features is required.</span>
                                 </div>
-                            </div>
+                           </div>
                         </div>
 
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.type.$touched && editSubscriptionForm.type.$invalid || editSubscriptionForm.type.$invalid && editSubscriptionForm.$submitted }">
@@ -72,11 +94,10 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.order.$touched && editSubscriptionForm.order.$invalid || editSubscriptionForm.order.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="order">Plan Order <span class="required">*</span></label>
                             <div class="col-md-10">
-                                <select id="order" class="form-control" name="order" ng-model="subscription.order" required>
+                                <select id="order" class="form-control" name="order" ng-model="subscription.order.toString()" required>
                                     <option value="">Select</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -100,25 +121,7 @@
                                 </div>
                             </div>    
                         </div>
-                   <!-- 
-                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.expiration_date.$touched && editSubscriptionForm.expiration_date.$invalid || editSubscriptionForm.expiration_date.$invalid && editSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="expiration_date">Expiration Date<span class="required">*</span></label>
-                            <div class="col-md-10">
-                              <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy-mm-dd">
-                                <input type="text" class="form-control form-filter input-sm" readonly ng-model="subscription.expiration_date" placeholder="Expiration date">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-sm default" type="button">
-                                        <i class="fa fa-calendar"></i>
-                                    </button>
-                                </span>
-                                </div>
-                                <div ng-messages="editSubscriptionForm.expiration_date.$error"
-                                    ng-show="editSubscriptionForm.expiration_date.$touched || editSubscriptionForm.$submitted">
-                                    <span class="help-block" ng-message="required">Expiration Date is required.</span>
-                                </div>
-                            </div>    
-                        </div> -->
-                 
+                
                   
                      <div class="form-actions">
                         <div class="row">
