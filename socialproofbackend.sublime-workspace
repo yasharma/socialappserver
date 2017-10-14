@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"succ",
+				"successfully"
+			],
+			[
+				"c",
+				"customer"
+			],
+			[
+				"su",
+				"subscription_plan"
+			],
+			[
+				"dsc",
+				"description"
+			],
+			[
+				"co",
+				"count"
+			],
+			[
+				"fin",
+				"finaluser"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"find",
+				"findOneAndUpdate"
+			],
+			[
 				"er",
 				"err"
 			],
@@ -40,10 +76,6 @@
 				"isValid"
 			],
 			[
-				"res",
-				"response"
-			],
-			[
 				"for",
 				"forgotByMobile"
 			],
@@ -74,10 +106,6 @@
 			[
 				"ba",
 				"baseTime"
-			],
-			[
-				"succ",
-				"successful"
 			],
 			[
 				"local",
@@ -154,10 +182,6 @@
 			[
 				"no",
 				"notification"
-			],
-			[
-				"c",
-				"count"
 			],
 			[
 				"sel",
@@ -272,10 +296,6 @@
 				"data"
 			],
 			[
-				"co",
-				"counter"
-			],
-			[
 				"trad",
 				"traderSrv"
 			],
@@ -326,10 +346,6 @@
 			[
 				"js",
 				"jshint"
-			],
-			[
-				"err",
-				"errors"
 			],
 			[
 				"ass",
@@ -498,22 +514,6 @@
 			[
 				"margin",
 				"margin-top"
-			],
-			[
-				"bacl",
-				"background-color"
-			],
-			[
-				"fon",
-				"font-size"
-			],
-			[
-				"leve",
-				"levelType"
-			],
-			[
-				"frm",
-				"form"
 			]
 		]
 	},
@@ -523,35 +523,43 @@
 			"file": "core/user_router.js",
 			"settings":
 			{
-				"buffer_size": 1158,
+				"buffer_size": 2399,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "admin/homepage/controllers/homepageViewCtrl.js",
+			"file": "core/lib/datatable.js",
 			"settings":
 			{
-				"buffer_size": 1323,
+				"buffer_size": 9303,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "admin/homepage/views/view_homepage.html",
+			"file": "core/routes.js",
 			"settings":
 			{
-				"buffer_size": 8776,
+				"buffer_size": 1727,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "admin/homepage/factories/homepageSvr.js",
+			"file": "controllers/User/plansCtrl.js",
 			"settings":
 			{
-				"buffer_size": 247,
+				"buffer_size": 535,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "controllers/Admin/subscriptionCtrl.js",
+			"settings":
+			{
+				"buffer_size": 3526,
 				"line_ending": "Unix"
 			}
 		},
@@ -559,40 +567,26 @@
 			"file": "models/User.js",
 			"settings":
 			{
-				"buffer_size": 3335,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "core/admin_router.js",
-			"settings":
-			{
-				"buffer_size": 4805,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "controllers/Admin/homepageCtrl.js",
-			"settings":
-			{
-				"buffer_size": 1615,
+				"buffer_size": 3465,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "models/Setting.js",
+			"file": "controllers/User/stripeCtrl.js",
 			"settings":
 			{
-				"buffer_size": 1330,
+				"buffer_size": 1511,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/yash/mimic_trader/public/admin/notifications/controllers/notificationCtrl.js",
+			"file": "controllers/User/userCtrl.js",
 			"settings":
 			{
-				"buffer_size": 3995,
+				"buffer_size": 17854,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -1015,48 +1009,64 @@
 	"expanded_folders":
 	[
 		"/home/yash/social_proof_notification_backend",
-		"/home/yash/social_proof_notification_backend/assets",
-		"/home/yash/social_proof_notification_backend/assets/images"
+		"/home/yash/social_proof_notification_backend/admin/cmsLinks/controllers",
+		"/home/yash/social_proof_notification_backend/admin/homepage/views",
+		"/home/yash/social_proof_notification_backend/controllers",
+		"/home/yash/social_proof_notification_backend/controllers/Admin",
+		"/home/yash/social_proof_notification_backend/controllers/User",
+		"/home/yash/social_proof_notification_backend/core"
 	],
 	"file_history":
 	[
+		"/home/yash/social_proof_notification_backend/models/Subscription.js",
+		"/home/yash/social_proof_notification_backend/core/env/development.js",
+		"/home/yash/social_proof_notification_backend/core/env/production.js",
+		"/home/yash/zenbrisa_plus/models/User.js",
+		"/home/yash/social_proof_notification_backend/admin/homepage/controllers/homepageViewCtrl.js",
+		"/home/yash/social_proof_notification_backend/admin/homepage/views/view_homepage.html",
+		"/home/yash/social_proof_notification_backend/admin/homepage/factories/homepageSvr.js",
+		"/home/yash/social_proof_notification_backend/models/User.js",
+		"/home/yash/social_proof_notification_backend/stripe.js",
+		"/home/yash/social_proof_notification_backend/.env",
+		"/home/yash/social_proof_notification_backend/admin/homepage/views/edit_homepage.html",
+		"/home/yash/social_proof_notification_backend/.gitignore",
+		"/home/yash/social_proof_notification_backend/core/lib/datatable.js",
+		"/home/yash/social_proof_notification_backend/controllers/User/stripeCtrl.js",
+		"/home/yash/social_proof_notification_backend/core/routes.js",
+		"/home/yash/cherrydoor/controllers/User/profileCtrl.js",
+		"/home/yash/social_proof_notification_backend/package.json",
+		"/home/yash/mimic_trader/public/admin/users/views/new_user.html",
+		"/home/yash/social_proof_notification_backend/controllers/User/userCtrl.js",
+		"/home/yash/social_proof_notification_backend/controllers/Admin/userCtrl.js",
+		"/home/yash/social_proof_notification_backend/admin/factories/rest-service.js",
+		"/home/yash/social_proof_notification_backend/admin/dashboard/controllers/dashboardCtrl.js",
+		"/home/yash/social_proof_notification_backend/admin/dashboard/views/dashboard.html",
+		"/home/yash/social_proof_notification_backend/core/admin_router.js",
+		"/home/yash/social_proof_notification_backend/controllers/Admin/homepageCtrl.js",
+		"/home/yash/social_proof_notification_backend/models/Setting.js",
+		"/home/yash/mimic_trader/public/admin/notifications/controllers/notificationCtrl.js",
+		"/home/yash/social_proof_notification_backend/assets/global/plugins/amcharts/ammap/maps/js/bhutanHigh.js",
 		"/home/yash/social_proof_notification_backend/.jshintrc",
 		"/home/yash/Yash_old_system/camfuze/app/Controller/UsersController.php",
-		"/home/yash/social_proof_notification_backend/admin/factories/rest-service.js",
 		"/home/yash/social_proof_notification_backend/core/lib/matchRoute.js",
-		"/home/yash/social_proof_notification_backend/controllers/Admin/homepageCtrl.js",
 		"/home/yash/social_proof_notification_backend/node_modules/lodash/merge.js",
-		"/home/yash/social_proof_notification_backend/admin/homepage/views/edit_homepage.html",
 		"/home/yash/social_proof_notification_backend/admin/homepage/controllers/homepageEditCtrl.js",
-		"/home/yash/mimic_trader/public/admin/notifications/controllers/notificationCtrl.js",
 		"/home/yash/social_proof_notification_backend/admin/index.html",
 		"/home/yash/social_proof_notification_backend/gulp.assets.js",
-		"/home/yash/social_proof_notification_backend/admin/homepage/views/view_homepage.html",
 		"/home/yash/social_proof_notification_backend/server.js",
-		"/home/yash/social_proof_notification_backend/models/Setting.js",
-		"/home/yash/social_proof_notification_backend/controllers/Admin/userCtrl.js",
 		"/home/yash/Social_Proof_Notification_HTML/index.html",
 		"/home/yash/social_proof_notification_backend/admin/homepage/routes/homepageRouter.js",
 		"/home/yash/social_proof_notification_backend/admin/admin.app.js",
-		"/home/yash/social_proof_notification_backend/.env",
 		"/home/yash/social_proof_notification_backend/controllers/User/cmsCtrl.js",
 		"/home/yash/social_proof_notification_backend/admin/tpl/admin.header.html",
-		"/home/yash/social_proof_notification_backend/admin/homepage/controllers/homepageViewCtrl.js",
-		"/home/yash/social_proof_notification_backend/core/admin_router.js",
-		"/home/yash/social_proof_notification_backend/core/routes.js",
 		"/home/yash/social_proof_notification_backend/controllers/Admin/cmsCtrl.js",
 		"/home/yash/social_proof_notification_backend/admin/cms/controllers/cmsCreateCtrl.js",
 		"/home/yash/social_proof_notification_backend/assets/js/admin.app.min.js",
 		"/home/yash/social_proof_notification_backend/public/email_templates/admin/forgotpassword.html",
 		"/home/yash/zenbrisa_plus/config/user_router.js",
-		"/home/yash/social_proof_notification_backend/core/env/production.js",
-		"/home/yash/social_proof_notification_backend/.gitignore",
-		"/home/yash/social_proof_notification_backend/package.json",
 		"/home/yash/social_proof_notification_backend/core/user_router.js",
-		"/home/yash/social_proof_notification_backend/controllers/User/userCtrl.js",
 		"/home/yash/social_proof_notification_backend/admin/cms/views/cms.html",
 		"/home/yash/social_proof_notification_backend/admin/cms/views/edit_cms.html",
-		"/home/yash/social_proof_notification_backend/core/lib/datatable.js",
 		"/home/yash/social_proof_notification_backend/admin/cms/views/view_cms.html",
 		"/home/yash/social_proof_notification_backend/admin/cms/controllers/cmsEditCtrl.js",
 		"/home/yash/social_proof_notification_backend/models/CMS.js",
@@ -1068,10 +1078,8 @@
 		"/home/yash/social_proof_notification_backend/controllers/Admin/blogCtrl.js",
 		"/home/yash/social_proof_notification_backend/node_modules/multer/index.js",
 		"/home/yash/social_proof_notification_backend/node_modules/multer/lib/make-middleware.js",
-		"/home/yash/social_proof_notification_backend/core/env/development.js",
 		"/home/yash/onlineRTI/core/admin_router.js",
 		"/home/yash/social_proof_notification_backend/admin/users/views/new_user.html",
-		"/home/yash/social_proof_notification_backend/models/User.js",
 		"/home/yash/social_proof_notification_backend/core/lib/response.js",
 		"/home/yash/social_proof_notification_backend/node_modules/mongoose/lib/model.js",
 		"/home/yash/cherrydoor/public/assets/user/properties/views/property-room-details.html",
@@ -1099,7 +1107,6 @@
 		"/home/yash/zenbrisa_plus/config/routes.js",
 		"/home/yash/zenbrisa_plus/server.js",
 		"/home/yash/social_proof_notification_backend/admin/users/views/userListing.html",
-		"/home/yash/zenbrisa_plus/models/User.js",
 		"/home/yash/zenbrisa_plus/config/lib/redirections.js",
 		"/home/yash/zenbrisa_plus/config/lib/maintenance.js",
 		"/home/yash/social_proof_notification_backend/twilio.js",
@@ -1138,16 +1145,7 @@
 		"/home/yash/BHBackend/.babelrc",
 		"/home/yash/BHBackend/.jshintrc",
 		"/home/yash/BHBackend/.gitignore",
-		"/home/yash/BHBackend/gulpfile.js",
-		"/home/yash/mimic_trader/public/gulp.assets.js",
-		"/home/yash/BHBackend/config/routes.js",
-		"/home/yash/onlineRTI/config/routes.js",
-		"/home/yash/BHBackend/controllers/User/habitCtrl.js",
-		"/home/yash/BHBackend/socket/socketio.js",
-		"/home/yash/BHBackend/socketio.js",
-		"/home/yash/BHBackend/socket.html",
-		"/home/yash/onlineRTI/config/env/development.js",
-		"/home/yash/zenbrisa_plus/chat_server.js"
+		"/home/yash/BHBackend/gulpfile.js"
 	],
 	"find":
 	{
@@ -1220,6 +1218,20 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"fa fa-in",
+			"));",
+			"mongoose.Types",
+			"mongoose",
+			"mongoose.Types",
+			"customer",
+			"hint",
+			"textarea",
+			"res.json({records",
+			"change_pas",
+			"_body",
+			"async.waterfall",
+			"response.errors",
+			"findOneAndUpdate",
 			"GeoIP",
 			"GeoIP\n",
 			"homepageCtrl",
@@ -1333,21 +1345,7 @@
 			"market_data",
 			"market",
 			"user defined",
-			"user definde",
-			"Synthetic strategy ",
-			"Synthetic strategy definition",
-			"node_index",
-			"StrategyDefinitionRequest",
-			"strategy_definition",
-			"strategy_definition_request",
-			"instrument_group_name",
-			"processSymbolResolutionReport",
-			"processChildSymbolsReport",
-			"Market and Trade Routing Common messages",
-			"strategy_definition_request",
-			"strategyDefinition",
-			"strategy_definition",
-			"toast"
+			"user definde"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1374,239 +1372,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1158,
+						"buffer_size": 2399,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1100,
-								1100
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "admin/homepage/controllers/homepageViewCtrl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1323,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								938,
-								942
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "admin/homepage/views/view_homepage.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8776,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6179,
-								6179
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2415.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "admin/homepage/factories/homepageSvr.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 247,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								226,
-								226
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "models/User.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3335,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2258,
-								2258
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1725.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "core/admin_router.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4805,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3096,
-								3096
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1574.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "controllers/Admin/homepageCtrl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1615,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1498,
-								1498
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 828.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "models/Setting.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1330,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								267,
-								267
+								2252,
+								2252
 							]
 						],
 						"settings":
@@ -1616,30 +1390,30 @@
 							"synced": false,
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 69.0,
+						"translation.y": 539.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "/home/yash/mimic_trader/public/admin/notifications/controllers/notificationCtrl.js",
+					"buffer": 1,
+					"file": "core/lib/datatable.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3995,
+						"buffer_size": 9303,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3809,
-								3809
+								938,
+								938
 							]
 						],
 						"settings":
@@ -1651,10 +1425,202 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2254.0,
+						"translation.y": 132.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "core/routes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								836,
+								836
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 69.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "controllers/User/plansCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								350,
+								350
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"open_with_edit": true,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "controllers/Admin/subscriptionCtrl.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3526,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								200,
+								200
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "models/User.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3465,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								564,
+								564
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 223.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "controllers/User/stripeCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "controllers/User/userCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17854,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17780,
+								17780
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 13074.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1721,16 +1687,80 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"core/lib/datatable.js"
+			],
+			[
+				"subsc",
+				"models/Subscription.js"
+			],
+			[
+				"product",
+				"core/env/production.js"
+			],
+			[
+				"develo",
+				"core/env/development.js"
+			],
+			[
+				"user",
+				"models/User.js"
+			],
+			[
+				"user_ro",
+				"core/user_router.js"
+			],
+			[
+				"route",
+				"core/routes.js"
+			],
+			[
+				".git",
+				".gitignore"
+			],
+			[
+				"restsvr",
+				"admin/factories/rest-service.js"
+			],
+			[
+				"dashb",
+				"admin/dashboard/controllers/dashboardCtrl.js"
+			],
+			[
+				"admin_router",
+				"core/admin_router.js"
+			],
+			[
+				"user.js",
+				"models/User.js"
+			],
+			[
+				"deve",
+				"core/env/development.js"
+			],
+			[
+				"user_router",
+				"core/user_router.js"
+			],
+			[
+				"userc",
+				"controllers/Admin/userCtrl.js"
+			],
+			[
+				"produ",
+				"core/env/production.js"
+			],
+			[
+				"authbut",
+				"assets/global/plugins/amcharts/ammap/maps/js/bhutanHigh.js"
+			],
+			[
 				".js",
 				".jshintrc"
 			],
 			[
 				"admin/homepage/controllers/homepageviewctrl.js",
 				"admin/homepage/controllers/homepageViewCtrl.js"
-			],
-			[
-				"user",
-				"models/User.js"
 			],
 			[
 				"sett",
@@ -1763,10 +1793,6 @@
 			[
 				"merge",
 				"node_modules/lodash/merge.js"
-			],
-			[
-				"userc",
-				"controllers/Admin/userCtrl.js"
 			],
 			[
 				"edit_home",
@@ -1803,10 +1829,6 @@
 			[
 				"setting",
 				"models/Setting.js"
-			],
-			[
-				"user_ro",
-				"core/user_router.js"
 			],
 			[
 				"user/cms",
@@ -1853,16 +1875,8 @@
 				"public/email_templates/admin/forgotpassword.html"
 			],
 			[
-				".git",
-				".gitignore"
-			],
-			[
 				"respo",
 				"assets/css/responsive.css"
-			],
-			[
-				"data",
-				"core/lib/datatable.js"
 			],
 			[
 				"cmsli",
@@ -1877,16 +1891,8 @@
 				"package.json"
 			],
 			[
-				"develo",
-				"core/env/development.js"
-			],
-			[
 				"new_cms",
 				"admin/cms/views/new_cms.html"
-			],
-			[
-				"user.js",
-				"models/User.js"
 			],
 			[
 				"cms.js",
@@ -1995,10 +2001,6 @@
 			[
 				"users",
 				"app/models/user.js"
-			],
-			[
-				"route",
-				"app/routes/routes.js"
 			],
 			[
 				"passpo",
@@ -2195,42 +2197,6 @@
 			[
 				"admin.co",
 				"admin/core/admin.config.js"
-			],
-			[
-				"admin/header",
-				"admin/tpl/admin.header.html"
-			],
-			[
-				"rest-se",
-				"user/factories/rest-service.js"
-			],
-			[
-				"admin/rest",
-				"admin/factories/rest-service.js"
-			],
-			[
-				"position",
-				"user/dashboard/views/positions.html"
-			],
-			[
-				"assets/apps/css/inbox.css",
-				"assets/apps/css/inbox.css"
-			],
-			[
-				"admin/noti",
-				"admin/notifications/controllers/notificationCtrl.js"
-			],
-			[
-				"grid.html",
-				"user/positions/views/grid.html"
-			],
-			[
-				"list.ht",
-				"user/positions/views/list.html"
-			],
-			[
-				"profilec",
-				"user/profile/controllers/profileCtrl.js"
 			]
 		],
 		"width": 0.0

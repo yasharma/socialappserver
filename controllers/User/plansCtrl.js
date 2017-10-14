@@ -9,7 +9,11 @@ const
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
 
 exports.planList = (req, res, next) => {
-	Subscription.find({status: true}, function (err, list) {
+	let type = 'monthly';
+	if( req.query.type ) {
+		type = req.query.type
+	}
+	Subscription.find({status: true, type: type},{created_at:0,description:0,updated_at:0}, function (err, list) {
 		if( err ) {
 			return res.json(response.error(err));
 		}

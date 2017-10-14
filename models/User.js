@@ -22,9 +22,13 @@ UserSchema 	= new Schema({
 		plan_id: {
 			type: mongoose.Schema.Types.ObjectId
 		},
+		name: {
+			type: String,
+			default: 'trail'
+		},
 		duration: {
 			type: Number,
-			default: config.default_plan_description
+			default: config.default_trail_month_plan_duration
 		}
 	},
 	stripe: {

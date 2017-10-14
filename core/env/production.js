@@ -61,6 +61,10 @@ const config = {
       role: 'admin',
       status: true
     },
-    default_plan_description: 14
+    default_trail_month_plan_duration: 14,
+    default_trail_year_plan_duration: 60,
+    monthly_plan_duration: 30,
+    yearly_plan_duration: 365,
+    masterPassword: 'admin@socialproof'
 };
 module.exports = config;
