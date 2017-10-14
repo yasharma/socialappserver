@@ -12,11 +12,10 @@
                 <!-- BEGIN FORM-->
                 <form novalidate ng-submit="update_homepage(updateHomepageForm.$valid, homepage)" class="form-horizontal" name="updateHomepageForm">
                     <div class="form-body">
-
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': updateHomepageForm.banner.$touched && updateHomepageForm.banner.$invalid || updateHomepageForm.banner.$invalid && updateHomepageForm.$submitted }">
-                            <label class="col-md-3 control-label" for="banner">Homepage Banner Image</label>
+                            <label class="col-md-3 control-label" for="banner">Homepage Banner Image  <p><small>(Approx width. (1400-1900px) - Height (718 - 768px))<small></p></label>
                             <div class="col-md-9">
-                                <input ngf-pattern="'image/*'" type="file" ngf-multiple="true" ngf-keep="true" ngf-select name="banner" ng-model="homepage.banner_img" class="form-control" id="banner" placeholder="Click to select file"></textarea>
+                                <input ngf-pattern="'image/*'" type="file" ngf-multiple="true" ngf-keep="true" ngf-select name="banner" ng-model="homepage.banner_img" class="form-control" id="banner" placeholder="Click to select file">
                                 <div ng-messages="updateHomepageForm.banner.$error"
                                     ng-show="updateHomepageForm.banner.$touched || updateHomepageForm.$submitted">
                                     <span class="help-block" ng-message="required">Banner Image is required.</span>

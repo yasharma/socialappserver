@@ -36,8 +36,7 @@ mimicTrading.factory('RestSvr', ['$http', '$window', '$httpParamSerializerJQLike
 				return $q((resolve, reject) => {
 					$http(req).then(response => {
 						resolve({
-							record: response.data.result,
-							filename:response.data.filename
+							record: response.data.result
 						});
 					})
 					.catch(response => {

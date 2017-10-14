@@ -1,6 +1,6 @@
 'use strict';
-angular.module('mimicTrading').controller('dashboardCtrl', ['$scope', '$location', '$rootScope',
-	function($scope, $location, $rootScope){
+angular.module('mimicTrading').controller('dashboardCtrl', ['$scope', '$location', '$rootScope','RestSvr',
+	function($scope, $location, $rootScope, RestSvr){
 		$scope.$on('$viewContentLoaded', function() {   
 		        // initialize core components
 	        App.initAjax();
@@ -12,5 +12,9 @@ angular.module('mimicTrading').controller('dashboardCtrl', ['$scope', '$location
 	    $rootScope.settings.layout.pageSidebarClosed = false;
 	    $rootScope.settings.hideLoginForm = true;
 	    console.log('I am loaded properly!!!');
+
+	    RestSvr.get('totalCount')
+	    .then(({record}) => $scope.count = record.count)
+	    .catch(errors => App.alert({type: ('danger'), icon: ( 'warning'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'}));
 	}
 ]);

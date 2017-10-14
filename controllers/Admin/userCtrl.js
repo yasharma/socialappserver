@@ -12,7 +12,14 @@ const path 	 	= require('path'),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
-
+exports.totalUsers = (req, res, next) => {
+	User.count(function (err, count) {
+		if(err){
+			return res.json({errors: error});
+		}
+		res.json({result: {count: count}});
+	});
+};
 function getRandomInt(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
