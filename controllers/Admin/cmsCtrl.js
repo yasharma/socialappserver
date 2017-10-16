@@ -108,7 +108,9 @@ exports.view = (req, res, next) => {
 
 exports.list = (req, res, next) => {
 	
-	let operation = {}, reqData = req.body;
+	let operation = {}, reqData = req.body,
+		length = Number(reqData.length),
+		start = Number(reqData.start);
 	if( reqData.title ){
 		operation.title = {$regex: new RegExp(`${reqData.title}`), $options:"im"};
 	}
@@ -144,7 +146,7 @@ exports.list = (req, res, next) => {
 					CMS.count(operation,done);
 				},
 				records: (done) => {
-					CMS.find(operation,done);	
+					CMS.find(operation,done).skip(start).limit(length);	
 				}
 			}, done);	
 		}

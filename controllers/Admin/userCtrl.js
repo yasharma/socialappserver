@@ -106,8 +106,7 @@ exports.list = (req, res, next) => {
 	let operation = { role: "user" }, reqData = req.body,
 	length = Number(reqData.length),
 	start = Number(reqData.start);
-	console.log(reqData.start);
-	console.log(length);
+
 
 	if( reqData.email ){
 		operation.email = {$regex: new RegExp(`${reqData.email}`), $options:"im"};

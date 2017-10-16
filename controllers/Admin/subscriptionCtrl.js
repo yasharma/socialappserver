@@ -31,11 +31,19 @@ exports.add = (req, res, next) => {
 	} else {
 		delete req.body.image
 	}
-    
-    let subscription = new Subscription(req.body);
-    subscription.save()
-    .then(result => res.json({success: true}))
-    .catch(error => res.json({errors: error}));
+
+    Subscription.count({type:req.body.type},function(err,count){
+       if(err) return next(err);
+       if(count==3){
+       	 res.json({success:false,message:`You can not add more than 3 ${req.body.type} plans`})
+       }
+       else{
+		    let subscription = new Subscription(req.body);
+		    subscription.save()
+		    .then(result => res.json({success: true}))
+		    .catch(error => res.json({errors: error}));
+       }
+    });
 };
 
 exports.edit = (req, res, next) => {
@@ -61,7 +69,7 @@ exports.edit = (req, res, next) => {
 	} else {
 		delete req.body.image
 	}
-	
+
     Subscription.update({_id: req.body._id},{$set: req.body}, 
     	function (error, result) {
     		if(error){
@@ -96,7 +104,10 @@ exports.view = (req, res, next) => {
 
 exports.list = (req, res, next) => {
 	
-	let operation = {}, reqData = req.body;
+	let operation = {}, reqData = req.body,
+		length = Number(reqData.length),
+		start = Number(reqData.start);
+
 	if( reqData.name ){
 		operation.name = {$regex: new RegExp(`${reqData.name}`), $options:"im"};
 	}
@@ -138,7 +149,7 @@ exports.list = (req, res, next) => {
 					Subscription.count(operation,done);
 				},
 				records: (done) => {
-					Subscription.find(operation,done);	
+					Subscription.find(operation,done).skip(start).limit(length);	
 				}
 			}, done);	
 		}
