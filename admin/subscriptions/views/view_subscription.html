@@ -86,7 +86,15 @@
 	                         <div class="form-group">
 	                           <label class="control-label col-md-3">Features:</label>
 	                            <div class="col-md-9">
-	                               <p class="form-control-static" ng-repeat="features in subscriptioninfo.features"> <span>{{features}}{{$last ? '' : ', &nbsp;'}} </span></p>
+	                               <table>
+									<tr ng-repeat="features in subscriptioninfo.features">
+									    <td>{{features}}</td>
+									 </tr>
+									</table>
+									<style>table, tr, td {
+									    border: 1px solid black;
+									}</style>
+	        
 	                            </div>
 	                         </div>
 	                        </div>
