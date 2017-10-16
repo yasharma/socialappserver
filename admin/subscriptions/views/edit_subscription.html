@@ -14,7 +14,7 @@
                     <div class="form-body">
                         <div class="form-group form-md-line-input" 
                         ng-class="{ 'has-error': editSubscriptionForm.name.$touched && editSubscriptionForm.name.$invalid || editSubscriptionForm.name.$invalid && editSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="name">Plan Name </label>
+                            <label class="col-md-2 control-label" for="name">Plan Name <span class="required">*</span></label>
                             <div class="col-md-10">
                                 <input type="text" name="name" ng-model="subscription.name" class="form-control" id="name" placeholder="Enter your plan name" required>
                                 <div ng-messages="editSubscriptionForm.name.$error"
@@ -26,7 +26,7 @@
          
                         </div>
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.description.$touched && editSubscriptionForm.description.$invalid || editSubscriptionForm.description.$invalid && editSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="description">Plan Description </label>
+                            <label class="col-md-2 control-label" for="description">Plan Description <span class="required">*</span></label>
                             <div class="col-md-10">
                                 <textarea rows="4" name="description" ng-model="subscription.description" class="form-control" id="description" placeholder="Enter your plan description" required></textarea>
                                 <div ng-messages="editSubscriptionForm.description.$error"
@@ -37,7 +37,7 @@
                         </div>
                                     
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.price.$touched && editSubscriptionForm.price.$invalid || editSubscriptionForm.price.$invalid && editSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="price">Plan Price </label>
+                            <label class="col-md-2 control-label" for="price">Plan Price($) <span class="required">*</span></label>
                             <div class="col-md-10">
                                 <input type="text" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" ng-pattern="/^[0-9]*$/" required>
                                 <div ng-messages="editSubscriptionForm.price.$error"
@@ -79,7 +79,7 @@
                         </div> 
 
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.type.$touched && editSubscriptionForm.type.$invalid || editSubscriptionForm.type.$invalid && editSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="type">Plan Type </label>
+                            <label class="col-md-2 control-label" for="type">Plan Type <span class="required">*</span></label>
                             <div class="col-md-10">
                                <select id="type" class="form-control" name="type" ng-model="subscription.type" required>
                                     <option value="">Select Blog Type</option>
@@ -121,12 +121,12 @@
                         </div>
 
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.image.$touched && editSubscriptionForm.image.$invalid || editSubscriptionForm.image.$invalid && editSubscriptionForm.$submitted }">
-                            <label class="col-md-2 control-label" for="image">Subscription Image <span class="required">*</span></label>
+                            <label class="col-md-2 control-label" for="image">Plan Image <span class="required">*</span></label>
                             <div class="col-md-10">
                                 <input ngf-pattern="'image/*'" type="file" ngf-select name="image" ng-model="subscription.image" class="form-control" id="image" placeholder="Click to select file" required></textarea>
                                 <div ng-messages="editSubscriptionForm.image.$error"
                                     ng-show="editSubscriptionForm.image.$touched || editSubscriptionForm.$submitted">
-                                    <span class="help-block" ng-message="required">Subscription Image is required.</span>
+                                    <span class="help-block" ng-message="required">Plan Image is required.</span>
                                 </div>    
                             </div>
                         </div>

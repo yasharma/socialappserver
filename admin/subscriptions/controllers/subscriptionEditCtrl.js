@@ -9,6 +9,10 @@ mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscriptio
 		});
          
 		$scope.subscription = subscription.record;
+		if( $scope.subscription.image ) {
+			$scope.subscription.image = $scope.subscription.image.path;	
+		}
+		
 
 	    $scope.addNewInput = function () {
 	        $scope.subscription.features.push("");
