@@ -51,5 +51,6 @@ module.exports = {
       { url: '/trail', method: ctrls.userCtrl.trailPlan, type: 'post' },
       { url: '/plans_list', method: ctrls.plansCtrl.planList, type: 'get' },
       { url: '/profile', mwear: uploadProfileImage.any(),method: ctrls.userCtrl.updateProfile, type: 'post' },
+      { url: '/import_client_list', method: ctrls.clientListCtrl.importClientList, type: 'post' },
   ]
 };

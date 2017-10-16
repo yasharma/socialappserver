@@ -57,7 +57,11 @@ mimicTrading.controller('subscriptionCtrl', ['$scope', '$state', '$rootScope', '
 				method: 'post'
 			})
 			.then(function (response) {
-				$state.go('subscriptions');
+				console.log(response.data.message);
+				let msg=response.data.message;
+                App.alert({type: ('danger'), icon: ( 'danger'), message: msg, container: $rootScope.settings.errorContainer, place: 'prepend'});
+                return;
+                //$state.go('subscriptions');
 			})
 			.catch(function (error) {
 				if( error.data ) {

@@ -28,7 +28,7 @@
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.description.$touched && editSubscriptionForm.description.$invalid || editSubscriptionForm.description.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="description">Plan Description </label>
                             <div class="col-md-10">
-                                <input type="text" name="description" ng-model="subscription.description" class="form-control" id="description" placeholder="Enter your plan description">
+                                <textarea rows="4" name="description" ng-model="subscription.description" class="form-control" id="description" placeholder="Enter your plan description" required></textarea>
                                 <div ng-messages="editSubscriptionForm.description.$error"
                                     ng-show="editSubscriptionForm.description.$touched || editSubscriptionForm.$submitted">
                                     <span class="help-block" ng-message="required">Plan Description is required.</span>
@@ -39,46 +39,44 @@
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.price.$touched && editSubscriptionForm.price.$invalid || editSubscriptionForm.price.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="price">Plan Price </label>
                             <div class="col-md-10">
-                                <input type="text" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" required>
+                                <input type="text" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" ng-pattern="/^[0-9]*$/" required>
                                 <div ng-messages="editSubscriptionForm.price.$error"
                                     ng-show="editSubscriptionForm.price.$touched || editSubscriptionForm.$submitted">
                                     <span class="help-block" ng-message="required">Plan Price is required.</span>
+                                    <span class="help-block" ng-message="pattern"> Plan Price must be digit.</span>
                                 </div>
                             </div>
                         </div>
 
-
-                    <div data-ng-repeat="features in subscription.features track by $index" class="form-group form-md-line-input" 
-                        ng-class="{ 'has-error': editSubscriptionForm['features_'+$index].$touched && editSubscriptionForm['features_'+$index].$invalid || editSubscriptionForm['features_'+$index].$invalid && editSubscriptionForm.$submitted }">
-
-                            <label class="col-md-2 control-label" for="features">Plan Features {{$index + 1}}<span class="required">*</span></label>
-                        
-                              <div  class="col-md-10">
-
-                                  <input type="text" 
-                                  name="features_0" 
-                                  ng-model="subscription.features[$index]" 
-                                  class="form-control col-md-7" 
-                                  id="features_{{$index}}" 
-                                  placeholder="Enter your plan features"  required>
-                        
-                              <div  ng-if="$last" ng-click="addNewInput()" class="col-md-1" style="background-color: #32c5d2!important;color:white;">
-                                <div>
-                                  <i class="fa fa-plus"></i>
-                                </div>
-                              </div>
-                               <div  class="col-md-1" ng-if="subscription.features.length>1 && !$last" ng-click="removeInput(features)" style="background-color: #32c5d2!important;color:white;">
-                                <div>
-                                 <i class="fa fa-minus"></i>
-                                </div>
-                              </div>
-                                
-                                <div ng-messages="editSubscriptionForm['features_'+$index].$error"
-                                    ng-show="editSubscriptionForm['features_'+$index].$touched || editSubscriptionForm.$submitted">
-                                    <span class="help-block" ng-message="required">Plan Features is required.</span>
-                                </div>
-                           </div>
-                        </div>
+                        <div data-repeater-item class="mt-repeater-item mt-overflow">
+                            <div 
+                                data-ng-repeat="features in subscription.features track by $index" 
+                                class="form-group form-md-line-input mt-repeater" 
+                                ng-class="{ 
+                                    'has-error': editSubscriptionForm['features_'+$index].$touched && editSubscriptionForm['features_'+$index].$invalid || 
+                                    editSubscriptionForm['features_'+$index].$invalid && 
+                                    editSubscriptionForm.$submitted 
+                                }">
+                                <label class="col-md-2 control-label" for="features">Plan Features {{$index + 1}}<span class="required">*</span></label>
+                                <div  class="col-md-10 ">
+                                    <div class="mt-repeater-cell">
+                                        <input type="text" name="features_{{$index}}" ng-model="subscription.features[$index]" class="form-control col-md-7" placeholder="Enter your plan features"  required>  
+                                        <a ng-click="removeInput(features)" ng-if="subscription.features.length>1 && !$first" class="btn btn-danger mt-repeater-delete mt-repeater-del-right mt-repeater-btn-inline">
+                                            <i class="fa fa-close"></i>
+                                        </a>
+                                    </div>    
+                                    <div ng-messages="editSubscriptionForm['features_'+$index].$error"
+                                        ng-show="editSubscriptionForm['features_'+$index].$touched || editSubscriptionForm.$submitted">
+                                        <span class="help-block" ng-message="required">Plan Features is required.</span>
+                                    </div>
+                               </div>
+                            </div>
+                            
+                                <button type="button" ng-click="addNewInput()" class="btn btn-success mt-repeater-add col-md-offset-2">
+                                    <i class="fa fa-plus"></i> Add new feature
+                                </button>
+                            
+                        </div> 
 
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.type.$touched && editSubscriptionForm.type.$invalid || editSubscriptionForm.type.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="type">Plan Type </label>
@@ -97,7 +95,7 @@
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.order.$touched && editSubscriptionForm.order.$invalid || editSubscriptionForm.order.$invalid && editSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="order">Plan Order <span class="required">*</span></label>
                             <div class="col-md-10">
-                                <select id="order" class="form-control" name="order" ng-model="subscription.order.toString()" required>
+                                <select id="order" class="form-control" name="order" ng-model="subscription.order" required>
                                     <option value="">Select</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -120,6 +118,24 @@
                                     <span class="help-block" ng-message="required">Plan Status is required.</span>
                                 </div>
                             </div>    
+                        </div>
+
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': editSubscriptionForm.image.$touched && editSubscriptionForm.image.$invalid || editSubscriptionForm.image.$invalid && editSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="image">Subscription Image <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input ngf-pattern="'image/*'" type="file" ngf-select name="image" ng-model="subscription.image" class="form-control" id="image" placeholder="Click to select file" required></textarea>
+                                <div ng-messages="editSubscriptionForm.image.$error"
+                                    ng-show="editSubscriptionForm.image.$touched || editSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Subscription Image is required.</span>
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="row" ng-show="subscription.image">
+                            <div class="col-sm-6 col-md-3 col-md-offset-2">
+                                <div class="thumbnail" style="width: 200px;">
+                                    <img class="img-responsive" ngf-thumbnail="subscription.image" alt="Preview">
+                                </div>
+                            </div>
                         </div>
                 
                   

@@ -106,8 +106,7 @@ exports.list = (req, res, next) => {
 	let operation = { role: "user" }, reqData = req.body,
 	length = Number(reqData.length),
 	start = Number(reqData.start);
-	console.log(reqData.start);
-	console.log(length);
+
 
 	if( reqData.email ){
 		operation.email = {$regex: new RegExp(`${reqData.email}`), $options:"im"};
@@ -176,7 +175,7 @@ exports.list = (req, res, next) => {
 };
 
 exports.exportcsv = (req, res, next) => {
-	var fields = ['customer_name', 'customer_url', 'business_name','mobile','email'];
+	var fields = ['customer_name', 'customer_url', 'business_name','mobile','email','subscription_plan'];
 	
 	User.find({role: "user"}, 
 		function (error, result) {
@@ -190,7 +189,7 @@ exports.exportcsv = (req, res, next) => {
 	      if (err) throw err;
 	      console.log('file saved');
 	    });
-		res.json({success: true, result: csv,filename:filename});
+		res.json({result: {result:csv,success:true,filename:filename}});
 		}
     );
 }

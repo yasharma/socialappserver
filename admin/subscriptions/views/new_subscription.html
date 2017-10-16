@@ -27,7 +27,7 @@
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.description.$touched && newSubscriptionForm.description.$invalid || newSubscriptionForm.description.$invalid && newSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="description">Plan Description <span class="required">*</span></label>
                             <div class="col-md-10">
-                                <input type="text" name="description" ng-model="subscription.description" class="form-control" id="description" placeholder="Enter your plan description"  required>
+                                <textarea rows="4" name="description" ng-model="subscription.description" class="form-control" id="description" placeholder="Enter your plan description" required></textarea>
                                 <div ng-messages="newSubscriptionForm.description.$error"
                                     ng-show="newSubscriptionForm.description.$touched || newSubscriptionForm.$submitted">
                                     <span class="help-block" ng-message="required">Plan Description is required.</span>
@@ -37,10 +37,11 @@
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.price.$touched && newSubscriptionForm.price.$invalid || newSubscriptionForm.price.$invalid && newSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="price">Plan Price <span class="required">*</span></label>
                             <div class="col-md-10">
-                                <input type="number" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" ng-maxlength="20" required>
+                                <input type="number" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" ng-pattern="/^[0-9]*$/" required>
                                 <div ng-messages="newSubscriptionForm.price.$error"
                                     ng-show="newSubscriptionForm.price.$touched || newSubscriptionForm.$submitted">
                                     <span class="help-block" ng-message="required">Plan Price is required.</span>
+                                    <span class="help-block" ng-message="pattern"> Plan Price must be digit.</span>
                                 </div>
                             </div>
                         </div>
@@ -114,6 +115,24 @@
                                     <span class="help-block" ng-message="required">Plan Status is required.</span>
                                 </div>
                             </div>    
+                        </div>
+
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.image.$touched && newSubscriptionForm.image.$invalid || newSubscriptionForm.image.$invalid && newSubscriptionForm.$submitted }">
+                            <label class="col-md-2 control-label" for="image">Subscription Image <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input ngf-pattern="'image/*'" type="file" ngf-select name="image" ng-model="subscription.image" class="form-control" id="image" placeholder="Click to select file" required>
+                                <div ng-messages="newSubscriptionForm.image.$error"
+                                    ng-show="newSubscriptionForm.image.$touched || newSubscriptionForm.$submitted">
+                                    <span class="help-block" ng-message="required">Subscription Image is required.</span>
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="row" ng-show="subscription.image">
+                            <div class="col-sm-6 col-md-3 col-md-offset-2">
+                                <div class="thumbnail" style="width: 200px;">
+                                    <img class="img-responsive" ngf-thumbnail="subscription.image" alt="Preview">
+                                </div>
+                            </div>
                         </div>
 
                     </div>
