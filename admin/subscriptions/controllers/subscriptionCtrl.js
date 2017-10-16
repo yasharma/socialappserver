@@ -57,17 +57,12 @@ mimicTrading.controller('subscriptionCtrl', ['$scope', '$state', '$rootScope', '
 				method: 'post'
 			})
 			.then(function (response) {
-				console.log(response.data.message);
-				let msg=response.data.message;
-                App.alert({type: ('danger'), icon: ( 'danger'), message: msg, container: $rootScope.settings.errorContainer, place: 'prepend'});
-                return;
-                //$state.go('subscriptions');
+                $state.go('subscriptions');
 			})
 			.catch(function (error) {
 				if( error.data ) {
-					angular.forEach(error.data, function (value, prop) {
-						$scope.newSubscriptionForm[prop].$setValidity('unique', false);
-					});
+					let msg=error.data.message;
+                	App.alert({type: ('danger'), icon: ( 'danger'), message: msg, container: $rootScope.settings.errorContainer, place: 'prepend'});
 					App.scrollTop();
 				}
 			})

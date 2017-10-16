@@ -37,11 +37,11 @@
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.price.$touched && newSubscriptionForm.price.$invalid || newSubscriptionForm.price.$invalid && newSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="price">Plan Price ($)<span class="required">*</span></label>
                             <div class="col-md-10">
-                                <input type="number" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" ng-pattern="/^[0-9]*$/" required>
+                                <input type="text" name="price" ng-model="subscription.price" class="form-control" id="price" placeholder="Enter your plan price" ng-pattern="/^[0-9]*$/" required>
                                 <div ng-messages="newSubscriptionForm.price.$error"
                                     ng-show="newSubscriptionForm.price.$touched || newSubscriptionForm.$submitted">
                                     <span class="help-block" ng-message="required">Plan Price is required.</span>
-                                    <span class="help-block" ng-message="pattern"> Plan Price must be digit.</span>
+                                    <span class="help-block" ng-message="pattern"> Plan Price must be numeric</span>
                                 </div>
                             </div>
                         </div>
