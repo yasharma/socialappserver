@@ -18,6 +18,19 @@ exports.add = (req, res, next) => {
 		});
 		return;
 	}	 
+
+	if(req.files.length > 0){
+		let image = {};
+		req.files.forEach((file) => {
+			image.name = file.filename;
+			image.original_name = file.originalname;
+			image.path = file.path;
+		});
+		
+		req.body.image = image;	
+	} else {
+		delete req.body.image
+	}
     
     let subscription = new Subscription(req.body);
     subscription.save()
@@ -36,6 +49,19 @@ exports.edit = (req, res, next) => {
 		return;
 	}	 
  
+	if(req.files.length > 0){
+		let image = {};
+		req.files.forEach((file) => {
+			image.name = file.filename;
+			image.original_name = file.originalname;
+			image.path = file.path;
+		});
+		
+		req.body.image = image;	
+	} else {
+		delete req.body.image
+	}
+	
     Subscription.update({_id: req.body._id},{$set: req.body}, 
     	function (error, result) {
     		if(error){

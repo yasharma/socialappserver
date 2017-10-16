@@ -57,7 +57,17 @@ let uploadProfileImage = multer({
   		}
     }),
     fileFilter: fileFilter
-    
+});
+
+let subscriptionPlanImage = multer({
+    limits: config.fileLimits,
+    storage: multer.diskStorage({
+      destination: 'assets/subscription_plan_image/',
+      filename: function (req, file, cb) {
+        cb(null, Date.now() + '.' + config.file_extensions[file.mimetype]);
+      }
+    }),
+    fileFilter: fileFilter
 });
 
 /* Check if file is valid image */
@@ -90,9 +100,9 @@ module.exports = {
   		{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
       
       { url: '/subscription/list', method: ctrls.subscriptionCtrl.list, type: 'post' },
-      { url: '/subscription/add', mwear:uploadProfileImage.any(),method: ctrls.subscriptionCtrl.add, type: 'post' },
+      { url: '/subscription/add', mwear:subscriptionPlanImage.any(),method: ctrls.subscriptionCtrl.add, type: 'post' },
       { url: '/subscription/view/:id', method: ctrls.subscriptionCtrl.view, type: 'get' },
-      { url: '/subscription/edit/:id', mwear: uploadProfileImage.any(), method: ctrls.subscriptionCtrl.edit, type: 'put' },
+      { url: '/subscription/edit/:id', mwear: subscriptionPlanImage.any(), method: ctrls.subscriptionCtrl.edit, type: 'put' },
       { url: '/totalCount', method: ctrls.userCtrl.totalUsers, type: 'get' },
   		/*{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
       { url: '/privacypolicy/list', method: ctrls.privacypolicyCtrl.list, type: 'post' },

@@ -14,7 +14,7 @@ SubscriptionSchema   = new Schema({
 			type: Number
 		},
 		order: {
-			type: Number
+			type: String
 		},
 		features: {
 			type: Array
@@ -28,7 +28,18 @@ SubscriptionSchema   = new Schema({
 		status: {
 			type: Boolean,
 			default: false
-		}
+		},
+		image:{
+			name: {
+				type: String,
+			},
+			path: {
+				type: String,
+			},
+			original_name:  {
+				type: String,
+			}
+	   }
 },{
     timestamps: {
         createdAt: 'created_at',

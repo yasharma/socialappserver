@@ -185,7 +185,7 @@ exports.exportcsv = (req, res, next) => {
 	      if (err) throw err;
 	      console.log('file saved');
 	    });
-		res.json({success: true, result: csv,filename:filename});
+		res.json({result: {result:csv,success:true,filename:filename}});
 		}
     );
 }
