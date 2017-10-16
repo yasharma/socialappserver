@@ -175,7 +175,7 @@ exports.list = (req, res, next) => {
 };
 
 exports.exportcsv = (req, res, next) => {
-	var fields = ['customer_name', 'customer_url', 'business_name','mobile','email'];
+	var fields = ['customer_name', 'customer_url', 'business_name','mobile','email','subscription_plan'];
 	
 	User.find({role: "user"}, 
 		function (error, result) {
