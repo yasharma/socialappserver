@@ -34,9 +34,8 @@ mimicTrading.controller('subscriptionCtrl', ['$scope', '$state', '$rootScope', '
 		$scope.subscription.features = [];
 	    $scope.featuresArr = [];
 	    $scope.featuresArr.push("");
-	    $scope.addNewInput = function () {
-	        $scope.featuresArr.push("");
-	    };
+	    $scope.addNewInput = () => $scope.featuresArr.push("");
+	    
 	    $scope.removeInput = function (input) {
 	        var index = $scope.featuresArr.indexOf(input);
 	        $scope.featuresArr.splice(index, 1);

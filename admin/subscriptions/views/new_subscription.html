@@ -44,39 +44,35 @@
                                 </div>
                             </div>
                         </div>
-
-             
-                        <div data-ng-repeat="features in featuresArr track by $index" class="form-group form-md-line-input" 
-                        ng-class="{ 'has-error': newSubscriptionForm['features_'+$index].$touched && newSubscriptionForm['features_'+$index].$invalid || newSubscriptionForm['features_'+$index].$invalid && newSubscriptionForm.$submitted }">
-
-                            <label class="col-md-2 control-label" for="features">Plan Features {{$index + 1}}<span class="required">*</span></label>
-                        
-                              <div  class="col-md-10">
-
-                                  <input type="text" 
-                                  name="features_0" 
-                                  ng-model="subscription.features[$index]" 
-                                  class="form-control col-md-7" 
-                                  id="features_{{$index}}" 
-                                  placeholder="Enter your plan features"  required>
-                        
-                              <div  ng-if="$last" ng-click="addNewInput()" class="col-md-1" style="background-color: #32c5d2!important;color:white;">
-                                <div>
-                                  <i class="fa fa-plus"></i>
-                                </div>
-                              </div>
-                               <div  class="col-md-1" ng-if="featuresArr.length>1 && !$last" ng-click="removeInput(features)" style="background-color: #32c5d2!important;color:white;">
-                                <div>
-                                 <i class="fa fa-minus"></i>
-                                </div>
-                              </div>
-                                
-                                <div ng-messages="newSubscriptionForm['features_'+$index].$error"
-                                    ng-show="newSubscriptionForm['features_'+$index].$touched || newSubscriptionForm.$submitted">
-                                    <span class="help-block" ng-message="required">Plan Features is required.</span>
-                                </div>
-                           </div>
-                        </div>
+                        <div data-repeater-item class="mt-repeater-item mt-overflow">
+                            <div 
+                                data-ng-repeat="features in featuresArr track by $index" 
+                                class="form-group form-md-line-input mt-repeater" 
+                                ng-class="{ 
+                                    'has-error': newSubscriptionForm['features_'+$index].$touched && newSubscriptionForm['features_'+$index].$invalid || 
+                                    newSubscriptionForm['features_'+$index].$invalid && 
+                                    newSubscriptionForm.$submitted 
+                                }">
+                                <label class="col-md-2 control-label" for="features">Plan Features {{$index + 1}}<span class="required">*</span></label>
+                                <div  class="col-md-10 ">
+                                    <div class="mt-repeater-cell">
+                                        <input type="text" name="features_{{$index}}" ng-model="subscription.features[$index]" class="form-control col-md-7" placeholder="Enter your plan features"  required>  
+                                        <a ng-click="removeInput(features)" ng-if="featuresArr.length>1 && !$first" class="btn btn-danger mt-repeater-delete mt-repeater-del-right mt-repeater-btn-inline">
+                                            <i class="fa fa-close"></i>
+                                        </a>
+                                    </div>    
+                                    <div ng-messages="newSubscriptionForm['features_'+$index].$error"
+                                        ng-show="newSubscriptionForm['features_'+$index].$touched || newSubscriptionForm.$submitted">
+                                        <span class="help-block" ng-message="required">Plan Features is required.</span>
+                                    </div>
+                               </div>
+                            </div>
+                            
+                                <button type="button" ng-click="addNewInput()" class="btn btn-success mt-repeater-add col-md-offset-2">
+                                    <i class="fa fa-plus"></i> Add new feature
+                                </button>
+                            
+                        </div>   
 
                         <div class="form-group form-md-line-input" ng-class="{ 'has-error': newSubscriptionForm.type.$touched && newSubscriptionForm.type.$invalid || newSubscriptionForm.type.$invalid && newSubscriptionForm.$submitted }">
                             <label class="col-md-2 control-label" for="type">Plan Type <span class="required">*</span></label>
