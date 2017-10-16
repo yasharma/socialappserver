@@ -30,7 +30,7 @@ exports.userTable = (status_list, recordsTotal, data, draw) => {
 	return {
 		recordsTotal: recordsTotal,
 		data: result,
-		recordsFiltered: result.length,
+		recordsFiltered: recordsTotal,
 		draw: draw
 	};
 };
