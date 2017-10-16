@@ -103,7 +103,12 @@ exports.view = (req, res, next) => {
 
 exports.list = (req, res, next) => {
 	
-	let operation = { role: "user" }, reqData = req.body;
+	let operation = { role: "user" }, reqData = req.body,
+	length = Number(reqData.length),
+	start = Number(reqData.start);
+	console.log(reqData.start);
+	console.log(length);
+
 	if( reqData.email ){
 		operation.email = {$regex: new RegExp(`${reqData.email}`), $options:"im"};
 	}
@@ -146,7 +151,7 @@ exports.list = (req, res, next) => {
 					User.count(operation,done);
 				},
 				records: (done) => {
-					User.find(operation,done);	
+					User.find(operation,done).skip(start).limit(length);
 				}
 			}, done);	
 		}
@@ -165,7 +170,7 @@ exports.list = (req, res, next) => {
 			}
 		};
 		
-		let dataTableObj = datatable.userTable(status_list, result.count, result.records, reqData.draw);
+		let dataTableObj = datatable.userTable(status_list, result.count, result.records, Number(reqData.draw));
 		res.json(dataTableObj);
 	});
 };
