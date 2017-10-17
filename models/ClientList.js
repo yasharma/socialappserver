@@ -7,7 +7,10 @@ clientListSchema   = new Schema({
 		name: {
 			type: String
 		},
-		customer_id:{
+		user_id:{
+			type:String
+		},
+		subscription_id:{
 			type:String
 		},
 		image_url:{

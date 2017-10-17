@@ -23,7 +23,6 @@ router.use(expressJWT({
 		'/api/register',
 		'/api/login',
 		'/api/forgot_password',
-		'/api/import_client_list',
 		'/api/cmsLinks',
 		'/api/settings',
 		'/api/customer',

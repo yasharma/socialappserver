@@ -14,7 +14,8 @@ exports.importClientList = (req, res, next) => {
 	csv()
 	.fromFile(csvFilePath)
 	.on('json',(jsonObj)=>{
-		jsonObj.customer_id="59d62896b93fbb37f6b0d270";
+		jsonObj.user_id="59d62896b93fbb37f6b0d270";
+		jsonObj.subscription_id="270";
 		jsonObj.action="signed up";
 		jsonArr.push(jsonObj);
 	})
