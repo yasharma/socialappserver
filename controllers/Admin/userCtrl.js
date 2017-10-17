@@ -13,7 +13,7 @@ const path 	 	= require('path'),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
 exports.totalUsers = (req, res, next) => {
-	User.count(function (err, count) {
+	User.count({role:{$ne:'admin'}},function (err, count) {
 		if(err){
 			return res.json({errors: error});
 		}

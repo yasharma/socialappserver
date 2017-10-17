@@ -48,6 +48,7 @@ module.exports = {
       { url: '/website_list', method: ctrls.userCtrl.websiteList, type: 'post' },
       { url: '/change_password/:id', method: ctrls.userCtrl.changePassword, type: 'post' },
       { url: '/customer', method: ctrls.stripeCtrl.createCustomer, type: 'post' },
+      { url: '/initiate_payment', method: ctrls.stripeCtrl.createCharge, type: 'post' },
       { url: '/trail', method: ctrls.userCtrl.trailPlan, type: 'post' },
       { url: '/plans_list', method: ctrls.plansCtrl.planList, type: 'get' },
       { url: '/profile', mwear: uploadProfileImage.any(),method: ctrls.userCtrl.updateProfile, type: 'post' },
