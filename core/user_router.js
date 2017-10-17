@@ -24,6 +24,17 @@ let uploadProfileImage = multer({
     
 });
 
+let uploadClientCsv = multer({
+    limits: config.fileLimits,
+    storage: multer.diskStorage({
+      destination: 'assets/client_list_csv/',
+      filename: function (req, file, cb) {
+        cb(null, Date.now() + '.' + config.file_extensions[file.mimetype]);
+      }
+    }),
+    fileFilter: fileFilter
+});
+
 /* Check if file is valid image */
 function fileFilter (req, file, cb) {
   if(!_.includes(config.allowed_image_extensions, file.mimetype)){
@@ -43,15 +54,15 @@ module.exports = {
       { url: '/cmsLinks', method: ctrls.cmsCtrl.getCmsLinks, type: 'get' },
       { url: '/cms/get/:slug', method: ctrls.cmsCtrl.getCMS, type: 'get' },
       { url: '/settings', method: ctrls.cmsCtrl.getSettings, type: 'get' },
-      { url: '/add_website', method: ctrls.userCtrl.addWebsite, type: 'post' },
+      { url: '/add_website', method: ctrls.userSubscriptionCtrl.addWebsite, type: 'post' },
+      { url: '/website_list', method: ctrls.userSubscriptionCtrl.websiteList, type: 'post' },
       { url: '/subscription_list', method: ctrls.userCtrl.subscriptionList, type: 'get' },
-      { url: '/website_list', method: ctrls.userCtrl.websiteList, type: 'post' },
       { url: '/change_password/:id', method: ctrls.userCtrl.changePassword, type: 'post' },
       { url: '/customer', method: ctrls.stripeCtrl.createCustomer, type: 'post' },
       { url: '/initiate_payment', method: ctrls.stripeCtrl.createCharge, type: 'post' },
       { url: '/trail', method: ctrls.userCtrl.trailPlan, type: 'post' },
       { url: '/plans_list', method: ctrls.plansCtrl.planList, type: 'get' },
       { url: '/profile', mwear: uploadProfileImage.any(),method: ctrls.userCtrl.updateProfile, type: 'post' },
-      { url: '/import_client_list', method: ctrls.clientListCtrl.importClientList, type: 'post' },
+      { url: '/import_client_list', mwear:uploadClientCsv.any(),method: ctrls.clientListCtrl.importClientList, type: 'post' },
   ]
 };

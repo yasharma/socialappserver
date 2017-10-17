@@ -7,16 +7,14 @@ clientListSchema   = new Schema({
 		name: {
 			type: String
 		},
-		image:{
-			name: {
-				type: String,
-			},
-			path: {
-				type: String,
-			},
-			original_name:  {
-				type: String,
-			}
+		user_id:{
+			type:String
+		},
+		subscription_id:{
+			type:String
+		},
+		image_url:{
+			type: String
 	    },
 		location: {
 			type: String
@@ -24,8 +22,11 @@ clientListSchema   = new Schema({
 		plan: {
 			type: String
 		},
-		time: {
+		date: {
 			type: String
+		},
+		action:{
+			type:String
 		}
 },{
     timestamps: {
