@@ -1,6 +1,6 @@
 'use strict';
-mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscription', 'Upload','appSvr',
-	function($scope, $state, subscription, Upload, appSvr){
+mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscription', 'Upload','appSvr','$rootScope',
+	function($scope, $state, subscription, Upload, appSvr, $rootScope){
 		$scope.$on('$viewContentLoaded', function() {
 			/**
 			 * Initialize the jquery components when view contents loaded properly
@@ -9,6 +9,10 @@ mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscriptio
 		});
          
 		$scope.subscription = subscription.record;
+		if( $scope.subscription.image ) {
+			$scope.subscription.image = $scope.subscription.image.path;	
+		}
+		
 
 	    $scope.addNewInput = function () {
 	        $scope.subscription.features.push("");
@@ -29,10 +33,11 @@ mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscriptio
 				App.scrollTop();
 				return;
 			}
-		
+			
+			let id = ($scope.subscription._id);
 			$scope.isLoading = true;
 			Upload.upload({
-				url: baseUrl(`subscription/edit/${subscription._id}`),
+				url: baseUrl(`subscription/edit/${id}`),
 				data: $scope.subscription,
 				method: 'PUT'
 			})
@@ -40,10 +45,10 @@ mimicTrading.controller('subscriptionEditCtrl', ['$scope', '$state','subscriptio
 				$state.go('subscriptions');
 			})
 			.catch(function (error) {
+
 				if( error.data ) {
-					angular.forEach(error.data, function (value, prop) {
-						$scope.editSubscriptionForm[prop].$setValidity('unique', false);
-					});
+					let msg=error.data.message;
+                	App.alert({type: ('danger'), icon: ( 'danger'), message: msg, container: $rootScope.settings.errorContainer, place: 'prepend'});
 					App.scrollTop();
 				}
 			})

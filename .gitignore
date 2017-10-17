@@ -33,3 +33,4 @@ yarn-error.log*
 
 stripe.js
 assets/customer_csv/
+assets/subscription_plan_image/

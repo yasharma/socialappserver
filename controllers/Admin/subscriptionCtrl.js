@@ -32,17 +32,19 @@ exports.add = (req, res, next) => {
 		delete req.body.image
 	}
 
-    Subscription.count({type:req.body.type},function(err,count){
-       if(err) return next(err);
-       if(count==3){
-       	 res.json({success:false,message:`You can not add more than 3 ${req.body.type} plans`})
-       }
-       else{
-		    let subscription = new Subscription(req.body);
-		    subscription.save()
-		    .then(result => res.json({success: true}))
-		    .catch(error => res.json({errors: error}));
-       }
+    Subscription.count({type:req.body.type, status: true},function(err,count){
+       	if(err) return next(err);
+       	if(count === 3){
+       		if( req.body.status === 'true' ) {
+       			return res.status(500).json({success:false,message:`You can not add more than 3 active ${req.body.type} plans`})	
+       		}
+       	}	
+	     
+	    let subscription = new Subscription(req.body);
+	    subscription.save()
+	    .then(result => res.json({success: true}))
+	    .catch(error => res.json({errors: error}));
+	     
     });
 };
 
@@ -69,15 +71,25 @@ exports.edit = (req, res, next) => {
 	} else {
 		delete req.body.image
 	}
+	Subscription.count({type:req.body.type, status: true},function(err,count){
+		if(err) return next(err);
 
-    Subscription.update({_id: req.body._id},{$set: req.body}, 
-    	function (error, result) {
-    		if(error){
-    			res.json({errors: error});
-    		}
-    		res.json({success: true});
-    	}
-    );
+		if(count === 3){
+       		if( req.body.status === 'true' ) {
+       			return res.status(500).json({success:false,message:`You can not add more than 3 active ${req.body.type} plans`});
+       		}	
+       	}		
+       		
+	    Subscription.update({_id: req.body._id},{$set: req.body}, 
+	    	function (error, result) {
+	    		if(error){
+	    			res.json({errors: error});
+	    		}
+	    		res.json({success: true});
+	    	}
+	    );
+			
+	});    
 };
 
 exports.view = (req, res, next) => {

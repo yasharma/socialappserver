@@ -14,7 +14,7 @@ exports.createCustomer = (req, res, next) => {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				.json(response.required({message: 'Email and Token is must to creare a customer'}));
 	}
-	const { email, token, description } = req.body;
+	const { email, token, description, ip } = req.body;
 	async.waterfall([
 		function stripeCustomerCreate(done) {
 			stripe.customers.create({ 
@@ -38,7 +38,8 @@ exports.createCustomer = (req, res, next) => {
 							default_source: customer.default_source,
 							description: customer.description	
 						}
-					}
+					},
+					ip: ip
 				}
 			}, done);
 		}
