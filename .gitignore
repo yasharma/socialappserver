@@ -16,6 +16,9 @@ assets/blog/
 assets/profile_image/
 assets/cms_banner/
 assets/homepage_banner/
+assets/customer_csv/
+assets/subscription_plan_image/
+assets/client_list_csv/
 
 # misc
 .DS_Store

@@ -24,6 +24,17 @@ let uploadProfileImage = multer({
     
 });
 
+let uploadClientCsv = multer({
+    limits: config.fileLimits,
+    storage: multer.diskStorage({
+      destination: 'assets/client_list_csv/',
+      filename: function (req, file, cb) {
+        cb(null, Date.now() + '.' + config.file_extensions[file.mimetype]);
+      }
+    }),
+    fileFilter: fileFilter
+});
+
 /* Check if file is valid image */
 function fileFilter (req, file, cb) {
   if(!_.includes(config.allowed_image_extensions, file.mimetype)){
@@ -51,6 +62,6 @@ module.exports = {
       { url: '/trail', method: ctrls.userCtrl.trailPlan, type: 'post' },
       { url: '/plans_list', method: ctrls.plansCtrl.planList, type: 'get' },
       { url: '/profile', mwear: uploadProfileImage.any(),method: ctrls.userCtrl.updateProfile, type: 'post' },
-      { url: '/import_client_list', method: ctrls.clientListCtrl.importClientList, type: 'post' },
+      { url: '/import_client_list', mwear:uploadClientCsv.any(),method: ctrls.clientListCtrl.importClientList, type: 'post' },
   ]
 };
