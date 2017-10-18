@@ -93,6 +93,7 @@
 									        <th>Sr. No.</th>
 									        <th>Name</th>
 									        <th>Price</th>
+									        <th>Type</th>
 									        <th>Website Url</th>
 									        <th>Start Date</th>
 									        <th>Expiration Date</th>
@@ -101,8 +102,9 @@
 									    <tbody>
 									      <tr ng-repeat="plan in userinfo.subscription_plan">
 									        <td>{{$index+1}}</td>
-									        <td>{{plan.plan_name}}</td>
-									        <td>{{plan.plan_price}}</td>
+									        <td>{{plan.name}}</td>
+									        <td>{{plan.price}}</td>
+									        <td>{{plan.type}}</td>
 									        <td>{{plan.website_url}}</td>
 									        <td>{{plan.start_date | date: format : 'dd/m/y'}}</td>
 									        <td>{{plan.expiration_date | date: format : 'dd/m/y'}}</td>

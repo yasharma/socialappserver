@@ -89,16 +89,52 @@ exports.view = (req, res, next) => {
 		});
 		return;
 	}	 
-    
-    
-    User.findOne({_id: req.params.id}, 
-    	function (error, result) {
-    		if(error){
-    			res.json({errors: error});
-    		}
-    		res.json({success: true, result: result});
-    	}
-    );
+     async.waterfall([
+     	function(done){
+		   User.findOne({_id: req.params.id},done).lean();
+     	},
+     	function(result,done){
+     		User.aggregate([
+			   {
+			      $match:{"_id": mongoose.Types.ObjectId( req.params.id) }
+			   },
+			   {
+			      $unwind: "$subscription_plan"
+			   },
+			   {
+			      $lookup:
+			         {
+			            from: "subscriptions",
+			            localField: "subscription_plan.plan_id",
+			            foreignField: "_id",
+			            as: "subscription_docs"
+			        }
+			   },
+			   {
+			      $match: { "subscription_docs": { $ne: [] } }
+			   },
+			    {
+			      $unwind: "$subscription_docs"
+			   },
+			   {
+			   	  $project:{'_id':'$subscription_plan._id','plan_id':'$subscription_plan.plan_id','website_url':'$subscription_plan.website_url',
+			   	   			 'start_date':'$subscription_plan.start_date','expiration_date':'$subscription_plan.expiration_date','name':'$subscription_docs.name',
+			   	   			 'price':'$subscription_docs.price','description':'$subscription_docs.description','type':'$subscription_docs.type'
+			   				}
+			   }
+			],function(err,planresult){
+			   result.subscription_plan=planresult;
+			   done(err,result);
+			});	
+     	}
+     ],function(err,result){
+     	if(err){ return next(err)}
+     	else{
+     	  res.json({success: true, result: result});
+     	}
+     })
+
+
 };
 
 exports.list = (req, res, next) => {
