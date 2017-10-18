@@ -175,21 +175,50 @@ exports.list = (req, res, next) => {
 };
 
 exports.exportcsv = (req, res, next) => {
-	var fields = ['customer_name', 'customer_url', 'business_name','mobile','email','subscription_plan'];
+	var fields = ['customer_name', 'customer_url', 'business_name','mobile','email',
+				  'name','price','description','type','website_url','start_date','expiration_date'];
 	
-	User.find({role: "user"}, 
-		function (error, result) {
-			if(error){
-				res.json({errors: error});
-			}
-		var csv = json2csv({ data: result, fields: fields }),
-		    filename="customercsv_"+new Date().getTime()+".csv"; 
+	 	User.aggregate([
+			   {
+			      $match:{"role":"user" }
+			   },
+			   {
+			      $unwind: "$subscription_plan"
+			   },
+			   {
+			      $lookup:
+			         {
+			            from: "subscriptions",
+			            localField: "subscription_plan.plan_id",
+			            foreignField: "_id",
+			            as: "subscription_docs"
+			        }
+			   },
+			   {
+			      $match: { "subscription_docs": { $ne: [] } }
+			   },
+			   {
+			      $unwind: "$subscription_docs"
+			   },
+			   {
+			   	  $project:{'customer_name':1,'customer_url':1,'website_url':1,'business_name':1,'mobile':1,'email':1,
+			   	   			 'plan_id':'$subscription_plan.plan_id','website_url':'$subscription_plan.website_url',
+			    	   		 'start_date':{ "$dateToString": { "format": "%Y-%m-%d", "date": '$subscription_plan.start_date' } },'expiration_date':{ "$dateToString": { "format": "%Y-%m-%d", "date": '$subscription_plan.expiration_date' } },'name':'$subscription_docs.name',
+			   	   			 'price':'$subscription_docs.price','description':'$subscription_docs.description','type':'$subscription_docs.type'
+			   				}
+			   }
 
-		fs.writeFile('./assets/customer_csv/'+filename, csv, function(err) {
-	      if (err) throw err;
-	      console.log('file saved');
-	    });
-		res.json({result: {result:csv,success:true,filename:filename}});
-		}
-    );
-}
+			],function(err,result){
+				if(err){
+					return next(err);
+				}
+			     var csv = json2csv({ data: result, fields: fields }),
+		         filename="customercsv_"+new Date().getTime()+".csv"; 
+
+				 fs.writeFile('./assets/customer_csv/'+filename, csv, function(err) {
+			      if (err) throw err;
+			      console.log('file saved');
+			     });
+				 res.json({result: {result:csv,success:true,filename:filename}});
+			});
+};
