@@ -55,7 +55,7 @@ const config = {
         fileSize: 2000000, //the max file size (in bytes)
         files: 10 //the max number of file
     },
-    docLimit: 10,
+    docLimit: 5,
     defaultAdmin: {
     	email: 'admin@gmail.com',
     	password: '123456',

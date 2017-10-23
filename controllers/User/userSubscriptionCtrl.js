@@ -13,7 +13,7 @@ const
 
 
 exports.addWebsite = (req, res, next) => {
-	if(!req.body.user_id){
+	if(!req.body.user_id && !req.body.plan_id){
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				  .json(response.required({message: 'Id is required'}));
 	}
@@ -26,7 +26,8 @@ exports.addWebsite = (req, res, next) => {
            	  if(err){
 					done(err, null);
 				} else {
-					if(subscriptionresult.plan_type==="monthly"){
+					
+					if(subscriptionresult.type==="monthly"){
 					  req.body.duration=30;	
 					  req.body.expiration_date=curDate.setDate(curDate.getDate() + 30);
 					}
@@ -39,7 +40,7 @@ exports.addWebsite = (req, res, next) => {
            })
 		},
 		function(result,done){
-		   User.update({_id:req.body.user_id},{ $push: { subscription_plan: req.body } },done);
+		   	User.update({_id:req.body.user_id},{ $push: { subscription_plan: req.body } },done);
 		}
 	],function(err,result){
 		if(err){
@@ -86,35 +87,32 @@ exports.websiteList=(req, res, next) => {
 			      $unwind: "$subscription_plan"
 			   },
 			   {
-			      $lookup:
-			         {
+			      $lookup: {
 			            from: "subscriptions",
 			            localField: "subscription_plan.plan_id",
 			            foreignField: "_id",
 			            as: "subscription_docs"
 			        }
 			   },
+			   {$match: { "subscription_docs": { $ne: [] } } },
+			   {$unwind: "$subscription_docs"},
 			   {
-			      $match: { "subscription_docs": { $ne: [] } }
-			   },
-			   {
-			      $unwind: "$subscription_docs"
-			   },
-			   {
-			   	   $project:{'_id':'$subscription_plan._id','plan_id':'$subscription_plan.plan_id','website_url':'$subscription_plan.website_url',
-			   	   			 'start_date':'$subscription_plan.start_date','expiration_date':'$subscription_plan.expiration_date','name':'$subscription_docs.name',
-			   	   			 'price':'$subscription_docs.price','description':'$subscription_docs.description','type':'$subscription_docs.type'
-			   				}
-			   },
-			   { 
-			   	   $limit : config.docLimit
-			   },
-			   { 
-			   	   $skip  : _skip
-			   }
+			   	   $project:{
+			   	   		_id: '$subscription_docs._id',
+			   	   		plan_id: '$subscription_plan.plan_id',
+			   	   		website_url: '$subscription_plan.website_url',
+			   	   		start_date: '$subscription_plan.start_date',
+			   	   		expiration_date: '$subscription_plan.expiration_date',
+			   	   		name: '$subscription_docs.name',
+			   	   		price:'$subscription_docs.price',
+			   	   		description:'$subscription_docs.description',
+			   	   		type:'$subscription_docs.type'
+			   		}
+			   	},
+			   	{$sort : {'expiration_date':1} },
+			   	{$skip  : _skip },
+			   	{$limit : config.docLimit }
 			],done);
-			// User.findOne({"_id":req.body._id},{_id:0,subscription_plan:1})
-			// .limit(config.docLimit).skip(_skip).exec(done);	
 		}
 	}, (err, result) => {
 		if(err){
