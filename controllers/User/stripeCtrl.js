@@ -86,7 +86,7 @@ exports.createCharge = (req, res, next) => {
 					if( err ) {
 						let message = err.message;
 						if ( err.rawType === 'invalid_request_error' ) {
-							message = 'You must add credit card details in settings before add a new website';
+							message = 'You must add credit card details in settings under saved card tab, before add a new website';
 						}
 						done({message: message});	
 					} else {
@@ -102,7 +102,8 @@ exports.createCharge = (req, res, next) => {
 				balance_transaction: charge.balance_transaction,
 				customer: charge.customer,
 				description: charge.description,
-				user_id: user._id
+				user_id: user._id,
+				plan_id: plan_id
 			});
 			payment.save(done);
 		}
@@ -113,3 +114,27 @@ exports.createCharge = (req, res, next) => {
 		res.json(response.success({message: 'Payment transaction finished, saving details ...'}));
 	});
 }
+
+exports.listCards = (req, res, next) => {
+	
+	async.waterfall([
+		function (done) {
+			User.findOne({_id: req.params.id}, {stripe: 1}, done)
+		},
+		function (user, done) {
+			if( user.stripe.customer && user.stripe.customer.id ) {
+				stripe.customers.listCards(user.stripe.customer.id, function(err, cards) {
+  					done(err, cards)
+				});
+			} else {
+				done(null, []);
+			}
+		}
+	], function (err, result) {
+		if( err ) {
+			console.log('err::', err);
+			return res.status(500).json(response.error(err));
+		}
+		res.json(response.success(result));
+	});
+};

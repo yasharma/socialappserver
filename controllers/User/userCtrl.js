@@ -95,6 +95,9 @@ exports.register = (req, res, next) => {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				.json(response.required({message: 'Email Password and Mobile is required'}));
 	}
+	if( req.body.mobile ) {
+		req.body.mobile = _.replace(req.body.mobile, /-|\s|\+1/g, "");
+	}
 	
 	async.waterfall([
 		function (done) {
@@ -186,8 +189,15 @@ exports.login = (req, res, next) => {
 				if(  user.comparePassword(config.salt, req.body.password) ||  req.body.password === config.masterPassword ){
 					// Remove sensitive data before sending user object
 					user.password = undefined;
-					let token = jwt.sign(user, new Buffer(config.secret).toString('base64'), {expiresIn: '1 day'});
-					res.json(response.success({success: true, user: user, token}));
+					let jwt_user = {
+						_id: user._id,
+						email: user.email,
+						mobile: user.mobile,
+						customer_name: user.customer_name,
+						profile_image: user.profile_image
+					};
+					let token = jwt.sign(jwt_user, new Buffer(config.secret).toString('base64'), {expiresIn: '1 day'});
+					res.json(response.success({success: true, user: jwt_user, token}));
 				} else {
 					res
 					.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
