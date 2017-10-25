@@ -46,7 +46,7 @@ let uploadClientCsv = multer({
 /* Check if file is valid csv */
 function csvFilter (req, file, cb) {
   if(!_.includes(config.allowed_csv_extensions, file.mimetype)){
-    cb(new Error('Invalid csv file'));
+    cb(new Error('Invalid file, please upload a valid csv file'));
   }
   cb(null, true);
 }

@@ -47,6 +47,13 @@ const config = {
       'image/gif' : 'gif',
       'image/bmp' : 'bmp',
     },
+    allowed_csv_extensions:['text/csv','application/csv','application/octet-stream','text/comma-separated-values'],
+    csv_extensions:{
+      'text/csv' : 'csv',
+      'application/csv':'csv',
+      'application/octet-stream':'csv',
+      'text/comma-separated-values':'csv'
+    },
     blog_image_destination: 'assets/blog',
     image_path: 'assets/images/default-user.png',
     image_name: 'default-user.png',
