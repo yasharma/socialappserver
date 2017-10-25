@@ -24,21 +24,29 @@ let uploadProfileImage = multer({
     
 });
 
+/* Check if file is valid image */
+function fileFilter (req, file, cb) {
+  if(!_.includes(config.allowed_image_extensions, file.mimetype)){
+    cb(new Error('Invalid image file'));
+  }
+  cb(null, true);
+}
+
 let uploadClientCsv = multer({
     limits: config.fileLimits,
     storage: multer.diskStorage({
       destination: 'assets/client_list_csv/',
       filename: function (req, file, cb) {
-        cb(null, Date.now() + '.' + config.file_extensions[file.mimetype]);
+        cb(null, Date.now() + '.' + config.csv_extensions[file.mimetype]);
       }
     }),
-    fileFilter: fileFilter
+    fileFilter: csvFilter
 });
 
-/* Check if file is valid image */
-function fileFilter (req, file, cb) {
-  if(!_.includes(config.allowed_image_extensions, file.mimetype)){
-    cb(new Error('Invalid image file'));
+/* Check if file is valid csv */
+function csvFilter (req, file, cb) {
+  if(!_.includes(config.allowed_csv_extensions, file.mimetype)){
+    cb(new Error('Invalid csv file'));
   }
   cb(null, true);
 }
