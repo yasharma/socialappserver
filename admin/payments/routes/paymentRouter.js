@@ -10,7 +10,7 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 	 * @type {Object}
 	 */
 	let paymentResolver = {
-		payment: ['paymentSvr', '$stateParams', (paymentSvr, $stateParams) => paymentSvr.getUserById($stateParams.id)]
+		payment: ['paymentSvr', '$stateParams', (paymentSvr, $stateParams) => paymentSvr.getPaymentById($stateParams.id)]
 	};
 	$stateProvider
 	.state('payments',{
@@ -37,6 +37,14 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		    }]
 		},
 		authenticate: true
+	})
+	.state('viewPayment',{
+		url: '/view-payment/:id',
+		controller: 'paymentViewCtrl',
+		templateUrl: '/payments/views/view_payment.html',
+		data: {pageTitle: 'Payment Detail'},
+		authenticate: true,
+		resolve: paymentResolver
 	});
 	// .state('newUser',{
 	// 	url: '/new-payment',
@@ -44,14 +52,6 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 	// 	templateUrl: '/payments/views/new_payment.html',
 	// 	data: {pageTitle: 'Add New Customer'},
 	// 	authenticate: true
-	// })
-	// .state('viewUser',{
-	// 	url: '/view-payment/:id',
-	// 	controller: 'paymentViewCtrl',
-	// 	templateUrl: '/payments/views/view_payment.html',
-	// 	data: {pageTitle: 'Customer Detail'},
-	// 	authenticate: true,
-	// 	resolve: paymentResolver
 	// })
 	// .state('editUser',{
 	// 	url: '/edit-payment/:id',

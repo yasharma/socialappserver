@@ -9,13 +9,78 @@ const path 	 	= require('path'),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
 
+exports.view = (req, res, next) => {
+	if(!req.params.id) {
+		res.status(422).json({
+			errors: {
+				message: 'Id is required', 
+				success: false,
+			}	
+		});
+		return;
+	}	 
+
+	Payment.aggregate([
+	    { $match : {_id: mongoose.Types.ObjectId(req.params.id)}},
+	    {
+	      $lookup: {
+	            from: "users",
+	            localField: "user_id",
+	            foreignField: "_id",
+	            as: "user_docs"
+	        }
+	    },
+		{
+	      $lookup: {
+	            from: "subscriptions",
+	            localField: "plan_id",
+	            foreignField: "_id",
+	            as: "subscription_docs"
+	        }
+	    },
+	    { 
+	    	$match: { "subscription_docs": { $ne: [] } } 
+	    },
+	    {
+  			$unwind: "$user_docs"
+			},
+			{
+  			$unwind: "$subscription_docs"
+			},
+	    {
+	   	   $project:{
+	   	   		_id: 1,
+	   	   		payment_id:1,
+	   	   		amount: 1,
+	   	   		balance_transaction:1,
+	   	   		description:1,
+	   	   		created_at:1,
+	   	   		status:1,
+	   	   		customer_name:'$user_docs.customer_name',
+	   	   		user_id:"$user_docs._id",
+	   	   		email: '$user_docs.email',
+	   	   		expiration_date: '$subscription_docs.expiration_date',
+	   	   		plan_name: '$subscription_docs.name',
+	   	   		plan_price:'$subscription_docs.price',
+	   	   		plan_description:'$subscription_docs.description',
+	   	   		plan_type:'$subscription_docs.type'
+	   		}
+	   	}
+	],function (error, result) {
+		if(error){
+			res.json({errors: error});
+		}
+		res.json({success: true, result: result});
+	});
+};
+
 exports.list = (req, res, next) => {
 
 	let operation = {}, reqData = req.body,
 		length = Number(reqData.length),
 		start = Number(reqData.start);
 	if( reqData.amount ){
-		operation.amount = {$regex: new RegExp(`${reqData.amount}`), $options:"im"};
+		operation.amount = reqData.amount;
 	}
 	if( reqData.customer_name ){
 		operation.customer_name = {$regex: new RegExp(`${reqData.customer_name}`), $options:"im"};
@@ -98,6 +163,7 @@ exports.list = (req, res, next) => {
 					   	   		plan_type:'$subscription_docs.type'
 					   		}
 					   	},
+					   	{ $match : operation},
 					   	{ $sort  : {created_at:-1} },
 					   	{ $skip  : start },
 					   	{ $limit : length }

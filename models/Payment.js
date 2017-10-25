@@ -31,7 +31,11 @@ PaymentSchema   = new Schema({
     },
     plan_id: {
         type: mongoose.Schema.Types.ObjectId
-    }
+    },
+    status: {
+        type: Boolean,
+        default: false
+    },
 },{
     timestamps: {
         createdAt: 'created_at',
