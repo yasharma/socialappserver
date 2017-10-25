@@ -29,7 +29,7 @@ const config = {
 		number: process.env.TWILIO_NUMBER,
 		accountSid: process.env.ACCOUNT_SID,
 		authToken: process.env.AUTH_TOKEN,
-		countryCode: '+91'
+		countryCode: '+1'
 	},
   	sendgrid: {
         auth: {
@@ -55,7 +55,7 @@ const config = {
         fileSize: 2000000, //the max file size (in bytes)
         files: 10 //the max number of file
     },
-    docLimit: 5,
+    docLimit: 10,
     defaultAdmin: {
     	email: 'admin@gmail.com',
     	password: '123456',

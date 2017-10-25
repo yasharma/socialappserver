@@ -24,6 +24,9 @@ PaymentSchema   = new Schema({
     	type: String
     },
     user_id: {
+        type: mongoose.Schema.Types.ObjectId
+    },
+    plan_id: {
     	type: mongoose.Schema.Types.ObjectId
     },
     plan_id: {
