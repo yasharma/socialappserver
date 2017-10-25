@@ -34,5 +34,17 @@ exports.importClientList = (req, res, next) => {
 	      }
 	    });
 	 })
+};
 
+exports.clientList = (req,res,next) => {
+   	if( !req.body._id) {
+		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
+				  .json(response.required({message: 'Id is required'}));
+      }
+	ClientList.find({user_id:req.body._id},{__v:0,user_id:0},function (err, list) {
+		if( err ) {
+			return res.json(response.error(err));
+		}
+		res.json(response.success(list));
+	});
 };
