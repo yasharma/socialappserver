@@ -25,6 +25,9 @@ PaymentSchema   = new Schema({
     },
     user_id: {
     	type: mongoose.Schema.Types.ObjectId
+    },
+    plan_id: {
+        type: mongoose.Schema.Types.ObjectId
     }
 },{
     timestamps: {

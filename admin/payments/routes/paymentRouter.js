@@ -9,15 +9,15 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 	 * JUST Following D.R.Y (don't repeat yourself)
 	 * @type {Object}
 	 */
-	let userResolver = {
-		user: ['userSvr', '$stateParams', (userSvr, $stateParams) => userSvr.getUserById($stateParams.id)]
+	let paymentResolver = {
+		payment: ['paymentSvr', '$stateParams', (paymentSvr, $stateParams) => paymentSvr.getUserById($stateParams.id)]
 	};
 	$stateProvider
-	.state('users',{
-		url: '/users',
-		controller: 'userCtrl',
-		templateUrl: '/users/views/userListing.html',
-		data: {pageTitle: 'Customer Management'},
+	.state('payments',{
+		url: '/payments',
+		controller: 'paymentCtrl',
+		templateUrl: '/payments/views/paymentListing.html',
+		data: {pageTitle: 'Payment Management'},
 		resolve: {
 		    deps: ['$ocLazyLoad', function($ocLazyLoad) {
 		        return $ocLazyLoad.load({
@@ -37,28 +37,28 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		    }]
 		},
 		authenticate: true
-	})
-	.state('newUser',{
-		url: '/new-user',
-		controller: 'userCtrl',
-		templateUrl: '/users/views/new_user.html',
-		data: {pageTitle: 'Add New Customer'},
-		authenticate: true
-	})
-	.state('viewUser',{
-		url: '/view-user/:id/:type',
-		controller: 'userViewCtrl',
-		templateUrl: '/users/views/view_user.html',
-		data: {pageTitle: 'Customer Detail'},
-		authenticate: true,
-		resolve: userResolver
-	})
-	.state('editUser',{
-		url: '/edit-user/:id',
-		controller: 'userEditCtrl',
-		templateUrl: '/users/views/edit_user.html',
-		data: {pageTitle: 'Update Customer Detail'},
-		authenticate: true,
-		resolve: userResolver
 	});
+	// .state('newUser',{
+	// 	url: '/new-payment',
+	// 	controller: 'paymentCtrl',
+	// 	templateUrl: '/payments/views/new_payment.html',
+	// 	data: {pageTitle: 'Add New Customer'},
+	// 	authenticate: true
+	// })
+	// .state('viewUser',{
+	// 	url: '/view-payment/:id',
+	// 	controller: 'paymentViewCtrl',
+	// 	templateUrl: '/payments/views/view_payment.html',
+	// 	data: {pageTitle: 'Customer Detail'},
+	// 	authenticate: true,
+	// 	resolve: paymentResolver
+	// })
+	// .state('editUser',{
+	// 	url: '/edit-payment/:id',
+	// 	controller: 'paymentEditCtrl',
+	// 	templateUrl: '/payments/views/edit_payment.html',
+	// 	data: {pageTitle: 'Update Customer Detail'},
+	// 	authenticate: true,
+	// 	resolve: paymentResolver
+	// });
 }]);

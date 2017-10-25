@@ -25,7 +25,12 @@ mimicTrading.controller('userViewCtrl', ['$scope', '$state','user','appSvr',
 		};
 
 		$scope.goBack = () => {
-			$state.go('users');
+			if($state.params.type=="payment"){
+	  			$state.go('payments');
+			}
+			else{
+				$state.go('users');
+			}
 			// var queryString = $location.search();
 			// $state.go((queryString) ? ((queryString.back === 'strategies') ? 'strategies':'users'):'users');
 		};
