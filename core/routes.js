@@ -28,7 +28,7 @@ router.use(expressJWT({
 		'/api/customer',
 		'/api/trail',
 		'/api/plans_list',
-		'/api/client_list',
+		'/api/export_client_list',
 		/^\/api\/cms\/.*/,
 		/^\/api\/(reset|reset_password)\/.*/,
 		/^\/api\/verify_email\/.*/,

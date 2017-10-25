@@ -66,6 +66,7 @@ module.exports = {
       { url: '/profile', mwear: uploadProfileImage.any(),method: ctrls.userCtrl.updateProfile, type: 'post' },
       { url: '/import_client_list', mwear:uploadClientCsv.any(),method: ctrls.clientListCtrl.importClientList, type: 'post' },
       { url: '/client_list',method: ctrls.clientListCtrl.clientList, type: 'post' },
+      { url: '/export_client_list',method: ctrls.clientListCtrl.exportClientList, type: 'post' },
 
   ]
 };

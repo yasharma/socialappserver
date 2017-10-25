@@ -19,6 +19,7 @@ assets/homepage_banner/
 assets/customer_csv/
 assets/subscription_plan_image/
 assets/client_list_csv/
+assets/export_client_csv/
 
 # misc
 .DS_Store
