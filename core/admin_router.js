@@ -105,6 +105,7 @@ module.exports = {
       { url: '/subscription/edit/:id', mwear: subscriptionPlanImage.any(), method: ctrls.subscriptionCtrl.edit, type: 'put' },
       { url: '/totalCount', method: ctrls.userCtrl.totalUsers, type: 'get' },
       { url: '/payment/list', method: ctrls.paymentCtrl.list, type: 'post' },
+      { url: '/payment/view/:id', method: ctrls.paymentCtrl.view, type: 'get' },
   		/*{ url: '/privacypolicy/add',  method: ctrls.privacypolicyCtrl.add, type: 'post' },
       { url: '/privacypolicy/list', method: ctrls.privacypolicyCtrl.list, type: 'post' },
       { url: '/privacypolicy/edit', method: ctrls.privacypolicyCtrl.edit, type: 'put' },

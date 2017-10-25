@@ -81,7 +81,7 @@ exports.paymentTable = (status_list, recordsTotal, data, draw) => {
 				</label>`,
 			customer_name: data[i].customer_name, 
 			email:`<a href="#!/view-user/${data[i].user_id}/payment">${data[i].email}</a>`,
-			amount: data[i].amount || '-',
+			amount: data[i].amount/100 || '-',
 			balance_transaction: data[i].balance_transaction || '-',
 			description: data[i].description,
 			plan_name:data[i].plan_name, 
