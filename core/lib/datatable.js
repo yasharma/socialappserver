@@ -91,11 +91,8 @@ exports.paymentTable = (status_list, recordsTotal, data, draw) => {
 			status: `<span class="label label-sm label-${status_list.class[data[i].status]}">${status_list.status[data[i].status]}</span>`,
 			action: `
 					<div class="btn-group btn-group-solid">
-						<a href="#!/view-subscription/${data[i]._id}" class="btn btn-sm btn-outline blue tooltips" data-original-title="View">
+						<a href="#!/view-payment/${data[i]._id}" class="btn btn-sm btn-outline blue tooltips" data-original-title="View">
 							<i class="fa fa-search"></i>
-						</a>
-						<a href="#!/edit-subscription/${data[i]._id}" class="btn btn-sm btn-outline grey-salsa tooltips" data-original-title="Edit">
-							<i class="fa fa-pencil"></i>
 						</a>
 					</div>`
 		};

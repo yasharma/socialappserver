@@ -10,21 +10,21 @@ const path 	 	= require('path'),
 
 
 exports.list = (req, res, next) => {
-	console.log("in payment list---");
+
 	let operation = {}, reqData = req.body,
 		length = Number(reqData.length),
 		start = Number(reqData.start);
 	if( reqData.amount ){
 		operation.amount = {$regex: new RegExp(`${reqData.amount}`), $options:"im"};
 	}
-	if( reqData.balance_transaction ){
-		operation.balance_transaction = {$regex: new RegExp(`${reqData.balance_transaction}`), $options:"im"};
+	if( reqData.customer_name ){
+		operation.customer_name = {$regex: new RegExp(`${reqData.customer_name}`), $options:"im"};
 	}
-	if( reqData.customer ){
-		operation.customer = {$regex: new RegExp(`${reqData.customer}`), $options:"im"};
+	if( reqData.email ){
+		operation.email = {$regex: new RegExp(`${reqData.email}`), $options:"im"};
 	}
-	if( reqData.description ){
-		operation.description = {$regex: new RegExp(`${reqData.description}`), $options:"im"};
+	if( reqData.plan_name ){
+		operation.plan_name = {$regex: new RegExp(`${reqData.plan_name}`), $options:"im"};
 	}
 	if( reqData.status === "true" || reqData.status === "false" ){
 		operation.status = reqData.status == "true" ? true : false;
@@ -42,9 +42,7 @@ exports.list = (req, res, next) => {
 				if( reqData.customActionName === 'inactive' || reqData.customActionName === 'active' ){
 					let _status =  ( reqData.customActionName === 'inactive' ) ? false : true;
 					Payment.update({_id: {$in:_ids}},{$set:{status: _status}},{multi:true}, done);	
-				} else if(reqData.customActionName === 'delete') {
-					Payment.remove({_id: {$in:_ids}}, done);	
-				}	
+				} 	
 				
 			} else {
 				done(null, null);
@@ -100,6 +98,7 @@ exports.list = (req, res, next) => {
 					   	   		plan_type:'$subscription_docs.type'
 					   		}
 					   	},
+					   	{ $sort  : {created_at:-1} },
 					   	{ $skip  : start },
 					   	{ $limit : length }
 					],done);

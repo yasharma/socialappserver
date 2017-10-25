@@ -186,7 +186,7 @@ exports.list = (req, res, next) => {
 					User.count(operation,done);
 				},
 				records: (done) => {
-					User.find(operation,done).skip(start).limit(length);
+					User.find(operation,done).sort({created_at:-1}).skip(start).limit(length);
 				}
 			}, done);	
 		}
