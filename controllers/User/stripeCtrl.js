@@ -49,7 +49,7 @@ exports.createCustomer = (req, res, next) => {
 		if( err ) {
 			return res.json(response.error(err));
 		}
-		res.json(response.success({message: 'Your details has been saved successfully and trail subscription has initiated'}));
+		res.json(response.success({message: 'Your details has been saved successfully and trial subscription has initiated'}));
 	});
 };
 
@@ -132,7 +132,6 @@ exports.listCards = (req, res, next) => {
 		}
 	], function (err, result) {
 		if( err ) {
-			console.log('err::', err);
 			return res.status(500).json(response.error(err));
 		}
 		res.json(response.success(result));
