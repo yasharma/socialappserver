@@ -8,7 +8,7 @@ clientListSchema   = new Schema({
 			type: String
 		},
 		user_id:{
-			type:String
+			type: mongoose.Schema.Types.ObjectId
 		},
 		subscription_id:{
 			type:String
