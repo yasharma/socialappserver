@@ -53,9 +53,9 @@
 			var template = Handlebars.compile(src);
 			var context = {
 				customer_name: "David Robien", 
-				closeIcon: "http://localhost:9000/assets/images/closeIcn.png",
-				image: "http://localhost:9000/assets/images/user_dp_bigl.png",
-				verified: "http://localhost:9000/assets/images/verifiedIcn.png"
+				closeIcon: "http://158.85.67.166:8027/assets/images/closeIcn.png",
+				image: "http://158.85.67.166:8027/assets/images/user_dp_bigl.png",
+				verified: "http://158.85.67.166:8027/assets/images/verifiedIcn.png"
 			};
 			var html    = template(context);
 			document.getElementById("output").innerHTML += html;
@@ -76,10 +76,10 @@
 	function showPop() {
 		setTimeout(function () {
 			document.getElementById('socialProofPopup').className = "lftInfoPopup active";
-			setTimeout(function () {
+			/*setTimeout(function () {
 				hidePop();
 				showPop();
-			},2500);
+			},2500);*/
 		},1000);
 	}
 
