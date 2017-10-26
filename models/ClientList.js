@@ -11,11 +11,7 @@ clientListSchema   = new Schema({
 			type: mongoose.Schema.Types.ObjectId
 		},
 		subscription_id:{
-<<<<<<< HEAD
 			type:mongoose.Schema.Types.ObjectId
-=======
-			type: mongoose.Schema.Types.ObjectId
->>>>>>> 28246263a1a2eca115bcb853e6ac6e107e96ce52
 		},
 		image_url:{
 			type: String

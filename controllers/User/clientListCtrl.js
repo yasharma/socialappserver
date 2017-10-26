@@ -7,6 +7,8 @@ const
 	json2csv    = require('json2csv'),
 	async		= require('async'),
 	mongoose	= require('mongoose'),
+	_ 			= require('lodash'),
+	paginate 	= require(path.resolve('./core/lib/paginate')),
 	ClientList  = require(path.resolve('./models/ClientList')),
 	User        = require(path.resolve('./models/User')),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`));
@@ -43,9 +45,10 @@ exports.clientList = (req,res,next) => {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				  .json(response.required({message: 'Id and Subscription Id are required'}));
       }
-
+   	let page= req.query.page || 1;
+	let _skip = (page - 1) * config.docLimit; 
     async.waterfall([
-    	function(done){
+       function(done){
     		User.aggregate([
     		   {
 			      $match:{"_id": mongoose.Types.ObjectId( req.body._id) }
@@ -83,14 +86,32 @@ exports.clientList = (req,res,next) => {
     	}
     	,
     	function(result,done){
-		    ClientList.find({subscription_id:mongoose.Types.ObjectId(req.body.subscription_id),user_id:req.body._id},{__v:0,user_id:0},function (err, list) {
-				if( err ) {
-					return res.json(response.error(err));
+			 async.parallel({
+				count: (done) => {
+					ClientList.count({"user_id": mongoose.Types.ObjectId( req.body._id),"subscription_id":mongoose.Types.ObjectId(req.body.subscription_id)},done);
+				},
+				records: (done) => {
+				    ClientList.find({subscription_id:mongoose.Types.ObjectId(req.body.subscription_id),user_id:req.body._id},{__v:0,user_id:0},function (err, list) {
+						if( err ) {
+							return res.json(response.error(err));
+						}
+						done(null,list);
+					}).skip(_skip).limit(config.docLimit);
 				}
-				let fnlres={subscription_details:result[0],client_list:list};
-				done(null,fnlres);
-			});
-    	}
+			}, (err, listresult) => {
+				if(err){
+					return res.json({errors: err});
+				}
+				let _records = [];
+				if( !_.isEmpty(listresult.records) ) {
+					_records = listresult.records;
+				}
+				let count = (listresult.count.length) > 0 ? listresult.count: 0;
+		        let paginateObj = paginate._paging(count, _records, page);
+                let fnlres={subscription_details:result[0],client_list:listresult.records,paging:paginateObj};
+                done(null,fnlres);
+     		});	
+       }
 
     ],function(err,result){
     	if(err) return next(err);
