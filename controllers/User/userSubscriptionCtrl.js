@@ -59,12 +59,26 @@ exports.addWebsite = (req, res, next) => {
 
 exports.websiteList=(req, res, next) => {
 
-	let page= req.query.page || 1;
-	let _skip = (page - 1) * config.docLimit; 
+	let page   = req.query.page || 1;
+	let _skip  = (page - 1) * config.docLimit; 
+	let filter = {};
 	if(!req.body._id){
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				  .json(response.required({message: 'Id is required'}));
 	}
+	if(req.body.website_url){
+		filter.website_url=  {$regex: new RegExp(`${req.body.website_url}`), $options:"im"};
+	}
+	if(req.body.name){
+		filter.name=  {$regex: new RegExp(`${req.body.name}`), $options:"im"};
+	}
+	if(req.body.price){
+		filter.price=  req.body.price;
+	}
+	if(req.body.expiration_date){
+		filter.expiration_date=  {$eq: req.body.expiration_date};
+	}
+
 
 	async.parallel({
 		count: (done) => {
@@ -108,6 +122,9 @@ exports.websiteList=(req, res, next) => {
 			   	   		description:'$subscription_docs.description',
 			   	   		type:'$subscription_docs.type'
 			   		}
+			   	},
+			   	{
+			   		$match:filter
 			   	},
 			   	{$sort : {'expiration_date':1} },
 			   	{$skip  : _skip },

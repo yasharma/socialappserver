@@ -41,10 +41,25 @@ exports.importClientList = (req, res, next) => {
 };
 
 exports.clientList = (req,res,next) => {
+	let filter = {};
+		filter.user_id= mongoose.Types.ObjectId( req.body._id);
+		filter.subscription_id= mongoose.Types.ObjectId(req.body.subscription_id);
    	if( !req.body._id || !req.body.subscription_id ) {
 		return res.status(response.STATUS_CODE.UNPROCESSABLE_ENTITY)
 				  .json(response.required({message: 'Id and Subscription Id are required'}));
       }
+	if(req.body.location){
+		filter.location=  {$regex: new RegExp(`${req.body.location}`), $options:"im"};
+	}
+	if(req.body.name){
+		filter.name=  {$regex: new RegExp(`${req.body.name}`), $options:"im"};
+	}
+	if(req.body.plan){
+		filter.plan=   {$regex: new RegExp(`${req.body.plan}`), $options:"im"};
+	}
+	if(req.body.date){
+		filter.date=  {$eq: req.body.date};
+	}
    	let page= req.query.page || 1;
 	let _skip = (page - 1) * config.docLimit; 
     async.waterfall([
@@ -88,10 +103,10 @@ exports.clientList = (req,res,next) => {
     	function(result,done){
 			 async.parallel({
 				count: (done) => {
-					ClientList.count({"user_id": mongoose.Types.ObjectId( req.body._id),"subscription_id":mongoose.Types.ObjectId(req.body.subscription_id)},done);
+					ClientList.count(filter,done);
 				},
 				records: (done) => {
-				    ClientList.find({subscription_id:mongoose.Types.ObjectId(req.body.subscription_id),user_id:req.body._id},{__v:0,user_id:0},function (err, list) {
+				    ClientList.find( filter,{__v:0,user_id:0},function (err, list) {
 						if( err ) {
 							return res.json(response.error(err));
 						}
