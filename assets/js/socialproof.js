@@ -53,9 +53,9 @@
 			var template = Handlebars.compile(src);
 			var context = {
 				customer_name: "David Robien", 
-				closeIcon: "http://158.85.67.166:8027/assets/images/closeIcn.png",
-				image: "http://158.85.67.166:8027/assets/images/user_dp_bigl.png",
-				verified: "http://158.85.67.166:8027/assets/images/verifiedIcn.png"
+				closeIcon: "http://158.85.67.166:8028/assets/images/closeIcn.png",
+				image: "http://158.85.67.166:8028/assets/images/user_dp_bigl.png",
+				verified: "http://158.85.67.166:8028/assets/images/verifiedIcn.png"
 			};
 			var html    = template(context);
 			document.getElementById("output").innerHTML += html;
