@@ -28,13 +28,11 @@ exports.importClientList = (req, res, next) => {
 		ClientList.insertMany(jsonArr,function(err, importres) {
 	     if(err){return next(err)}
 	     else{
-	       res.json({
-	          responsedata:{
-	             message:"Client list imported successfully",
-	             name:"success",
-	             success:1
-	            }
-	         });
+	       
+       		res.json(response.success({
+				success: true, 
+				message: 'Client list imported successfully'
+			}));
 	      }
 	    });
 	 })

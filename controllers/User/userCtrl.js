@@ -194,6 +194,7 @@ exports.login = (req, res, next) => {
 						email: user.email,
 						mobile: user.mobile,
 						customer_name: user.customer_name,
+						customer_url: user.customer_url,
 						profile_image: user.profile_image
 					};
 					let token = jwt.sign(jwt_user, new Buffer(config.secret).toString('base64'), {expiresIn: '1 day'});
