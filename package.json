@@ -52,6 +52,7 @@
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
     "nodemon": "^1.11.0",
-    "pump": "^1.0.2"
+    "pump": "^1.0.2",
+    "socket.io": "^2.0.4"
   }
 }

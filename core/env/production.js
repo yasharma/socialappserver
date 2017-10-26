@@ -12,6 +12,9 @@ const config = {
     host: 'http://158.85.67.166:8027',
     PORT: process.env.PORT || 8028
   },
+  socket_server:{
+    SOCKETPORT:5000
+  },
   mail:{
     poolConfig : {
       pool: true,

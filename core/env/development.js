@@ -12,6 +12,9 @@ const config = {
     host: 'http://localhost:3000',
 		PORT: 9000
 	},
+  socket_server:{
+    SOCKETPORT:5000
+  },
 	mail:{
 		poolConfig : {
 			pool: true,
