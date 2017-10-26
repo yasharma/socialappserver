@@ -76,10 +76,10 @@
 	function showPop() {
 		setTimeout(function () {
 			document.getElementById('socialProofPopup').className = "lftInfoPopup active";
-			setTimeout(function () {
+			/*setTimeout(function () {
 				hidePop();
 				showPop();
-			},2500);
+			},2500);*/
 		},1000);
 	}
 
