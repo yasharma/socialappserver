@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"e",
+				"email"
+			],
+			[
+				"pro",
+				"projection"
+			],
+			[
+				"con",
+				"context"
+			],
+			[
+				"re",
+				"render"
+			],
+			[
+				"sho",
+				"showPop"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"close",
+				"closeIcon"
+			],
+			[
 				"st",
 				"stripe"
 			],
@@ -104,16 +132,8 @@
 				"forgotByMobile"
 			],
 			[
-				"re",
-				"reject"
-			],
-			[
 				"rs",
 				"resolve"
-			],
-			[
-				"con",
-				"config"
 			],
 			[
 				"sub",
@@ -182,10 +202,6 @@
 			[
 				"acti",
 				"activeClassName"
-			],
-			[
-				"pro",
-				"processingSymbol"
 			],
 			[
 				"font",
@@ -498,50 +514,34 @@
 			[
 				"other",
 				"otherUser"
-			],
-			[
-				"url",
-				"SOCKET_URL"
-			],
-			[
-				"req",
-				"reqData"
-			],
-			[
-				"sa",
-				"savedData"
-			],
-			[
-				"off",
-				"OFFLINE_URL"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "core/user_router.js",
+			"file": "socket/socketio.js",
 			"settings":
 			{
-				"buffer_size": 3031,
+				"buffer_size": 1003,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "controllers/User/userSubscriptionCtrl.js",
+			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 3636,
+				"buffer_size": 1691,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "controllers/User/userCtrl.js",
+			"file": "models/ClientList.js",
 			"settings":
 			{
-				"buffer_size": 16356,
+				"buffer_size": 576,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -550,51 +550,35 @@
 			"file": "models/User.js",
 			"settings":
 			{
-				"buffer_size": 3526,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "core/env/development.js",
-			"settings":
-			{
-				"buffer_size": 1876,
+				"buffer_size": 3826,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "controllers/User/stripeCtrl.js",
+			"file": "core/user_router.js",
 			"settings":
 			{
-				"buffer_size": 4049,
+				"buffer_size": 3440,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "core/lib/paginate.js",
+			"file": "controllers/User/clientListCtrl.js",
 			"settings":
 			{
-				"buffer_size": 918,
+				"buffer_size": 4738,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/yash/redux-minimal/src_users/components/common/UserList.js",
+			"file": "/home/yash/Social_Proof_Notification_HTML/index.html",
 			"settings":
 			{
-				"buffer_size": 3262,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 1561,
-				"line_ending": "Unix"
+				"buffer_size": 10878,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -1019,17 +1003,32 @@
 	],
 	"file_history":
 	[
-		"/home/yash/social_proof_notification/src/components/AuthButton.js",
-		"/home/yash/social_proof_notification_backend/models/User.js",
-		"/home/yash/social_proof_notification_backend/admin/subscriptions/controllers/subscriptionEditCtrl.js",
-		"/home/yash/social_proof_notification_backend/admin/subscriptions/views/subscriptionListing.html",
+		"/home/yash/zenbrisa_plus/models/User.js",
+		"/home/yash/social_proof_notification_backend/socketserver.js",
+		"/home/yash/social_proof_notification_backend/core/lib/mail.js",
+		"/home/yash/social_proof_notification_backend/core/lib/template-render.js",
+		"/home/yash/social_proof_notification_backend/assets/css/socialproof.css",
+		"/home/yash/social_proof_notification_backend/models/ClientList.js",
+		"/home/yash/social_proof_notification_backend/core/env/production.js",
+		"/home/yash/social_proof_notification_backend/assets/js/socialproof.js",
+		"/home/yash/Social_Proof_Notification_HTML/stylesheet.css",
+		"/home/yash/social_proof_notification_backend/core/env/development.js",
+		"/home/yash/social_proof_notification_backend/controllers/User/clientListCtrl.js",
+		"/home/yash/social_proof_notification_backend/controllers/User/userSubscriptionCtrl.js",
 		"/home/yash/social_proof_notification_backend/controllers/User/userCtrl.js",
 		"/home/yash/social_proof_notification_backend/core/admin_router.js",
+		"/home/yash/social_proof_notification_backend/controllers/Admin/subscriptionCtrl.js",
 		"/home/yash/social_proof_notification_backend/controllers/User/plansCtrl.js",
+		"/home/yash/social_proof_notification_backend/models/User.js",
 		"/home/yash/social_proof_notification_backend/controllers/User/stripeCtrl.js",
 		"/home/yash/social_proof_notification_backend/models/Payment.js",
+		"/home/yash/social_proof_notification_backend/core/lib/paginate.js",
+		"/home/yash/redux-minimal/src_users/components/common/UserList.js",
+		"/home/yash/social_proof_notification_backend/package.json",
+		"/home/yash/social_proof_notification/src/components/AuthButton.js",
+		"/home/yash/social_proof_notification_backend/admin/subscriptions/controllers/subscriptionEditCtrl.js",
+		"/home/yash/social_proof_notification_backend/admin/subscriptions/views/subscriptionListing.html",
 		"/home/yash/social_proof_notification_backend/controllers/Admin/userCtrl.js",
-		"/home/yash/social_proof_notification_backend/controllers/Admin/subscriptionCtrl.js",
 		"/home/yash/zenbrisa_plus/models/Chat.js",
 		"/home/yash/social_proof_notification_backend/core/user_router.js",
 		"/home/yash/social_proof_notification_backend/core/lib/datatable.js",
@@ -1040,19 +1039,15 @@
 		"/home/yash/social_proof_notification_backend/admin/subscriptions/views/view_subscription.html",
 		"/home/yash/social_proof_notification_backend/gulp.assets.js",
 		"/home/yash/social_proof_notification_backend/admin/subscriptions/views/edit_subscription.html",
-		"/home/yash/social_proof_notification_backend/core/env/production.js",
 		"/home/yash/social_proof_notification_backend/admin/subscriptions/controllers/subscriptionCtrl.js",
 		"/home/yash/social_proof_notification_backend/admin/subscriptions/views/new_subscription.html",
-		"/home/yash/social_proof_notification_backend/core/env/development.js",
 		"/home/yash/social_proof_notification_backend/models/Subscription.js",
-		"/home/yash/zenbrisa_plus/models/User.js",
 		"/home/yash/social_proof_notification_backend/admin/homepage/controllers/homepageViewCtrl.js",
 		"/home/yash/social_proof_notification_backend/admin/homepage/views/view_homepage.html",
 		"/home/yash/social_proof_notification_backend/admin/homepage/factories/homepageSvr.js",
 		"/home/yash/social_proof_notification_backend/stripe.js",
 		"/home/yash/social_proof_notification_backend/admin/homepage/views/edit_homepage.html",
 		"/home/yash/cherrydoor/controllers/User/profileCtrl.js",
-		"/home/yash/social_proof_notification_backend/package.json",
 		"/home/yash/mimic_trader/public/admin/users/views/new_user.html",
 		"/home/yash/social_proof_notification_backend/admin/factories/rest-service.js",
 		"/home/yash/social_proof_notification_backend/admin/dashboard/controllers/dashboardCtrl.js",
@@ -1110,7 +1105,6 @@
 		"/home/yash/social_proof_notification_backend/public/email_templates/user/reset-password-confirm.html",
 		"/home/yash/social_proof_notification_backend/core/lib/twilio.js",
 		"/home/yash/social_proof_notification_backend/public/email_templates/user/forgotpassword.html",
-		"/home/yash/social_proof_notification_backend/core/lib/mail.js",
 		"/home/yash/social_proof_notification_backend/public/email_templates/user/signup.html",
 		"/home/yash/zenbrisa_plus/public/views/email/forgotPassword.hbs",
 		"/home/yash/onlineRTI/core/lib/mail.js",
@@ -1136,17 +1130,7 @@
 		"/home/yash/BHBackend/admin/users/routes/userRouter.js",
 		"/home/yash/BHBackend/controllers/Admin/userCtrl.js",
 		"/home/yash/BHBackend/config/local.js",
-		"/home/yash/BHBackend/server.js",
-		"/home/yash/BHBackend/models/User.js",
-		"/home/yash/BHBackend/admin/index.html",
-		"/home/yash/BHBackend/admin/login/views/login.html",
-		"/home/yash/BHBackend/admin/core/admin.routes.js",
-		"/home/yash/BHBackend/controllers/Admin/adminCtrl.js",
-		"/home/yash/onlineRTI/models/User.js",
-		"/home/yash/onlineRTI/server.js",
-		"/home/yash/BHBackend/config/lib/mail.js",
-		"/home/yash/BHBackend/admin/tpl/admin.header.html",
-		"/home/yash/BHBackend/public/index.html"
+		"/home/yash/BHBackend/server.js"
 	],
 	"find":
 	{
@@ -1219,6 +1203,21 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"closeButton",
+			"_outputDiv",
+			"document.getElementById('socialProofPopup')",
+			"socialProofPopup",
+			"document.getElementById('socialProofPopup')",
+			"document.getElementById(\"output\")",
+			"document.getElementById(\"output\"",
+			"showPop",
+			"_Handlebars",
+			"template",
+			"localhost:9000",
+			"closeIcon",
+			"allowed_csv_extensions",
+			"name",
+			"response.success",
 			"phone",
 			"stripe: 1",
 			"jwt",
@@ -1331,22 +1330,7 @@
 			"content",
 			"Row",
 			"initialValues",
-			"form_data",
-			"UserEdit",
-			"errorSelector",
-			"tokenSelector",
-			"usersFetchList",
-			"location",
-			"Array",
-			"long",
-			"lat",
-			"lodas",
-			"update",
-			"=>>>>>>>>>>>>",
-			"password =>>>>>>>>>>>>",
-			"push",
-			"'",
-			"timeFromProto"
+			"form_data"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1364,57 +1348,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "core/user_router.js",
+					"file": "socket/socketio.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3031,
+						"buffer_size": 1003,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2569,
-								2569
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 976.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "controllers/User/userSubscriptionCtrl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3636,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2922,
-								2922
+								686,
+								686
 							]
 						],
 						"settings":
@@ -1426,222 +1377,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2408.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "controllers/User/userCtrl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 16356,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6198,
-								6198
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3788.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "models/User.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3526,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								806,
-								806
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1794.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "core/env/development.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1876,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1511,
-								1511
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 884.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "controllers/User/stripeCtrl.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4049,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3662,
-								3662
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2454.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "core/lib/paginate.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 918,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								648,
-								648
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/yash/redux-minimal/src_users/components/common/UserList.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3262,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								848,
-								848
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 345.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
+					"buffer": 1,
 					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1561,
+						"buffer_size": 1691,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								354,
-								354
+								1087,
+								1087
 							]
 						],
 						"settings":
@@ -1657,7 +1413,169 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "models/ClientList.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								227,
+								227
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "models/User.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3105,
+								3105
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2829.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "core/user_router.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3440,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3276,
+								3276
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1045.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "controllers/User/clientListCtrl.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1344,
+								1344
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 798.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/yash/Social_Proof_Notification_HTML/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10878,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								437,
+								437
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1724,8 +1642,72 @@
 		"selected_items":
 		[
 			[
+				"user_ro",
+				"core/user_router.js"
+			],
+			[
+				"cli",
+				"models/ClientList.js"
+			],
+			[
+				"socket/socketio",
+				"socket/socketio.js"
+			],
+			[
+				"soc",
+				"socketserver.js"
+			],
+			[
+				"mail",
+				"core/lib/mail.js"
+			],
+			[
+				"template",
+				"core/lib/template-render.js"
+			],
+			[
 				"user",
 				"models/User.js"
+			],
+			[
+				"clien",
+				"models/ClientList.js"
+			],
+			[
+				"develo",
+				"core/env/development.js"
+			],
+			[
+				"client",
+				"models/ClientList.js"
+			],
+			[
+				"userc",
+				"controllers/User/userCtrl.js"
+			],
+			[
+				"user_rou",
+				"core/user_router.js"
+			],
+			[
+				"uses",
+				"controllers/User/userSubscriptionCtrl.js"
+			],
+			[
+				"ymen",
+				"models/Payment.js"
+			],
+			[
+				"stripe",
+				"controllers/User/stripeCtrl.js"
+			],
+			[
+				"planc",
+				"controllers/User/plansCtrl.js"
+			],
+			[
+				"admin",
+				"core/admin_router.js"
 			],
 			[
 				"user.js",
@@ -1736,20 +1718,12 @@
 				"controllers/User/userCtrl.js"
 			],
 			[
-				"user_ro",
-				"core/user_router.js"
-			],
-			[
 				"stripec",
 				"controllers/User/stripeCtrl.js"
 			],
 			[
 				"pagina",
 				"core/lib/paginate.js"
-			],
-			[
-				"develo",
-				"core/env/development.js"
 			],
 			[
 				"package",
@@ -1760,20 +1734,8 @@
 				"core/user_router.js"
 			],
 			[
-				"userc",
-				"controllers/User/userCtrl.js"
-			],
-			[
 				"admin/userc",
 				"controllers/Admin/userCtrl.js"
-			],
-			[
-				"planc",
-				"controllers/User/plansCtrl.js"
-			],
-			[
-				"admin",
-				"core/admin_router.js"
 			],
 			[
 				"subsc",
@@ -2190,50 +2152,6 @@
 			[
 				"traderstra",
 				"user/traders/controllers/traderStrategiesCtrl.js"
-			],
-			[
-				"webs",
-				"user/signup/factories/webSocketSrv.js"
-			],
-			[
-				"assi",
-				"node_modules/lodash/assign.js"
-			],
-			[
-				"react-router",
-				"node_modules/react-router/umd/react-router.js"
-			],
-			[
-				"header",
-				"user/partials/header.html"
-			],
-			[
-				"rest-",
-				"admin/factories/rest-service.js"
-			],
-			[
-				"soc",
-				"user/factories/socket.js"
-			],
-			[
-				"rest-ser",
-				"user/factories/rest-service.js"
-			],
-			[
-				"sock",
-				"user/factories/socket.js"
-			],
-			[
-				"home.ht",
-				"user/home/views/home.html"
-			],
-			[
-				".jshin",
-				".jshintrc"
-			],
-			[
-				"edit_",
-				"admin/contracts/views/edit_contract.html"
 			]
 		],
 		"width": 0.0
@@ -2246,7 +2164,7 @@
 		[
 			[
 				"",
-				"~/bluecrush/bluecrush.sublime-project"
+				"~/HotelJot/Hoteljot.sublime-project"
 			]
 		],
 		"width": 380.0

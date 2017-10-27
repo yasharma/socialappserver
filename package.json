@@ -34,6 +34,7 @@
   },
   "scripts": {
     "nodemon": "nodemon -i node_modules/ -i admin/ -i assets/ -i bower_components/ server.js",
+    "socketmon": "nodemon -i node_modules/ -i admin/ -i assets/ -i bower_components/ socketserver.js",
     "server": "pm2 start server.js --name socialProofServer"
   },
   "devDependencies": {
