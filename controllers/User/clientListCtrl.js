@@ -121,7 +121,7 @@ exports.clientList = (req,res,next) => {
 				if( !_.isEmpty(listresult.records) ) {
 					_records = listresult.records;
 				}
-				let count = (listresult.count.length) > 0 ? listresult.count: 0;
+				let count = (listresult.count) > 0 ? listresult.count: 0;
 		        let paginateObj = paginate._paging(count, _records, page);
                 let fnlres={subscription_details:result[0],client_list:listresult.records,paging:paginateObj};
                 done(null,fnlres);
