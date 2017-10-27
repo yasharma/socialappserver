@@ -133,6 +133,22 @@ UserSchema.pre('save', function(next) {
     }
 });
 
+UserSchema.statics.findByEmail = function (email, projection) {
+	
+	return new Promise((resolve, reject) => {
+		if( !email ) return reject('Email is required');
+		
+		this.findOne({email}, projection, (err, user) => {
+			if( err ) {
+				reject(err);
+			} else {
+				resolve(user);
+			}
+		});
+	});
+
+};
+
 /**
  * Create instance method for hashing a password
  */
