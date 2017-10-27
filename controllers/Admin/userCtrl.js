@@ -12,7 +12,7 @@ const path 	 	= require('path'),
   	config 		= require(path.resolve(`./core/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
-exports.totalUsers = (req, res, next) => {
+exports.userCount = (req, res, next) => {
 	User.count({role:{$ne:'admin'}},function (err, count) {
 		if(err){
 			return res.json({errors: error});
@@ -20,6 +20,35 @@ exports.totalUsers = (req, res, next) => {
 		res.json({result: {count: count}});
 	});
 };
+
+exports.subscriptionCount = (req, res, next) => {
+
+	User.aggregate([
+      {$match:{"role": {$ne:'admin'} }},
+      {
+      	$project: {
+           count: { $size: "$subscription_plan" }
+         },
+      },
+      {
+      	$group: {
+          "_id": null,
+          "count": {
+              "$sum": "$count"
+          }
+        }	
+      }
+
+	],function(err,result){
+		if(err){
+			return res.json({errors: err});
+		}
+		res.json({result: {count: result[0].count}});
+	});
+};
+
+
+
 function getRandomInt(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
