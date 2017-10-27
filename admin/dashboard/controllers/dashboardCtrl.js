@@ -13,8 +13,16 @@ angular.module('mimicTrading').controller('dashboardCtrl', ['$scope', '$location
 	    $rootScope.settings.hideLoginForm = true;
 	    console.log('I am loaded properly!!!');
 
-	    RestSvr.get('totalCount')
-	    .then(({record}) => $scope.count = record.count)
+	    RestSvr.get('userCount')
+	    .then(({record}) => $scope.userCount = record.count)
+	    .catch(errors => App.alert({type: ('danger'), icon: ( 'warning'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'}));
+
+	    RestSvr.get('subscriptionCount')
+	    .then(({record}) => $scope.subscriptionCount = record.count)
+	    .catch(errors => App.alert({type: ('danger'), icon: ( 'warning'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'}));
+
+	    RestSvr.get('paymentCount')
+	    .then(({record}) => $scope.paymentCount = record.count)
 	    .catch(errors => App.alert({type: ('danger'), icon: ( 'warning'), message: errors.message, container: $rootScope.settings.errorContainer, place: 'prepend'}));
 	}
 ]);

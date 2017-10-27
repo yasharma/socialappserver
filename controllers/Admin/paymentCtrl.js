@@ -9,6 +9,15 @@ const path 	 	= require('path'),
   	paginate    = require(path.resolve('./core/lib/paginate'));
 
 
+exports.paymentCount = (req, res, next) => {
+	Payment.count({role:{$ne:'admin'}},function (err, count) {
+		if(err){
+			return res.json({errors: error});
+		}
+		res.json({result: {count: count}});
+	});
+};
+
 exports.view = (req, res, next) => {
 	if(!req.params.id) {
 		res.status(422).json({
