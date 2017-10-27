@@ -16,27 +16,43 @@ const
 exports.importClientList = (req, res, next) => {
 
 	const csvFilePath=req.files[0].path,jsonArr=[];
+	let checkField=false;
    
 	csv()
 	.fromFile(csvFilePath)
 	.on('json',(jsonObj)=>{
-		jsonObj.user_id = req.body._id;
-		jsonObj.subscription_id = req.body.subscription_id;
-		jsonObj.action = req.body.action;
-		jsonArr.push(jsonObj);
+		if( jsonObj.hasOwnProperty("name")===true && jsonObj.hasOwnProperty("location")===true && 
+			jsonObj.hasOwnProperty("plan")===true && jsonObj.hasOwnProperty("date")===true &&
+			jsonObj.hasOwnProperty("image_url")===true)
+		{
+			jsonObj.user_id = req.body._id;
+			jsonObj.subscription_id = req.body.subscription_id;
+			jsonObj.action = req.body.action;
+			jsonArr.push(jsonObj);
+		}
+		else{
+			checkField=true;
+		}
 	})
 	.on('done',(error)=>{
-		fs.unlinkSync(csvFilePath);
-		ClientList.insertMany(jsonArr,function(err, importres) {
-	     if(err){return next(err)}
-	     else{
-	       
-       		res.json(response.success({
-				success: true, 
-				message: 'Client list imported successfully'
+		if(checkField==true){
+			return res.json(response.success({
+					success: 0, 
+					message: 'Please import csv with valid field name'
 			}));
-	      }
-	    });
+		}
+		else{
+	  		fs.unlinkSync(csvFilePath);
+			ClientList.insertMany(jsonArr,function(err, importres) {
+		     if(err){return next(err)}
+		     else{
+	       		res.json(response.success({
+					success: true, 
+					message: 'Client list imported successfully'
+				}));
+		      }
+		    });
+		}
 	 })
 };
 
@@ -111,7 +127,7 @@ exports.clientList = (req,res,next) => {
 							return res.json(response.error(err));
 						}
 						done(null,list);
-					}).skip(_skip).limit(config.docLimit);
+					}).sort({created_at:-1}).skip(_skip).limit(config.docLimit);
 				}
 			}, (err, listresult) => {
 				if(err){
@@ -150,9 +166,9 @@ exports.exportClientList = (req, res, next) => {
 	     var csv = json2csv({ data: result, fields: fields }),
          filename="clientListCsv_"+new Date().getTime()+".csv"; 
 		 fs.writeFile('./assets/export_client_csv/'+filename, csv, function(err) {
-		      if (err) throw err;
+		      if (err) return res.json({errors: err});
 		      console.log('file saved');
 	     });
-			res.json({result: {records:csv,success:true,filename:filename}});
+		res.json(response.success({records:csv,success:true,filename:filename}));
 	});
  }
