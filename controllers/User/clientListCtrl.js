@@ -166,9 +166,9 @@ exports.exportClientList = (req, res, next) => {
 	     var csv = json2csv({ data: result, fields: fields }),
          filename="clientListCsv_"+new Date().getTime()+".csv"; 
 		 fs.writeFile('./assets/export_client_csv/'+filename, csv, function(err) {
-		      if (err) throw err;
+		      if (err) return res.json({errors: err});
 		      console.log('file saved');
 	     });
-			res.json({result: {records:csv,success:true,filename:filename}});
+		res.json(response.success({records:csv,success:true,filename:filename}));
 	});
  }

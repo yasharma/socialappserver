@@ -15,7 +15,7 @@ const path 	 	= require('path'),
 exports.userCount = (req, res, next) => {
 	User.count({role:{$ne:'admin'}},function (err, count) {
 		if(err){
-			return res.json({errors: error});
+			return res.json({errors: err});
 		}
 		res.json({result: {count: count}});
 	});
