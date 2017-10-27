@@ -169,6 +169,6 @@ exports.exportClientList = (req, res, next) => {
 		      if (err) return res.json({errors: err});
 		      console.log('file saved');
 	     });
-		res.json(response.success({records:csv,success:true,filename:filename}));
+		res.json(response.success({csv:csv,success:true,filename:filename}));
 	});
  }
