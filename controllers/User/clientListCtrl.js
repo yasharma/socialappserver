@@ -93,7 +93,7 @@ exports.clientList = (req,res,next) => {
 			   	   		website_url: '$subscription_plan.website_url',
 			   	   		start_date: '$subscription_plan.start_date',
 			   	   		expiration_date: '$subscription_plan.expiration_date',
-			   	   		pla_name: '$subscription_docs.name',
+			   	   		plan_name: '$subscription_docs.name',
 			   	   		plan_price:'$subscription_docs.price'
 			   		}
 			   	}
